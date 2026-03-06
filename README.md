@@ -1,65 +1,66 @@
-# Iroko Historical Society - Static Website
+# Iroko Historical Society — Static Site
 
-Static HTML site for [irokosociety.org](https://www.irokosociety.org), hosted on GitHub Pages.
+Static site for irokosociety.org, deploying to GitHub Pages.
 
-## Deployment
-
-1. Create a new GitHub repository (e.g., `iroko-framework/irokosociety.org` or `iroko-framework/ihs-website`)
-2. Push all files in this directory to the `main` branch
-3. In repository Settings > Pages, set Source to "Deploy from a branch" and select `main` / `/ (root)`
-4. The `CNAME` file will configure the custom domain automatically
-
-### DNS Configuration (Squarespace to GitHub Pages)
-
-In your domain registrar (or Squarespace Domains if that's where the domain is registered):
-
-1. Remove any existing A records or CNAME records pointing to Squarespace
-2. Add these A records pointing to GitHub Pages:
-   - `185.199.108.153`
-   - `185.199.109.153`
-   - `185.199.110.153`
-   - `185.199.111.153`
-3. Add a CNAME record: `www` -> `iroko-framework.github.io`
-4. In GitHub repo Settings > Pages, enter `www.irokosociety.org` as the custom domain
-5. Check "Enforce HTTPS" once DNS propagates (may take up to 24 hours)
-
-### Before You Go Live
-
-- [ ] Replace `assets/IHS-Logo.svg` with your actual logo (download from your current Squarespace site's media library, save as `assets/IHS-Logo.svg` or update the filename references in all HTML files)
-- [ ] Migrate content for placeholder pages: `iroko-spirituality.html`, `capturing-iroko.html`, `foundation-day-2025.html`
-- [ ] Add any gallery images to an `assets/gallery/` directory
-- [ ] Review and adjust the `CNAME` file if using a different domain configuration
-- [ ] Cancel your Squarespace subscription once the GitHub Pages site is confirmed working
-
-## Structure
+## File Structure
 
 ```
-index.html              Homepage
-about.html              Our Vision
-founder.html            The Founder (bio)
-collections.html        Collections Overview
-access-policy.html      Access & Use Policy
-mission.html            Mission & Stewardship
-contact.html            Contact
-iroko-spirituality.html Iroko Spirituality (placeholder)
-capturing-iroko.html    Visual Ethnography (placeholder)
-foundation-day-2025.html Foundation Day 2025 (placeholder)
-assets/
-  style.css             Main stylesheet
-  nav.js                Mobile navigation
-  IHS-Logo.svg          Logo (placeholder, replace with actual)
-CNAME                   GitHub Pages custom domain
-.nojekyll               Tells GitHub Pages to skip Jekyll processing
+ihs-site/
+├── index.html          # Homepage
+├── about.html          # About the Society / Founder
+├── collections.html    # Collections overview
+├── access-policy.html  # Six-tier access framework
+├── mission.html        # Mission & Stewardship
+├── contact.html        # Contact page
+├── style.css           # Shared stylesheet (brand colors, typography)
+├── CNAME               # Custom domain (irokosociety.org)
+└── assets/
+    └── IHS-Logo.jpg    # Logo — download from Squarespace media library
 ```
 
-## Design
+## Setup
 
-The site matches the design language of [ontology.irokosociety.org](https://ontology.irokosociety.org/): dark background, Source Sans 3 / Source Serif 4 typography, card-based layouts, and metric strips. All CSS is in a single file with custom properties for easy theme adjustment.
+### 1. Copy your logo
 
-## Adding a Contact Form
+Download `Square Logo-TM.png` or the JPG version from your Squarespace Media Library.
+Save it as `assets/IHS-Logo.jpg` in this folder.
 
-The current contact page lists the email address directly. If you want a working form without a backend, consider:
+### 2. Push to GitHub
 
-- [Formspree](https://formspree.io/) (free tier: 50 submissions/month)
-- [Netlify Forms](https://www.netlify.com/products/forms/) (if you switch hosting)
-- [Google Forms](https://forms.google.com/) embedded via iframe
+```bash
+git init
+git add .
+git commit -m "Initial site"
+git remote add origin git@github.com:iroko-framework/ihs-website.git
+git push -u origin main
+```
+
+### 3. Enable GitHub Pages
+
+GitHub repo > Settings > Pages > Source: main branch, / (root) > Save
+
+### 4. DNS Cutover (in Squarespace DNS settings)
+
+Replace existing A records with GitHub Pages IPs:
+
+```
+Type  Host  Value
+A     @     185.199.108.153
+A     @     185.199.109.153
+A     @     185.199.110.153
+A     @     185.199.111.153
+CNAME www   iroko-framework.github.io
+```
+
+Remove the Squarespace-generated A records and CNAME first.
+GitHub Pages will auto-provision HTTPS once DNS propagates (24-48 hours).
+
+## Brand Colors
+
+| Token         | Hex       | Use                        |
+|---------------|-----------|----------------------------|
+| --cream       | #EDEAD0   | Page background            |
+| --green-deep  | #1E4A27   | Nav, hero, headings        |
+| --green-mid   | #2D6035   | Hover states, links        |
+| --green-light | #3A7A44   | Accents, card borders      |
+| --text-muted  | #4A6350   | Body text, labels          |
