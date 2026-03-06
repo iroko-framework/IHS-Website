@@ -1,0 +1,4 @@
+PLACEHOLDER: Replace this with your actual IHS-Logo.jpg
+Download from your current Squarespace site:
+  https://images.squarespace-cdn.com/content/v1/674b50043a6f5102b8b4d919/653d4fc1-dfa9-4307-9ccc-d40d563896e3/Square+Logo-TM.png
+Save it as assets/IHS-Logo.jpg in this repo.
