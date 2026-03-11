@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close menu on outside click
     document.addEventListener('click', (e) => {
-      if (!e.target.closest('.site-nav')) {
+      if (!e.target.closest('nav')) {
         links.classList.remove('open');
         document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
       }
