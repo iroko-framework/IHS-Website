@@ -44,6 +44,9 @@
     .footer-legal a:hover{color:var(--cream)}
     /* ext link indicator */
     a.ext::after{content:' ↗';font-size:.75em;opacity:.6}
+    .gallery-links{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.25rem 0 2rem}
+    .gallery-btn{font-family:var(--font-sans);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.6rem 1.25rem;border:2px solid var(--green-deep);color:var(--green-deep);text-decoration:none;border-radius:2px;transition:background .2s,color .2s}
+    .gallery-btn:hover{background:var(--green-deep);color:var(--cream)}
     @media(max-width:768px){
       .nav-toggle{display:block}
       nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--green-deep);border-top:1px solid var(--green-border);flex-direction:column;padding:.5rem 0;z-index:199}
@@ -136,215 +139,30 @@
         <input type="hidden" name="I_DSC_AND" value="t">
         <input type="hidden" name="_ACT" value="search">
       </div>
-    
-  <div class="gallery-tabs" id="galleryTabs" role="tablist"></div>
-
-  <div class="gallery-header" id="galleryHeader" style="display:none;">
-    <h2 id="galleryName"></h2>
-    <span class="image-count" id="imageCount"></span>
+    </form>
   </div>
 
-  <div class="photo-grid" id="photoGrid">
-    <div class="grid-state"><div class="spinner"></div>Loading galleries&hellip;</div>
+  <p class="section-lead" style="margin-top:2.5rem;">Browse by Gallery</p>
+  <div class="gallery-links">
+    <a href="https://irokosociety.photoshelter.com/gallery/G0000n01IpmZArsk" target="_blank" class="gallery-btn">Gallery 1 ↗</a>
+    <a href="https://irokosociety.photoshelter.com/gallery/G0000d7RDGj.F8rU" target="_blank" class="gallery-btn">Gallery 2 ↗</a>
+    <a href="https://irokosociety.photoshelter.com/gallery/G0000QFiiQzYg_tQ" target="_blank" class="gallery-btn">Gallery 3 ↗</a>
+    <a href="https://irokosociety.photoshelter.com/gallery/G0000W6Jji9.5UoQ" target="_blank" class="gallery-btn">Gallery 4 ↗</a>
+    <a href="https://irokosociety.photoshelter.com/gallery/G0000wmS8Bm8LvC0" target="_blank" class="gallery-btn">Gallery 5 ↗</a>
+    <a href="https://irokosociety.photoshelter.com/gallery/G0000.4_pkmB5cac" target="_blank" class="gallery-btn">Gallery 6 ↗</a>
+    <a href="https://irokosociety.photoshelter.com/gallery/G00001tkpfVJb82s" target="_blank" class="gallery-btn">Gallery 7 ↗</a>
   </div>
 
-  <div class="access-note">
+  <div class="access-note" style="margin-top:2rem;">
     <strong>Access note:</strong> This portfolio contains both publicly viewable and restricted materials.
     Images depicting restricted ceremonial content are governed by Tiers 3&ndash;6 of the Society's
     <a href="access-policy.html">access framework</a>.
-    Licensing and research access inquiries:
-    <a href="#" class="js-email">[protected]</a>
-  </div>
-</form>
+    Licensing and research access inquiries: <a href="#" class="js-email">[protected]</a>
   </div>
 
 </div>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
-  <button class="lightbox-close" id="lbClose">&times;</button>
-  <button class="lightbox-prev" id="lbPrev">&#8249;</button>
-  <div class="lightbox-inner">
-    <img class="lightbox-img" id="lbImg" src="" alt="">
-    <div class="lightbox-caption" id="lbCaption"></div>
-    <div class="lightbox-credit">&copy; D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &#390;&#768;., on loan to Iroko Historical Society</div>
-  </div>
-  <button class="lightbox-next" id="lbNext">&#8250;</button>
-  <div class="lightbox-counter" id="lbCounter"></div>
-</div>
-<script>
-(function(){
-  var BASE      = 'https://api.irokosociety.org';
-  var IMG_BASE  = 'https://www.photoshelter.com/img-get2';
 
-  var GALLERY_IDS = [
-    'G0000n01IpmZArsk',
-    'G0000d7RDGj.F8rU',
-    'G0000QFiiQzYg_tQ',
-    'G0000W6Jji9.5UoQ',
-    'G0000wmS8Bm8LvC0',
-    'G0000.4_pkmB5cac',
-    'G00001tkpfVJb82s'
-  ];
-
-  var tabsEl    = document.getElementById('galleryTabs');
-  var headerEl  = document.getElementById('galleryHeader');
-  var nameEl    = document.getElementById('galleryName');
-  var countEl   = document.getElementById('imageCount');
-  var gridEl    = document.getElementById('photoGrid');
-  var lightbox  = document.getElementById('lightbox');
-  var lbImg     = document.getElementById('lbImg');
-  var lbCaption = document.getElementById('lbCaption');
-  var lbCounter = document.getElementById('lbCounter');
-
-  var galleries     = [];
-  var currentImages = [];
-  var currentIdx    = 0;
-  var activeGallery = null;
-
-  function apiFetch(path) {
-    return fetch(BASE + path)
-      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); });
-  }
-
-  function thumbUrl(id){ return IMG_BASE + '/' + id + '/fit=300x300/' + id + '.jpg'; }
-  function fullUrl(id) { return IMG_BASE + '/' + id + '/fit=1400x1400/' + id + '.jpg'; }
-
-  function init(){
-    var promises = GALLERY_IDS.map(function(id, i){
-      return apiFetch('/gallery/' + id)
-        .then(function(d){
-          var g = d && d.data && d.data.Gallery;
-          return { id: id, name: g && g.name ? g.name : 'Gallery ' + (i+1) };
-        })
-        .catch(function(){ return { id: id, name: 'Gallery ' + (i+1) }; });
-    });
-
-    Promise.all(promises).then(function(results){
-      galleries = results;
-      renderTabs();
-      loadGallery(galleries[0].id, 0);
-    }).catch(function(){
-      showError('Unable to connect to the photo archive.');
-    });
-  }
-
-  function renderTabs(){
-    tabsEl.innerHTML = '';
-    galleries.forEach(function(g, i){
-      var btn = document.createElement('button');
-      btn.className = 'gallery-tab' + (i === 0 ? ' active' : '');
-      btn.textContent = g.name;
-      btn.setAttribute('role','tab');
-      (function(gid, idx){
-        btn.addEventListener('click', function(){
-          if(activeGallery === gid) return;
-          document.querySelectorAll('.gallery-tab').forEach(function(b){ b.classList.remove('active'); });
-          btn.classList.add('active');
-          loadGallery(gid, idx);
-        });
-      })(g.id, i);
-      tabsEl.appendChild(btn);
-    });
-  }
-
-  function loadGallery(galleryId, tabIdx){
-    activeGallery = galleryId;
-    currentImages = [];
-    headerEl.style.display = 'none';
-    gridEl.innerHTML = '<div class="grid-state"><div class="spinner"></div>Loading images&hellip;</div>';
-
-    apiFetch('/gallery/' + galleryId + '/images?per_page=100')
-      .then(function(data){
-        var items = (data && data.data && data.data.GalleryImage) || [];
-        if(!items.length){
-          gridEl.innerHTML = '<div class="grid-state">No public images in this gallery.</div>';
-          return;
-        }
-        currentImages = items.map(function(item){
-          return {
-            id:      item.image_id || (item.Image && item.Image.image_id),
-            caption: (item.Image && item.Image.caption) || item.caption || ''
-          };
-        }).filter(function(img){ return img.id; });
-
-        nameEl.textContent  = galleries[tabIdx].name;
-        countEl.textContent = currentImages.length + ' photograph' + (currentImages.length !== 1 ? 's' : '');
-        headerEl.style.display = 'block';
-        renderGrid();
-      })
-      .catch(function(){
-        gridEl.innerHTML = '<div class="grid-state">Unable to load this gallery. Try another or use the search below.</div>';
-      });
-  }
-
-  function renderGrid(){
-    gridEl.innerHTML = '';
-    currentImages.forEach(function(img, idx){
-      var div  = document.createElement('div');
-      div.className = 'photo-thumb';
-      div.setAttribute('role','button');
-      div.setAttribute('tabindex','0');
-
-      var image = document.createElement('img');
-      image.src = thumbUrl(img.id);
-      image.alt = img.caption || '';
-      image.loading = 'lazy';
-      image.addEventListener('load',  function(){ image.classList.add('loaded'); });
-      image.addEventListener('error', function(){
-        image.src = 'https://www.photoshelter.com/img-get/' + img.id + '?iq=70&rs=M';
-      });
-
-      if(img.caption){
-        var cap = document.createElement('div');
-        cap.className = 'thumb-caption';
-        cap.textContent = img.caption;
-        div.appendChild(cap);
-      }
-
-      div.appendChild(image);
-      (function(i){ div.addEventListener('click', function(){ openLightbox(i); }); })(idx);
-      gridEl.appendChild(div);
-    });
-  }
-
-  function openLightbox(idx){
-    currentIdx = idx;
-    showLbImage();
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox(){
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function showLbImage(){
-    var img = currentImages[currentIdx];
-    lbImg.src = '';
-    lbImg.src = fullUrl(img.id);
-    lbImg.alt = img.caption || '';
-    lbCaption.textContent = img.caption || '';
-    lbCounter.textContent = (currentIdx + 1) + ' / ' + currentImages.length;
-    document.getElementById('lbPrev').style.display = currentIdx === 0 ? 'none' : 'block';
-    document.getElementById('lbNext').style.display = currentIdx === currentImages.length - 1 ? 'none' : 'block';
-  }
-
-  document.getElementById('lbClose').addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function(e){ if(e.target === lightbox) closeLightbox(); });
-  document.getElementById('lbPrev').addEventListener('click', function(){ if(currentIdx > 0){ currentIdx--; showLbImage(); } });
-  document.getElementById('lbNext').addEventListener('click', function(){ if(currentIdx < currentImages.length - 1){ currentIdx++; showLbImage(); } });
-
-  document.addEventListener('keydown', function(e){
-    if(!lightbox.classList.contains('open')) return;
-    if(e.key === 'Escape') closeLightbox();
-    if(e.key === 'ArrowLeft' && currentIdx > 0){ currentIdx--; showLbImage(); }
-    if(e.key === 'ArrowRight' && currentIdx < currentImages.length - 1){ currentIdx++; showLbImage(); }
-  });
-
-  init();
-})();
-</script>
 
 <footer>
   <div class="footer-inner">
