@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Stance — Iroko Historical Society</title>
+  <meta name="description" content="The Iroko Historical Society's statement on community integrity, knowledge sovereignty, and the ethical stewardship of Afro-Atlantic sacred materials.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/IHS-Logo.jpg" type="image/jpeg">
+  <style>
+    /* top bar */
+    .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
+    /* nav dropdowns — extends style.css nav */
+    nav ul{position:relative}
+    .nav-dropdown{position:relative}
+    .nav-dropdown>a::after{content:' ▾';font-size:.6rem;opacity:.7}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--green-deep);border:1px solid var(--green-border);border-top:2px solid var(--green-light);min-width:200px;list-style:none;margin:0;padding:.4rem 0;z-index:200;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .nav-dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu li a{display:block;padding:.5rem 1.1rem;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(237,234,208,.7);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s;height:auto;line-height:1.4}
+    .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(255,255,255,.1);color:var(--cream)}
+    /* nav toggle (mobile) */
+    .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem;margin-left:auto}
+    /* page-content */
+    .page-content{max-width:860px;margin:0 auto;padding:3rem 2rem 4rem}
+    .page-content h1{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--green-deep);margin-bottom:1.25rem}
+    .page-content h2{font-family:var(--font-display);font-size:1.25rem;color:var(--green-deep);margin:2.5rem 0 .6rem}
+    .page-content h3{font-family:var(--font-sans);font-size:1rem;font-weight:600;color:var(--green-mid);margin:1.5rem 0 .4rem}
+    .page-content p{font-family:var(--font-sans);font-size:.92rem;color:var(--text-muted);line-height:1.85;margin-bottom:1rem}
+    .page-content ul,.page-content ol{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.8;margin:0 0 1rem 1.5rem}
+    .page-content li{margin-bottom:.45rem}
+    .page-content blockquote{border-left:4px solid var(--green-deep);padding:.75rem 0 .75rem 1.5rem;margin:2rem 0;font-style:italic;font-size:1rem;color:var(--text-main);background:var(--cream-light)}
+    .page-content hr.section-divider{border:none;border-top:1px solid var(--cream-dark);margin:2.5rem 0}
+    .page-content a{color:var(--green-mid)}
+    .page-content a:hover{color:var(--green-deep)}
+    .section-lead{font-family:var(--font-sans);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
+    /* stance callout box */
+    .stance-box{background:var(--cream-light);border:1px solid var(--cream-dark);border-left:4px solid var(--green-deep);padding:1.5rem 1.75rem;margin:2rem 0;border-radius:2px}
+    .stance-box p{margin-bottom:.5rem;font-size:.9rem}
+    .stance-box p:last-child{margin-bottom:0}
+    /* living doc note */
+    .living-doc{background:var(--white);border:1px solid var(--cream-dark);padding:1.25rem 1.5rem;border-radius:2px;margin-top:3rem}
+    .living-doc p{font-size:.82rem;color:var(--text-muted);margin-bottom:.35rem}
+    .living-doc p:last-child{margin-bottom:0}
+    a.ext::after{content:' ↗';font-size:.75em;opacity:.6}
+    @media(max-width:768px){
+      .nav-toggle{display:block}
+      nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--green-deep);border-top:1px solid var(--green-border);flex-direction:column;padding:.5rem 0;z-index:199}
+      nav ul.open{display:flex}
+      nav ul li a{padding:.65rem 1.5rem;width:100%;display:block}
+      .dropdown-menu{position:static;box-shadow:none;border:none;border-left:3px solid var(--green-light);background:rgba(0,0,0,.15);margin-left:1rem}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials</div>
+<nav>
+  <a href="index.html" class="brand">
+    <img src="assets/IHS-Logo.jpg" alt="IHS Logo">
+    <span>Iroko Historical Society</span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="about.html" class="active">The Society</a>
+      <ul class="dropdown-menu">
+        <li><a href="about.html">Our Vision</a></li>
+        <li><a href="founder.html">The Founder</a></li>
+        <li><a href="our-stance.html" class="active">Our Stance</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="collections.html">The Archive</a>
+      <ul class="dropdown-menu">
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="access-policy.html">Access &amp; Use Policy</a></li>
+        <li><a href="mission.html">Mission &amp; Stewardship</a></li>
+        <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown-menu">
+        <li><a href="research.html#peer-reviewed">Publications</a></li>
+        <li><a href="research.html#working-papers">Working Papers</a></li>
+        <li><a href="research.html#presentations">Presentations</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="iroko-spirituality.html">Iroko</a>
+      <ul class="dropdown-menu">
+        <li><a href="iroko-spirituality.html">Iroko Spirituality</a></li>
+        <li><a href="capturing-iroko.html">Visual Ethnography</a></li>
+      </ul>
+    </li>
+    <li><a href="foundation-day-2025.html">Foundation Day</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="page-content">
+
+  <p class="section-lead">The Society &middot; Our Stance</p>
+  <h1>Statement on Community Integrity and Knowledge Sovereignty</h1>
+
+  <hr class="section-divider">
+
+  <h2>Core Commitment</h2>
+
+  <p>The Iroko Historical Society exists to serve Afro-Atlantic sacred communities as governing authorities over their own knowledge — not as subjects of institutional description, objects of scholarly study, or raw material for cultural extraction. Every decision this institution makes, from cataloging protocol to access policy, flows from that foundational commitment.</p>
+
+  <p>We are a practitioner-governed institution. This is not a statement of aspiration. It is a structural fact encoded in our governance, our ontology, and our stewardship mandates. The communities whose knowledge we hold in trust are not advisory to this institution. They are its authority.</p>
+
+  <blockquote>
+    Sacred knowledge does not become secular property by passing through an archive. The institutional form changes. The sovereignty does not.
+  </blockquote>
+
+  <hr class="section-divider">
+
+  <h2>What We Stand Against</h2>
+
+  <p>The Iroko Historical Society stands firmly and without qualification against all forms of racism, anti-Blackness, xenophobia, sexism, homophobia, transphobia, ableism, and the structural hierarchies that have historically governed how Afro-Atlantic sacred traditions are treated by academic and cultural institutions.</p>
+
+  <p>We stand against the specific harms that flow from extractive scholarship: the production of knowledge about communities without their authorization, the laundering of initiated knowledge into secular publication without consent, the description of living traditions in past tense, and the subordination of practitioner epistemologies to Western academic frameworks.</p>
+
+  <p>We stand against the commodification of sacred materials. Àṣà — the living tradition, its initiatory protocols, its material culture — is not a content category. It is not inventory. It is not intellectual property available for appropriation by researchers, publishers, spiritual tourists, or content platforms.</p>
+
+  <div class="stance-box">
+    <p><strong>On misrepresentation:</strong> The Iroko Historical Society will not catalog, feature, amplify, or provide access to materials that misrepresent, demean, or decontextualize Afro-Atlantic sacred traditions — regardless of the prestige of the source or the institutional standing of the author.</p>
+    <p><strong>On performative allyship:</strong> Institutions and individuals who publicly affirm community sovereignty while privately practicing extractive scholarship are not partners of this institution. We distinguish between solidarity and performance.</p>
+    <p><strong>On gatekeeping by outsiders:</strong> We reject the authority of non-practitioners to determine what is sensitive, what is shareable, what is sacred, and what is merely "folklore." Those determinations belong to the communities themselves.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <h2>The Right to Refuse</h2>
+
+  <p>The Iroko Historical Society maintains the unequivocal right to decline inclusion of, restrict access to, or remove from active circulation any materials, scholars, institutions, or publications that:</p>
+
+  <ul>
+    <li>Champion, display, or amplify the harmful traits identified above;</li>
+    <li>Engage in the unauthorized publication of initiatory knowledge;</li>
+    <li>Misattribute, decontextualize, or trivialize sacred materials;</li>
+    <li>Operate without community authorization while claiming community legitimacy;</li>
+    <li>Produce scholarship that treats living traditions as extinct, marginal, or derivative.</li>
+  </ul>
+
+  <p>This right of refusal is not a restriction on free inquiry. It is a condition of ethical stewardship. Archives that cannot say no are not institutions of preservation — they are pipelines for extraction.</p>
+
+  <hr class="section-divider">
+
+  <h2>Community Role</h2>
+
+  <p>We recognize that no institution, however well-governed, can vet all materials comprehensively or catch every harm before it lands. We therefore invite and rely upon the communities we serve to inform us when materials in our holdings, or figures we have engaged with, fail the standards articulated here.</p>
+
+  <p>We are fully prepared to investigate, restrict, and remove upon credible community notification. That is not an emergency protocol. It is standard stewardship practice.</p>
+
+  <p>If you are a practitioner, community elder, lineage holder, or authorized representative of a tradition whose materials are held or referenced here, your authority over those materials is not diminished by their presence in this archive. Contact us at <a href="mailto:senior.curator@irokosociety.org">senior.curator@irokosociety.org</a>.</p>
+
+  <hr class="section-divider">
+
+  <h2>On Contested Materials</h2>
+
+  <p>The Iroko Historical Society does not resolve disputes about lineage legitimacy, initiatory authenticity, or doctrinal correctness on behalf of traditions. Where knowledge is contested within a community, we model that contestation accurately rather than forcing false consensus. Our ontology includes explicit structures for recording variant traditions, disputed attributions, and lineage-specific protocols without adjudicating among them.</p>
+
+  <p>This is not neutrality. It is epistemic honesty. We take sides on extraction, commodification, and harm. We do not take sides on internal theological disputes that belong to the communities themselves.</p>
+
+  <hr class="section-divider">
+
+  <h2>On the Scholarly Record</h2>
+
+  <p>The Iroko Historical Society engages seriously and critically with the academic literature on Afro-Atlantic sacred traditions. That engagement includes citation of scholarship we find methodologically or ethically deficient, where such citation serves the scholarly record or community understanding. Presence in our bibliography is not an endorsement. Our research pages include critical apparatus precisely because the field contains work that has caused documented harm to the communities it purports to study.</p>
+
+  <p>We hold that practitioner scholarship and community-authorized research represent not merely a supplement to academic knowledge but an epistemological corrective to it. The Iroko Framework was built to make that corrective machine-readable.</p>
+
+  <div class="living-doc">
+    <p><strong>Living Document.</strong> This statement will be updated as institutional practice evolves and as communities we serve articulate new guidance. Significant revisions will be noted in the site changelog.</p>
+    <p>This page was last substantively revised: March 2026.</p>
+    <p>Questions or notifications: <a href="mailto:senior.curator@irokosociety.org">senior.curator@irokosociety.org</a></p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Iroko Historical Society</h4>
+      <p>A postcustodial cultural heritage complex comprising a digital archive, research library, and living museum focused on Afro-Atlantic sacred knowledge systems.</p>
+      <p style="margin-top:.75rem">Tuskegee, Alabama &middot; Est. 2024</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <a href="about.html">About the Society</a>
+      <a href="collections.html">Collections</a>
+      <a href="access-policy.html">Access Policy</a>
+      <a href="mission.html">Mission &amp; Stewardship</a>
+      <a href="research.html">Research &amp; Scholarship</a>
+      <a href="capturing-iroko.html">Visual Ethnography</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Framework</h4>
+      <a href="https://ontology.irokosociety.org/" target="_blank">Ontology ↗</a>
+      <a href="https://ontology.irokosociety.org/whitepaper" target="_blank">White Paper ↗</a>
+      <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank">Zenodo DOI ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024&ndash;2026 Iroko Historical Society &middot; Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc. All rights reserved.</p>
+    <p>Vocabulary published under CC0 1.0 Universal &middot; <a href="mailto:senior.curator@irokosociety.org">senior.curator@irokosociety.org</a></p>
+  </div>
+</footer>
+<script src="assets/nav.js"></script>
+</body>
+</html>
