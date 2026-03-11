@@ -3,10 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Iroko Historical Society is a postcustodial archive, research library, and living museum documenting sacred knowledge systems across the Afro-Atlantic world.">
-  <title>Visual Ethnography - Iroko Historical Society</title>
+  <meta name="description" content="Visual ethnography by Délé Fágbèmí Ọ̀ — documentary photography of sacred spaces, ritual practice, and community life across the Afro-Atlantic world.">
+  <title>Visual Ethnography — Iroko Historical Society</title>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="icon" type="image/svg+xml" href="assets/IHS-Logo.svg">
+  <style>
+    /* ── Photo credit bar ── */
+    .photo-credit-bar {
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted, #888);
+      border-left: 3px solid var(--green-dark, #1a3a2a);
+      padding: 0.5rem 0.85rem;
+      margin-bottom: 2.5rem;
+      max-width: 680px;
+    }
+
+    /* ── Archive search block ── */
+    .archive-search-block {
+      background: var(--card-bg, #f9f9f7);
+      border: 1px solid #ddd;
+      border-top: 3px solid var(--green-dark, #1a3a2a);
+      padding: 2rem;
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+    .archive-search-block h2 {
+      font-size: 1rem;
+      margin: 0 0 0.4rem;
+    }
+    .archive-search-block p {
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.85rem;
+      color: var(--text-muted, #888);
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+    }
+    .search-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .search-row input[type="text"] {
+      flex: 1;
+      min-width: 180px;
+      padding: 0.55rem 0.85rem;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.85rem;
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #1a1a1a;
+      outline: none;
+    }
+    .search-row input[type="text"]:focus {
+      border-color: var(--green-mid, #2d6a4f);
+    }
+    .search-row input[type="submit"] {
+      padding: 0.55rem 1.25rem;
+      background: var(--green-dark, #1a3a2a);
+      color: #fff;
+      border: none;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .search-row input[type="submit"]:hover {
+      background: var(--green-mid, #2d6a4f);
+    }
+
+    /* ── External portfolio link ── */
+    .portfolio-link-block {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--card-bg, #f9f9f7);
+      border: 1px solid #ddd;
+      padding: 1.25rem 1.5rem;
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .portfolio-link-block .plink-label {
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.8rem;
+      color: var(--text-muted, #888);
+      flex: 1;
+      min-width: 200px;
+    }
+    .portfolio-link-block .plink-label strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-dark, #1a1a1a);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── Collection areas ── */
+    .collection-areas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 820px;
+      margin-bottom: 2.5rem;
+    }
+    .collection-area {
+      background: var(--card-bg, #f9f9f7);
+      border-left: 3px solid var(--green-dark, #1a3a2a);
+      padding: 1rem 1.15rem;
+    }
+    .collection-area .area-tag {
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted, #888);
+      margin-bottom: 0.35rem;
+    }
+    .collection-area h3 {
+      font-size: 0.9rem;
+      margin: 0 0 0.4rem;
+    }
+    .collection-area p {
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.78rem;
+      color: var(--text-muted, #888);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── Access note ── */
+    .access-note {
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.8rem;
+      color: var(--text-muted, #888);
+      border: 1px dashed #ccc;
+      padding: 0.85rem 1.1rem;
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .access-note a { color: var(--green-mid, #2d6a4f); }
+  </style>
 </head>
 <body>
 
@@ -28,6 +169,7 @@
         <ul class="dropdown-menu">
           <li><a href="about.html">Our Vision</a></li>
           <li><a href="founder.html">The Founder</a></li>
+          <li><a href="our-stance.html">Our Stance</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </li>
@@ -38,6 +180,14 @@
           <li><a href="access-policy.html">Access &amp; Use Policy</a></li>
           <li><a href="mission.html">Mission &amp; Stewardship</a></li>
           <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="research.html">Research</a>
+        <ul class="dropdown-menu">
+          <li><a href="research.html#peer-reviewed">Publications</a></li>
+          <li><a href="research.html#working-papers">Working Papers</a></li>
+          <li><a href="research.html#presentations">Presentations</a></li>
         </ul>
       </li>
       <li class="nav-dropdown">
@@ -54,15 +204,82 @@
 
 <div class="page-content">
 
+  <p class="section-lead" style="margin-bottom:0.35rem;">The Archive · Visual Holdings</p>
   <h1>Visual Ethnography</h1>
 
-  <p>D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; O. maintains an ongoing visual ethnography portfolio documenting sacred spaces, ritual practice, and community life across the Afro-Atlantic world. These images serve as both primary source documentation and a form of engaged scholarship, recording material culture, built environments, and ceremonial contexts that rarely enter formal archival collections.</p>
+  <p style="font-family:var(--font-sans);font-size:0.95rem;color:var(--text-muted);max-width:720px;line-height:1.85;margin-bottom:1.5rem;">
+    D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &Ọ̀;. maintains an ongoing visual ethnography portfolio documenting sacred spaces, ritual practice, and community life across the Afro-Atlantic world. These images serve as both primary source documentation and a form of engaged scholarship, recording material culture, built environments, and ceremonial contexts that rarely enter formal archival collections. Fieldwork sites include Havana, Matanzas, and Pinar del R&iacute;o, Cuba, with ongoing documentation in the United States and broader Afro-Atlantic diaspora.
+  </p>
 
-  <p class="text-muted">Gallery content is being migrated from the previous site. Selected images will be available shortly.</p>
+  <div class="photo-credit-bar">
+    All photographs &copy; D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &Ọ̀;, on loan to Iroko Historical Society. Reproduction or use without written authorization is prohibited. Access to restricted materials is governed by the Society's six-tier access framework.
+  </div>
 
-  <!-- PLACEHOLDER: Add gallery images here as needed -->
+  <!-- ── SEARCH THE PHOTO ARCHIVE ── -->
+  <div class="archive-search-block">
+    <h2>Search the Ethnographic Archive</h2>
+    <p>The Society's photographic holdings are hosted on the Ethnographique archive. Enter descriptive keywords to search across the full collection — locations, ritual contexts, material culture, traditions, or subjects.</p>
+    <form action="https://ethnographique.photoshelter.com/search" method="get">
+      <div class="search-row">
+        <input type="text" name="I_DSC" placeholder="e.g. Havana, batá, ilé, Matanzas…" aria-label="Search archive">
+        <input type="submit" value="Search Archive">
+        <input type="hidden" name="I_DSC_AND" value="t">
+        <input type="hidden" name="_ACT" value="search">
+      </div>
+    </form>
+  </div>
 
-</div>
+  <!-- ── FULL PORTFOLIO LINK ── -->
+  <div class="portfolio-link-block">
+    <div class="plink-label">
+      <strong>Browse the Full Portfolio</strong>
+      View all galleries and collections at the Ethnographique archive on PhotoShelter.
+    </div>
+    <a href="https://ethnographique.photoshelter.com/index" target="_blank" class="btn btn-green" style="white-space:nowrap;">Open Archive ↗</a>
+  </div>
+
+  <!-- ── COLLECTION AREAS ── -->
+  <p class="section-lead" style="margin-top:2rem;margin-bottom:1rem;">What the Collection Documents</p>
+
+  <div class="collection-areas">
+    <div class="collection-area">
+      <p class="area-tag">Cuba · Since 2002</p>
+      <h3>Havana · Matanzas · Pinar del R&iacute;o</h3>
+      <p>Fieldwork documentation across more than two decades, including sacred spaces, ceremonial contexts, and material culture across western Cuba.</p>
+    </div>
+    <div class="collection-area">
+      <p class="area-tag">Sacred Architecture</p>
+      <h3>Ilés &amp; Ritual Spaces</h3>
+      <p>Documentary photographs of consecrated spaces, altars, shrines, and the built environments of Afro-Atlantic sacred practice.</p>
+    </div>
+    <div class="collection-area">
+      <p class="area-tag">Ritual Practice</p>
+      <h3>Ceremony &amp; Observance</h3>
+      <p>Visual records of ceremonial contexts authorized for documentation, with access governed by community protocols specific to each body of images.</p>
+    </div>
+    <div class="collection-area">
+      <p class="area-tag">Material Culture</p>
+      <h3>Sacred Objects &amp; Regalia</h3>
+      <p>Documentation of material objects, regalia, and instruments including sacred drum sets and votive materials across traditions.</p>
+    </div>
+    <div class="collection-area">
+      <p class="area-tag">Community Life</p>
+      <h3>Practitioners &amp; Community</h3>
+      <p>Portraiture and community documentation from religious communities across Cuba and the Afro-Atlantic diaspora, subject to individual access authorizations.</p>
+    </div>
+    <div class="collection-area">
+      <p class="area-tag">Foundation Day</p>
+      <h3>IHS Annual Documentation</h3>
+      <p>Annual visual documentation of the Society's Foundation Day observance and associated ceremonial activities.</p>
+    </div>
+  </div>
+
+  <!-- ── ACCESS NOTE ── -->
+  <div class="access-note">
+    <strong>Access note:</strong> The Ethnographique archive contains both publicly viewable and restricted materials. Images depicting restricted ceremonial content are governed by Tier 3–6 of the Society's <a href="access-policy.html">access framework</a>. Inquiries about licensing or research access to restricted holdings should be directed to <a href="mailto:senior.curator@irokosociety.org">senior.curator@irokosociety.org</a>.
+  </div>
+
+</div><!-- end .page-content -->
 
 <footer class="site-footer">
   <div class="footer-links">
@@ -70,7 +287,7 @@
     <a href="collections.html">Collections</a>
     <a href="access-policy.html">Access Policy</a>
     <a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a>
-    <a href="https://github.com/iroko-framework/iroko-framework" class="ext">GitHub</a>
+    <a href="https://ethnographique.photoshelter.com/index" class="ext">Ethnographique Archive</a>
     <a href="contact.html">Contact</a>
   </div>
   <div class="footer-legal">
