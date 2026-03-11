@@ -142,7 +142,7 @@
     Images depicting restricted ceremonial content are governed by Tiers 3&ndash;6 of the Society's
     <a href="access-policy.html">access framework</a>.
     Licensing and research access inquiries:
-    <a href="mailto:senior.curator@irokosociety.org">senior.curator@irokosociety.org</a>
+    <a href="/cdn-cgi/l/email-protection#7c0f191215130e521f090e1d08130e3c150e1317130f131f1519080552130e1b"><span class="__cf_email__" data-cfemail="98ebfdf6f1f7eab6fbedeaf9ecf7ead8f1eaf7f3f7ebf7fbf1fdece1b6f7eaff">[email&#160;protected]</span></a>
   </div>
 
   <div class="archive-search-block">
@@ -171,7 +171,7 @@
   <button class="lightbox-next" id="lbNext">&#8250;</button>
   <div class="lightbox-counter" id="lbCounter"></div>
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   var BASE      = 'https://api.irokosociety.org';
   var IMG_BASE  = 'https://www.photoshelter.com/img-get2';
@@ -337,7 +337,15 @@
   document.getElementById('lbNext').addEventListener('click', function(){ if(currentIdx < currentImages.length - 1){ currentIdx++; showLbImage(); } });
 
   document.addEventListener('keydown', function(e){
-    if(!lightbox.classLi
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft' && currentIdx > 0){ currentIdx--; showLbImage(); }
+    if(e.key === 'ArrowRight' && currentIdx < currentImages.length - 1){ currentIdx++; showLbImage(); }
+  });
+
+  init();
+})();
+</script>
 
 <footer>
   <div class="footer-inner">
@@ -364,7 +372,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2024&ndash;2026 Iroko Historical Society &middot; Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc. All rights reserved.</p>
+    <p>&copy; 2024&ndash;2026     <p>&copy; 2024&ndash;2026 Iroko Historical Society &middot; Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc. All rights reserved.</p>
     <p>Vocabulary published under CC0 1.0 Universal &middot; <a href="mailto:senior.curator@irokosociety.org">senior.curator@irokosociety.org</a></p>
   </div>
 </footer>
