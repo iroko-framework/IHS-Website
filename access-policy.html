@@ -5,57 +5,241 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Access &amp; Use Policy — Iroko Historical Society</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Nav styles for updated navigation -->
+  <style>
+    .top-bar {
+      background: #111;
+      color: #aaa;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+      padding: 0.4rem 1rem;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+    }
+    .site-nav {
+      background: #111;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: #fff;
+    }
+    .nav-logo img {
+      height: 32px;
+      width: 32px;
+      object-fit: contain;
+    }
+    .nav-logo-text {
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #fff;
+    }
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .nav-links > li > a {
+      display: block;
+      padding: 0 0.9rem;
+      height: 56px;
+      line-height: 56px;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.75rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #ccc;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .nav-links > li > a:hover,
+    .nav-links > li > a.active { color: #fff; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after {
+      content: ' ▾';
+      font-size: 0.6rem;
+      opacity: 0.6;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-top: 2px solid #2d6a4f;
+      min-width: 190px;
+      list-style: none;
+      margin: 0;
+      padding: 0.4rem 0;
+      z-index: 1001;
+    }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.5rem 1.1rem;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      color: #bbb;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .dropdown-menu li a:hover,
+    .dropdown-menu li a.active {
+      background: #2a2a2a;
+      color: #fff;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+    }
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: #111;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        border-top: 1px solid #333;
+        padding: 0.5rem 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > li > a {
+        height: auto;
+        line-height: 1.4;
+        padding: 0.6rem 1.25rem;
+        width: 100%;
+      }
+      .dropdown-menu {
+        position: static;
+        border: none;
+        border-top: none;
+        border-left: 2px solid #2d6a4f;
+        background: #1a1a1a;
+        margin-left: 1rem;
+        padding: 0;
+        min-width: 0;
+      }
+      .nav-dropdown:hover .dropdown-menu { display: none; }
+      .nav-dropdown.open .dropdown-menu { display: block; }
+    }
+    .site-footer {
+      background: #111;
+      border-top: 1px solid #222;
+      padding: 2rem 1.5rem 1.5rem;
+      margin-top: 4rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.72rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #888;
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-legal {
+      text-align: center;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.72rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    .footer-legal a { color: #777; }
+    .footer-legal a:hover { color: #aaa; }
+  </style>
 </head>
 <body>
 <div class="top-bar">
- Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials
+  Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials
 </div>
 
 <nav class="site-nav" aria-label="Main navigation">
- <div class="nav-inner">
- <a href="index.html" class="nav-logo">
- <img src="assets/IHS-Logo.jpg" alt="IHS Logo">
- <span class="nav-logo-text">Iroko Historical Society</span>
- </a>
- <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
- <ul class="nav-links">
- <li><a href="index.html">Home</a></li>
- <li class="nav-dropdown">
- <a href="about.html">The Society</a>
- <ul class="dropdown-menu">
- <li><a href="about.html">Our Vision</a></li>
- <li><a href="founder.html">The Founder</a></li>
- <li><a href="our-stance.html">Our Stance</a></li>
- <li><a href="contact.html">Contact</a></li>
- </ul>
- </li>
- <li class="nav-dropdown">
- <a href="collections.html" class="active">The Archive</a>
- <ul class="dropdown-menu">
- <li><a href="collections.html">Collections</a></li>
- <li><a href="access-policy.html" class="active">Access &amp; Use Policy</a></li>
- <li><a href="mission.html">Mission &amp; Stewardship</a></li>
- <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
- </ul>
- </li>
- <li class="nav-dropdown">
- <a href="research.html">Research</a>
- <ul class="dropdown-menu">
- <li><a href="research.html#peer-reviewed">Publications</a></li>
- <li><a href="research.html#working-papers">Working Papers</a></li>
- <li><a href="research.html#presentations">Presentations</a></li>
- </ul>
- </li>
- <li class="nav-dropdown">
- <a href="iroko-spirituality.html">Iroko</a>
- <ul class="dropdown-menu">
- <li><a href="iroko-spirituality.html">Iroko Spirituality</a></li>
- <li><a href="capturing-iroko.html">Visual Ethnography</a></li>
- </ul>
- </li>
- <li><a href="foundation-day-2025.html">Foundation Day</a></li>
- </ul>
- </div>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/IHS-Logo.jpg" alt="IHS Logo">
+      <span class="nav-logo-text">Iroko Historical Society</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html">The Society</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Our Vision</a></li>
+          <li><a href="founder.html">The Founder</a></li>
+          <li><a href="our-stance.html">Our Stance</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="collections.html" class="active">The Archive</a>
+        <ul class="dropdown-menu">
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="access-policy.html" class="active">Access &amp; Use Policy</a></li>
+          <li><a href="mission.html">Mission &amp; Stewardship</a></li>
+          <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="research.html">Research</a>
+        <ul class="dropdown-menu">
+          <li><a href="research.html#peer-reviewed">Publications</a></li>
+          <li><a href="research.html#working-papers">Working Papers</a></li>
+          <li><a href="research.html#presentations">Presentations</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="iroko-spirituality.html">Iroko</a>
+        <ul class="dropdown-menu">
+          <li><a href="iroko-spirituality.html">Iroko Spirituality</a></li>
+          <li><a href="capturing-iroko.html">Visual Ethnography</a></li>
+        </ul>
+      </li>
+      <li><a href="foundation-day-2025.html">Foundation Day</a></li>
+    </ul>
+  </div>
 </nav>
 
 
@@ -138,10 +322,8 @@
     <a href="contact.html">Contact</a>
   </div>
   <div class="footer-legal">
-    Iroko Historical Society<br>
-    An elaboration of Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc., a registered 501(c)(3)<br>
-    &copy; 2024&ndash;2026 Iroko Historical Society &middot; Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc.<br>
-    Vocabulary published under CC0 1.0 Universal<br>
+    Iroko Historical Society &middot; An elaboration of Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc., a registered 501(c)(3)<br>
+    &copy; 2024&ndash;2026 Iroko Historical Society &middot; Vocabulary published under CC0 1.0 Universal<br>
     Contact: <a href="mailto:senior.curator@irokosociety.org">senior.curator@irokosociety.org</a>
   </div>
 </footer>
