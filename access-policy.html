@@ -4,197 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Access &amp; Use Policy — Iroko Historical Society</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Nav styles for updated navigation -->
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- Shared nav/footer styles -->
   <style>
-    .top-bar {
-      background: #111;
-      color: #aaa;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-align: center;
-      padding: 0.4rem 1rem;
-      font-family: var(--font-sans, 'Inter', sans-serif);
+    .top-bar{background:#111;color:#aaa;font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.4rem 1rem;font-family:var(--font-sans,'Inter',sans-serif)}
+    .site-nav{background:#111;border-bottom:1px solid #222;position:sticky;top:0;z-index:1000}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:#fff}
+    .nav-logo img{height:32px;width:32px;object-fit:contain}
+    .nav-logo-text{font-family:var(--font-sans,'Inter',sans-serif);font-size:.82rem;font-weight:600;letter-spacing:.04em;color:#fff}
+    .nav-links{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:0}
+    .nav-links>li>a{display:block;padding:0 .9rem;height:56px;line-height:56px;font-family:var(--font-sans,'Inter',sans-serif);font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;color:#ccc;text-decoration:none;white-space:nowrap;transition:color .15s}
+    .nav-links>li>a:hover,.nav-links>li>a.active{color:#fff}
+    .nav-dropdown{position:relative}
+    .nav-dropdown>a::after{content:' ▾';font-size:.6rem;opacity:.6}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:#1a1a1a;border:1px solid #333;border-top:2px solid #2d6a4f;min-width:190px;list-style:none;margin:0;padding:.4rem 0;z-index:1001}
+    .nav-dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu li a{display:block;padding:.5rem 1.1rem;font-family:var(--font-sans,'Inter',sans-serif);font-size:.72rem;letter-spacing:.05em;color:#bbb;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
+    .dropdown-menu li a:hover,.dropdown-menu li a.active{background:#2a2a2a;color:#fff}
+    .nav-toggle{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;padding:.25rem .5rem}
+    @media(max-width:768px){
+      .nav-toggle{display:block}
+      .nav-links{display:none;flex-direction:column;align-items:flex-start;background:#111;position:absolute;top:56px;left:0;right:0;border-top:1px solid #333;padding:.5rem 0}
+      .nav-links.open{display:flex}
+      .nav-links>li>a{height:auto;line-height:1.4;padding:.6rem 1.25rem;width:100%}
+      .dropdown-menu{position:static;border:none;border-left:2px solid #2d6a4f;background:#1a1a1a;margin-left:1rem;padding:0;min-width:0}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
     }
-    .site-nav {
-      background: #111;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-      color: #fff;
-    }
-    .nav-logo img {
-      height: 32px;
-      width: 32px;
-      object-fit: contain;
-    }
-    .nav-logo-text {
-      font-family: var(--font-sans, 'Inter', sans-serif);
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: #fff;
-    }
-    .nav-links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      gap: 0;
-    }
-    .nav-links > li > a {
-      display: block;
-      padding: 0 0.9rem;
-      height: 56px;
-      line-height: 56px;
-      font-family: var(--font-sans, 'Inter', sans-serif);
-      font-size: 0.75rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: #ccc;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: color 0.15s;
-    }
-    .nav-links > li > a:hover,
-    .nav-links > li > a.active { color: #fff; }
-    .nav-dropdown { position: relative; }
-    .nav-dropdown > a::after {
-      content: ' ▾';
-      font-size: 0.6rem;
-      opacity: 0.6;
-    }
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-top: 2px solid #2d6a4f;
-      min-width: 190px;
-      list-style: none;
-      margin: 0;
-      padding: 0.4rem 0;
-      z-index: 1001;
-    }
-    .nav-dropdown:hover .dropdown-menu { display: block; }
-    .dropdown-menu li a {
-      display: block;
-      padding: 0.5rem 1.1rem;
-      font-family: var(--font-sans, 'Inter', sans-serif);
-      font-size: 0.72rem;
-      letter-spacing: 0.05em;
-      color: #bbb;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.15s, color 0.15s;
-    }
-    .dropdown-menu li a:hover,
-    .dropdown-menu li a.active {
-      background: #2a2a2a;
-      color: #fff;
-    }
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.4rem;
-      cursor: pointer;
-      padding: 0.25rem 0.5rem;
-    }
-    @media (max-width: 768px) {
-      .nav-toggle { display: block; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        background: #111;
-        position: absolute;
-        top: 56px;
-        left: 0;
-        right: 0;
-        border-top: 1px solid #333;
-        padding: 0.5rem 0;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links > li > a {
-        height: auto;
-        line-height: 1.4;
-        padding: 0.6rem 1.25rem;
-        width: 100%;
-      }
-      .dropdown-menu {
-        position: static;
-        border: none;
-        border-top: none;
-        border-left: 2px solid #2d6a4f;
-        background: #1a1a1a;
-        margin-left: 1rem;
-        padding: 0;
-        min-width: 0;
-      }
-      .nav-dropdown:hover .dropdown-menu { display: none; }
-      .nav-dropdown.open .dropdown-menu { display: block; }
-    }
-    .site-footer {
-      background: #111;
-      border-top: 1px solid #222;
-      padding: 2rem 1.5rem 1.5rem;
-      margin-top: 4rem;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.5rem;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    .footer-links a {
-      font-family: var(--font-sans, 'Inter', sans-serif);
-      font-size: 0.72rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: #888;
-      text-decoration: none;
-    }
-    .footer-links a:hover { color: #fff; }
-    .footer-legal {
-      text-align: center;
-      font-family: var(--font-sans, 'Inter', sans-serif);
-      font-size: 0.72rem;
-      color: #555;
-      line-height: 1.8;
-    }
-    .footer-legal a { color: #777; }
-    .footer-legal a:hover { color: #aaa; }
+    .page-content{max-width:900px;margin:0 auto;padding:3rem 2rem 4rem}
+    .site-footer{background:#111;border-top:1px solid #222;padding:2rem 1.5rem 1.5rem;margin-top:4rem}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:center;margin-bottom:1.5rem}
+    .footer-links a{font-family:var(--font-sans,'Inter',sans-serif);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:#888;text-decoration:none}
+    .footer-links a:hover{color:#fff}
+    .footer-legal{text-align:center;font-family:var(--font-sans,'Inter',sans-serif);font-size:.72rem;color:#555;line-height:1.8}
+    .footer-legal a{color:#777}
+    .footer-legal a:hover{color:#aaa}
   </style>
 </head>
 <body>
 <div class="top-bar">
   Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials
 </div>
-
 <nav class="site-nav" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -324,10 +175,24 @@
   <div class="footer-legal">
     Iroko Historical Society &middot; An elaboration of Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc., a registered 501(c)(3)<br>
     &copy; 2024&ndash;2026 Iroko Historical Society &middot; Vocabulary published under CC0 1.0 Universal<br>
+    Contact: <a href="/cdn-cgi/l/email-protection#5d2e383334322f733e282f3c29322f1d342f3236322e323e3438292473322f3a"><span class="__cf_email__" data-cfemail="85f6e0ebeceaf7a
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="collections.html">Collections</a>
+    <a href="access-policy.html">Access Policy</a>
+    <a href="research.html">Research</a>
+    <a href="capturing-iroko.html">Visual Ethnography</a>
+    <a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-legal">
+    Iroko Historical Society &middot; An elaboration of Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc., a registered 501(c)(3)<br>
+    &copy; 2024&ndash;2026 Iroko Historical Society &middot; Vocabulary published under CC0 1.0 Universal<br>
     Contact: <a href="mailto:senior.curator@irokosociety.org">senior.curator@irokosociety.org</a>
   </div>
 </footer>
-
 <script src="assets/nav.js"></script>
 </body>
 </html>
