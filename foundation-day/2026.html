@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Foundation Day 2026 — The second annual observance of the Iroko Historical Society. Public programming July 17–19, 2026. Registration and submission calls open April 2026.">
+  <title>Foundation Day 2026 — Iroko Historical Society</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/IHS-Logo.svg">
+  <style>
+    .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
+    nav ul{position:relative}
+    .nav-dropdown{position:relative}
+    .nav-dropdown>a::after{content:' ▾';font-size:.6rem;opacity:.7}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--green-deep);border:1px solid var(--green-border);border-top:2px solid var(--green-light);min-width:200px;list-style:none;margin:0;padding:.4rem 0;z-index:200;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .nav-dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu li a{display:block;padding:.5rem 1.1rem;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(237,234,208,.7);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s;height:auto;line-height:1.4}
+    .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(255,255,255,.1);color:var(--cream)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem;margin-left:auto}
+    a.ext::after{content:' ↗';font-size:.75em;opacity:.6}
+
+    /* ── Hero ── */
+    .fd-hero{background:var(--green-deep);background-image:radial-gradient(ellipse at 70% 40%,rgba(58,122,68,.25) 0%,transparent 60%),radial-gradient(ellipse at 15% 80%,rgba(30,74,39,.45) 0%,transparent 50%);color:var(--cream);padding:4.5rem 2rem 3.5rem;border-bottom:4px solid var(--green-border);position:relative;overflow:hidden}
+    .fd-hero::after{content:"II";position:absolute;right:3rem;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:11rem;font-weight:700;color:rgba(58,122,68,.18);line-height:1;pointer-events:none;user-select:none}
+    .fd-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+    .fd-eyebrow{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,234,208,.6);margin-bottom:.8rem}
+    .fd-hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:.02em;color:var(--cream);margin-bottom:.35rem;line-height:1.1}
+    .fd-hero-year{font-family:var(--font-display);font-size:1.1rem;color:var(--gold-light);letter-spacing:.12em;margin-bottom:1.25rem}
+    .fd-hero-rule{width:48px;height:3px;background:var(--green-light);margin-bottom:1.5rem}
+    .fd-hero p.lead{max-width:580px;font-family:var(--font-sans);font-size:.95rem;line-height:1.85;color:rgba(237,234,208,.85);font-style:italic}
+
+    /* ── Layout ── */
+    .fd-layout{max-width:1100px;margin:0 auto;padding:3.5rem 2rem 5rem;display:grid;grid-template-columns:1fr 300px;gap:4rem;align-items:start}
+
+    /* ── Primary ── */
+    .block-label{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--cream-dark)}
+    .fd-primary h2{font-family:var(--font-display);font-size:1.3rem;color:var(--green-deep);margin-bottom:.75rem}
+    .fd-primary h2::after{content:'';display:block;width:32px;height:2px;background:var(--green-light);margin-top:.4rem}
+    .fd-primary p{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:.85rem}
+
+    /* ── Date pair ── */
+    .date-pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0 2.5rem}
+    .date-block{background:var(--white);border:1px solid var(--cream-dark);border-top:3px solid var(--green-deep);padding:1.25rem 1.4rem}
+    .date-block.accent{border-top-color:var(--gold)}
+    .date-block-label{font-family:var(--font-sans);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.35rem}
+    .date-block-date{font-family:var(--font-display);font-size:1rem;color:var(--green-deep);margin-bottom:.25rem}
+    .date-block-note{font-family:var(--font-sans);font-size:.8rem;font-style:italic;color:var(--text-muted);line-height:1.5}
+
+    /* ── Schedule ── */
+    .schedule{border:1px solid var(--cream-dark);margin:1.25rem 0 2.5rem;background:var(--white)}
+    .schedule-row{display:grid;grid-template-columns:105px 1fr;gap:1rem;padding:.9rem 1.25rem;border-bottom:1px solid var(--cream-dark);align-items:baseline}
+    .schedule-row:last-child{border-bottom:none}
+    .schedule-row.highlight{background:rgba(30,74,39,.04)}
+    .sched-date{font-family:var(--font-sans);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+    .sched-desc{font-family:var(--font-sans);font-size:.88rem;color:var(--text-main);line-height:1.5}
+    .sched-desc em{font-style:italic;color:var(--text-muted)}
+    .sched-badge{display:inline-block;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--green-deep);border:1px solid var(--green-border);padding:.1em .55em;margin-left:.5rem;vertical-align:middle;position:relative;top:-.1em}
+
+    /* ── Pilgrimage section ── */
+    .pilgrimage-block{background:var(--cream-light);border:1px solid var(--cream-dark);border-left:4px solid var(--green-deep);padding:2rem 2rem 1.75rem;margin:2.5rem 0}
+    .pilgrimage-block .pilgrim-eyebrow{font-family:var(--font-sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-mid);margin-bottom:.75rem}
+    .pilgrimage-block h2{font-family:var(--font-display);font-size:1.2rem;color:var(--green-deep);margin-bottom:.6rem}
+    .pilgrimage-block h2::after{content:'';display:block;width:32px;height:2px;background:var(--green-light);margin-top:.4rem;margin-bottom:.9rem}
+    .pilgrimage-block p{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:.85rem}
+    .pilgrimage-block p:last-child{margin-bottom:0}
+    .tree-list{list-style:none;margin:.75rem 0 1rem;padding:0;display:flex;flex-direction:column;gap:.4rem}
+    .tree-list li{font-family:var(--font-sans);font-size:.88rem;color:var(--text-muted);padding-left:1.25rem;position:relative;line-height:1.6}
+    .tree-list li::before{content:'—';position:absolute;left:0;color:var(--green-light)}
+    .tree-list li em{font-style:italic;color:var(--text-main)}
+
+    /* ── Offering note ── */
+    .offering-note{background:var(--cream-light);border-left:3px solid var(--green-deep);padding:1rem 1.25rem;margin:.5rem 0 2.5rem}
+    .offering-note p{font-family:var(--font-sans);font-size:.85rem;color:var(--text-muted);line-height:1.75;margin:0}
+    .offering-note strong{font-weight:600;color:var(--text-main)}
+
+    /* ── CTA ── */
+    .cta-box{background:var(--green-deep);color:var(--cream);padding:1.75rem 2rem;margin-top:1rem}
+    .cta-box .cta-label{font-family:var(--font-sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,234,208,.6);margin-bottom:.6rem}
+    .cta-box p{font-family:var(--font-sans);font-size:.88rem;color:rgba(237,234,208,.85);line-height:1.75;margin-bottom:.5rem}
+    .cta-box a{color:var(--gold-light);text-decoration:none}
+    .cta-box a:hover{text-decoration:underline}
+    .cta-actions{margin-top:1.1rem;display:flex;gap:.75rem;flex-wrap:wrap}
+
+    /* ── Sidebar ── */
+    .fd-sidebar{border-left:1px solid var(--cream-dark);padding-left:2.5rem}
+    .sidebar-heading{font-family:var(--font-display);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green-deep);border-bottom:2px solid var(--green-deep);padding-bottom:.6rem;margin-bottom:0}
+    .archive-entry{padding:1.6rem 0;border-bottom:1px solid var(--cream-dark)}
+    .archive-entry:last-child{border-bottom:none}
+    .archive-year-row{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.2rem}
+    .archive-year{font-family:var(--font-display);font-size:1.75rem;color:var(--green-deep);font-weight:700;line-height:1}
+    .archive-current-badge{font-family:var(--font-sans);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--cream);background:var(--green-deep);padding:.15em .55em}
+    .archive-theme{font-family:var(--font-serif);font-style:italic;font-size:.95rem;color:var(--text-main);margin-bottom:.5rem}
+    .archive-meta{font-family:var(--font-sans);font-size:.75rem;color:var(--text-muted);line-height:1.7}
+    .archive-links{margin-top:.85rem;display:flex;flex-direction:column;gap:.3rem}
+    .archive-link{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--green-mid);text-decoration:none;transition:color .15s}
+    .archive-link:hover{color:var(--green-deep)}
+    .archive-placeholder{font-family:var(--font-sans);font-style:italic;font-size:.8rem;color:var(--text-muted);border:1px dashed var(--cream-dark);padding:.6rem .85rem;margin-top:.5rem;line-height:1.6}
+
+    /* ── Footer ── */
+    .site-footer{background:var(--green-deep);color:rgba(237,234,208,.7);padding:2rem 1.5rem;border-top:3px solid var(--green-border)}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:center;margin-bottom:1.25rem}
+    .footer-links a{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(237,234,208,.55);text-decoration:none}
+    .footer-links a:hover{color:var(--cream)}
+    .footer-legal{text-align:center;font-family:var(--font-sans);font-size:.72rem;color:rgba(237,234,208,.4);line-height:1.8}
+    .footer-legal a{color:rgba(237,234,208,.5)}
+    .footer-legal a:hover{color:var(--cream)}
+
+    /* ── Responsive ── */
+    @media(max-width:860px){
+      .fd-layout{grid-template-columns:1fr;gap:0}
+      .fd-sidebar{border-left:none;border-top:1px solid var(--cream-dark);padding-left:0;padding-top:2.5rem;margin-top:2.5rem}
+      .date-pair{grid-template-columns:1fr}
+      .fd-hero::after{display:none}
+    }
+    @media(max-width:768px){
+      .nav-toggle{display:block}
+      nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--green-deep);border-top:1px solid var(--green-border);flex-direction:column;padding:.5rem 0;z-index:199}
+      nav ul.open{display:flex}
+      nav ul li a{padding:.65rem 1.5rem;width:100%;display:block}
+      .dropdown-menu{position:static;box-shadow:none;border:none;border-left:3px solid var(--green-light);background:rgba(0,0,0,.15);margin-left:1rem}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
+    }
+  </style>
+  <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZP3KZWLS4"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SZP3KZWLS4');</script>
+</head>
+<body>
+
+<div class="top-bar">Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials</div>
+
+<nav>
+  <a href="../index.html" class="brand">
+    <img src="../assets/IHS-Logo.jpg" alt="IHS Logo">
+    <span>Iroko Historical Society</span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="../about.html">The Society</a>
+      <ul class="dropdown-menu">
+        <li><a href="../about.html">Our Vision</a></li>
+        <li><a href="../founder.html">The Founder</a></li>
+        <li><a href="../our-stance.html">Our Stance</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="../collections.html">The Archive</a>
+      <ul class="dropdown-menu">
+        <li><a href="../collections.html">Collections</a></li>
+        <li><a href="../access-policy.html">Access &amp; Use Policy</a></li>
+        <li><a href="../mission.html">Mission &amp; Stewardship</a></li>
+        <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="../research.html">Research</a>
+      <ul class="dropdown-menu">
+        <li><a href="../research.html#peer-reviewed">Publications</a></li>
+        <li><a href="../research.html#working-papers">Working Papers</a></li>
+        <li><a href="../research.html#presentations">Presentations</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="../iroko-spirituality.html">Iroko</a>
+      <ul class="dropdown-menu">
+        <li><a href="../iroko-spirituality.html">Iroko Spirituality</a></li>
+        <li><a href="../capturing-iroko.html">Visual Ethnography</a></li>
+      </ul>
+    </li>
+    <li><a href="2026.html" class="active">Foundation Day</a></li>
+  </ul>
+</nav>
+
+<section class="fd-hero">
+  <div class="fd-hero-inner">
+    <p class="fd-eyebrow">Annual Observance &nbsp;&middot;&nbsp; Year Two</p>
+    <h1>Foundation Day</h1>
+    <p class="fd-hero-year">July 14, 2026</p>
+    <div class="fd-hero-rule"></div>
+    <p class="lead">
+      The second annual observance of the Iroko Historical Society's founding date.
+      Public programming confirmed for the weekend of July&nbsp;17&ndash;19, 2026.
+      Registration and submission calls open April 2026.
+    </p>
+  </div>
+</section>
+
+<div class="fd-layout">
+
+  <main class="fd-primary">
+
+    <p class="block-label">Dates</p>
+
+    <div class="date-pair">
+      <div class="date-block">
+        <p class="date-block-label">Foundation Day</p>
+        <p class="date-block-date">July 14</p>
+        <p class="date-block-note">Private observance. Sacred date. Not a public event.</p>
+      </div>
+      <div class="date-block accent">
+        <p class="date-block-label">Public Programming Weekend</p>
+        <p class="date-block-date">July 17&ndash;19</p>
+        <p class="date-block-note">Primary event: Saturday, July 18</p>
+      </div>
+    </div>
+
+    <!-- Pilgrimage invitation -->
+    <div class="pilgrimage-block">
+      <p class="pilgrim-eyebrow">A Community Observance</p>
+      <h2>Find Your Tree</h2>
+      <p>
+        On July 14, wherever you are, we invite you to make a small pilgrimage.
+        Find a sacred tree in your landscape. Stand with it. Leave something behind.
+      </p>
+      <p>
+        The Iroko Historical Society takes its name and its animating presence from
+        Iroko &mdash; the great forest elder of West and Central Africa, and a living
+        Orisha in the Lucumí tradition. Trees of this kind exist across the Afro-Atlantic
+        world under different names and in different traditions. You may know yours as:
+      </p>
+      <ul class="tree-list">
+        <li><em>Iroko</em> (Milicia excelsa) &mdash; West and Central Africa, the Diaspora</li>
+        <li><em>La Ceiba</em> (Ceiba pentandra) &mdash; Cuba, the Caribbean, Central America</li>
+        <li>Any tree that has called to you, sheltered you, or holds significance in your tradition or your memory</li>
+      </ul>
+      <p>
+        The offering is yours to determine. It may be water, a flower, a moment of silence,
+        a word spoken aloud, or simply your presence. What matters is the intention: to
+        recognize that the living world holds memory, and that some of that memory belongs to us.
+      </p>
+      <p>
+        If you photograph your tree, consider sharing it with the IHS Visual Ethnography archive.
+        Submission details are available beginning July&nbsp;18.
+      </p>
+    </div>
+
+    <p class="block-label">2026 Programming</p>
+
+    <h2>Panel Presentation &amp; Discussion</h2>
+
+    <p>
+      On Saturday, July 18, D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &Ograve;. will present original scholarship
+      followed by a moderated discussion with 2&ndash;3 invited respondents. The session is virtual,
+      access-restricted, and practitioner- and scholar-facing.
+    </p>
+    <p>
+      A respondent submission call opens alongside general registration in April.
+      Applicants are invited to submit a short statement (200&ndash;300 words) responding
+      to the session theme. Respondents are selected and notified in June.
+    </p>
+    <p>
+      The weekend also marks the opening of the IHS Visual Ethnography community
+      photography submission call for the living archive.
+    </p>
+
+    <div class="schedule">
+      <div class="schedule-row">
+        <span class="sched-date">July 10&ndash;11</span>
+        <span class="sched-desc">State of the Society address published <em>&mdash; Year Two annual address</em></span>
+      </div>
+      <div class="schedule-row">
+        <span class="sched-date">July 14</span>
+        <span class="sched-desc">Foundation Day &mdash; <em>private observance / community pilgrimage</em></span>
+      </div>
+      <div class="schedule-row">
+        <span class="sched-date">July 17</span>
+        <span class="sched-desc">Weekend opens &mdash; <em>digital transition, pre-event activity</em></span>
+      </div>
+      <div class="schedule-row highlight">
+        <span class="sched-date">July 18</span>
+        <span class="sched-desc">
+          Presentation &amp; panel &mdash; virtual, restricted registration
+          <span class="sched-badge">Confirmed</span>
+        </span>
+      </div>
+      <div class="schedule-row">
+        <span class="sched-date">July 19</span>
+        <span class="sched-desc">Weekend closes &mdash; <em>submission deadlines, if applicable</em></span>
+      </div>
+    </div>
+
+    <p class="block-label">Scholarly Offering</p>
+
+    <div class="offering-note">
+      <p>
+        <strong>Iroko Framework v1.2.0</strong> &mdash; the Society's linked data ontology for
+        Afro-Atlantic sacred traditions &mdash; will be formally deposited to Zenodo in the period
+        surrounding Foundation Day 2026 as the year's primary institutional contribution.
+        <!-- Add DOI link here once deposit is complete -->
+      </p>
+    </div>
+
+    <div class="cta-box">
+      <p class="cta-label">Registration &amp; Submissions</p>
+      <p>
+        General registration to attend and the respondent submission call open simultaneously
+        in <strong>April 2026</strong>. The Visual Ethnography photography submission call
+        opens July&nbsp;18. All access is application- or registration-based.
+      </p>
+      <p>
+        To receive the announcement when registration opens, contact
+        <a href="#" class="js-email">[protected]</a>.
+      </p>
+      <div class="cta-actions">
+        <a href="../capturing-iroko.html" class="btn btn-outline"
+           style="border-color:rgba(237,234,208,.4);color:var(--cream);">
+          Visual Ethnography Archive
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <aside class="fd-sidebar">
+
+    <p class="sidebar-heading">Foundation Day Archive</p>
+
+    <div class="archive-entry">
+      <div class="archive-year-row">
+        <span class="archive-year">2026</span>
+        <span class="archive-current-badge">Current</span>
+      </div>
+      <p class="archive-theme">Year Two</p>
+      <p class="archive-meta">
+        July 14 observance<br>
+        July 18 public panel &amp; presentation<br>
+        Virtual &mdash; restricted registration<br>
+        Registration opens April 2026
+      </p>
+    </div>
+
+    <div class="archive-entry">
+      <div class="archive-year-row">
+        <span class="archive-year">2025</span>
+      </div>
+      <p class="archive-theme">Year One &mdash; Founding</p>
+      <p class="archive-meta">
+        July 14 observance<br>
+        <!-- Fill in once retroactive address is drafted -->
+      </p>
+      <div class="archive-placeholder">
+        State of the Society address and Year One record forthcoming.
+      </div>
+      <div class="archive-links">
+        <a class="archive-link" href="2025.html">&rarr; Year One archive page</a>
+        <!-- Uncomment when address is published:
+        <a class="archive-link" href="address-2025.html">&rarr; State of the Society, 2025</a>
+        -->
+      </div>
+    </div>
+
+  </aside>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../index.html">Home</a>
+    <a href="../collections.html">Collections</a>
+    <a href="../access-policy.html">Access Policy</a>
+    <a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a>
+    <a href="https://github.com/iroko-framework/iroko-framework" class="ext">GitHub</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+  <div class="footer-legal">
+    Iroko Historical Society<br>
+    An elaboration of Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc., a registered 501(c)(3)<br>
+    Foundation Day is observed annually on July 14. &nbsp;&middot;&nbsp;
+    <a href="#" class="js-email">[protected]</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var u='senior.curator',d='irokosociety.org';
+  document.querySelectorAll('.js-email').forEach(function(el){
+    el.href='mailto:'+u+'@'+d;
+    el.textContent=u+'@'+d;
+  });
+})();
+</script>
+<script src="../assets/nav.js"></script>
+</body>
+</html>
