@@ -53,6 +53,37 @@
       .nav-dropdown:hover .dropdown-menu{display:none}
       .nav-dropdown.open .dropdown-menu{display:block}
     }
+  
+    /* ── Tab bar ── */
+    .tab-bar{display:flex;gap:.25rem;border-bottom:2px solid var(--cream-dark);margin-bottom:2rem}
+    .tab-btn{font-family:var(--font-sans);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.6rem 1.1rem;background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;color:var(--text-muted);cursor:pointer;transition:color .15s,border-color .15s}
+    .tab-btn:hover{color:var(--green-deep)}
+    .tab-btn.active{color:var(--green-deep);border-bottom-color:var(--green-deep)}
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
+    /* ── Entry ── */
+    .entry{padding:2rem 0;border-bottom:1px solid var(--cream-dark)}
+    .entry:last-child{border-bottom:none}
+    .entry-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-bottom:.75rem}
+    .entry-status{font-family:var(--font-sans);font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.2em .65em;border-radius:2px}
+    .status-review{background:rgba(139,105,20,.12);color:var(--gold)}
+    .status-wp{background:rgba(30,74,39,.1);color:var(--green-deep)}
+    .status-pub{background:rgba(30,74,39,.18);color:var(--green-deep)}
+    .status-present{background:rgba(74,99,80,.12);color:var(--text-muted)}
+    .entry-venue{font-family:var(--font-sans);font-size:.8rem;color:var(--text-muted);font-style:italic}
+    .entry h3{font-family:var(--font-display);font-size:1.05rem;color:var(--green-deep);margin-bottom:.6rem;line-height:1.35}
+    .entry-doi{font-family:var(--font-sans);font-size:.82rem;color:var(--text-muted);margin-bottom:.6rem}
+    .entry-doi a{color:var(--green-mid)}
+    /* ── Concept tags ── */
+    .concept-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0 .75rem}
+    .concept-tag{font-family:var(--font-sans);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:.2em .6em;background:var(--cream-light);border:1px solid var(--cream-dark);color:var(--text-muted);border-radius:2px}
+    /* ── Abstract toggle ── */
+    .abstract-toggle{font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid var(--cream-dark);color:var(--text-muted);padding:.3rem .8rem;cursor:pointer;border-radius:2px;transition:background .15s,color .15s}
+    .abstract-toggle:hover,.abstract-toggle.open{background:var(--green-deep);color:var(--cream);border-color:var(--green-deep)}
+    .abstract-body{display:none;margin-top:1rem;padding:1rem 1.25rem;background:var(--cream-light);border-left:3px solid var(--green-border)}
+    .abstract-body.open{display:block}
+    .abstract-body p{font-family:var(--font-sans);font-size:.88rem;color:var(--text-muted);line-height:1.85;margin-bottom:.75rem}
+    .abstract-body p:last-child{margin-bottom:0}
   </style>
   <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
   <!-- Google Analytics -->
@@ -294,8 +325,18 @@
     });
   });
 
-  // Hash-b
-
+  // Hash-based tab navigation
+  function activateTabFromHash() {
+    const hash = window.location.hash.replace('#', '');
+    const validTabs = ['peer-reviewed', 'working-papers', 'presentations'];
+    if (validTabs.includes(hash)) {
+      const btn = document.querySelector('[data-tab="' + hash + '"]');
+      if (btn) btn.click();
+    }
+  }
+  activateTabFromHash();
+  window.addEventListener('hashchange', activateTabFromHash);
+</script>
 <footer>
   <div class="footer-inner">
     <div>
