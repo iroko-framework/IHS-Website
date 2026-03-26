@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Selected curriculum vitae of Délé Fágbèmí Ọ̀., founder and Executive Director of the Iroko Historical Society.">
+  <title>Curriculum Vitae — Délé Fágbèmí Ọ̀. — Iroko Historical Society</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/IHS-Logo.svg">
+  <style>
+    /* top bar */
+    .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
+    /* nav dropdowns */
+    nav ul{position:relative}
+    .nav-dropdown{position:relative}
+    .nav-dropdown>a::after{content:' ▾';font-size:.6rem;opacity:.7}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--green-deep);border:1px solid var(--green-border);border-top:2px solid var(--green-light);min-width:200px;list-style:none;margin:0;padding:.4rem 0;z-index:200;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .nav-dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu li a{display:block;padding:.5rem 1.1rem;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(237,234,208,.7);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s;height:auto;line-height:1.4}
+    .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(255,255,255,.1);color:var(--cream)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem;margin-left:auto}
+    /* page */
+    .page-content{max-width:860px;margin:0 auto;padding:3rem 2rem 4rem}
+    .page-content h1{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--green-deep);margin-bottom:.35rem}
+    .page-content h2{font-family:var(--font-display);font-size:1.15rem;color:var(--green-deep);margin:2.25rem 0 .5rem;padding-bottom:.35rem;border-bottom:1px solid var(--cream-dark)}
+    .page-content h3{font-family:var(--font-sans);font-size:.95rem;font-weight:600;color:var(--green-mid);margin:1.25rem 0 .2rem}
+    .page-content p{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:.75rem}
+    .page-content ul{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.8;margin:0 0 .75rem 1.5rem}
+    .page-content li{margin-bottom:.25rem}
+    .page-content a{color:var(--green-mid)}
+    .page-content a:hover{color:var(--green-deep)}
+    .page-content hr.section-divider{border:none;border-top:1px solid var(--cream-dark);margin:2rem 0}
+    .section-lead{font-family:var(--font-sans);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.25rem}
+    a.ext::after{content:' ↗';font-size:.75em;opacity:.6}
+    /* CV-specific */
+    .cv-name{font-family:var(--font-display);font-size:clamp(1.7rem,3.5vw,2.4rem);color:var(--green-deep);margin-bottom:.2rem;line-height:1.15}
+    .cv-title{font-family:var(--font-sans);font-size:.88rem;color:var(--text-muted);letter-spacing:.04em;margin-bottom:.15rem}
+    .cv-contact{font-family:var(--font-sans);font-size:.82rem;color:var(--text-muted);margin-bottom:0}
+    .cv-contact a{color:var(--green-mid)}
+    .cv-header{padding-bottom:1.5rem;border-bottom:2px solid var(--green-deep);margin-bottom:.5rem}
+    .cv-note{font-family:var(--font-sans);font-size:.78rem;color:var(--text-muted);font-style:italic;margin-bottom:2rem}
+    .cv-note a{color:var(--green-mid)}
+    /* entry row: year + content */
+    .cv-row{display:grid;grid-template-columns:5rem 1fr;gap:.5rem 1.25rem;margin-bottom:.9rem;align-items:start}
+    .cv-year{font-family:var(--font-sans);font-size:.8rem;color:var(--text-muted);padding-top:.15rem;white-space:nowrap}
+    .cv-item{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.7}
+    .cv-item strong{color:var(--green-deep);font-weight:600}
+    .cv-item em{color:var(--text-muted)}
+    .cv-item .cv-venue{font-size:.82rem;display:block;margin-top:.1rem}
+    /* initiatory credential badge row */
+    .cred-row{display:grid;grid-template-columns:5rem 1fr;gap:.5rem 1.25rem;margin-bottom:.75rem;align-items:start}
+    .cred-year{font-family:var(--font-sans);font-size:.8rem;color:var(--text-muted);padding-top:.15rem}
+    .cred-item{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.65}
+    .cred-item strong{color:var(--green-deep);font-weight:600}
+    /* download bar */
+    .cv-download-bar{background:var(--cream-light);border:1px solid var(--cream-dark);border-radius:3px;padding:.75rem 1.25rem;margin-bottom:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+    .cv-download-bar p{font-family:var(--font-sans);font-size:.82rem;color:var(--text-muted);margin:0}
+    .cv-download-btn{font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--green-deep);color:var(--cream);border:none;padding:.45rem 1.1rem;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block}
+    .cv-download-btn:hover{background:var(--green-mid);color:var(--cream)}
+    /* footer */
+    .site-footer{background:var(--green-deep);color:rgba(237,234,208,.7);padding:2rem 1.5rem;border-top:3px solid var(--green-border)}
+    @media(max-width:768px){
+      .nav-toggle{display:block}
+      nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--green-deep);border-top:1px solid var(--green-border);flex-direction:column;padding:.5rem 0;z-index:199}
+      nav ul.open{display:flex}
+      nav ul li a{padding:.65rem 1.5rem;width:100%;display:block}
+      .dropdown-menu{position:static;box-shadow:none;border:none;border-left:3px solid var(--green-light);background:rgba(0,0,0,.15);margin-left:1rem}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
+      .cv-row,.cred-row{grid-template-columns:4rem 1fr}
+      .cv-download-bar{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+  <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZP3KZWLS4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SZP3KZWLS4');
+  </script>
+</head>
+<body>
+<div class="top-bar">Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials</div>
+<nav>
+  <a href="index.html" class="brand">
+    <img src="assets/IHS-Logo.jpg" alt="IHS Logo">
+    <span>Iroko Historical Society</span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="about.html">The Society</a>
+      <ul class="dropdown-menu">
+        <li><a href="about.html">Our Vision</a></li>
+        <li><a href="founder.html">The Founder</a></li>
+        <li><a href="our-stance.html">Our Stance</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="collections.html">The Archive</a>
+      <ul class="dropdown-menu">
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="access-policy.html">Access &amp; Use Policy</a></li>
+        <li><a href="mission.html">Mission &amp; Stewardship</a></li>
+        <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown-menu">
+        <li><a href="research.html#peer-reviewed">Publications</a></li>
+        <li><a href="research.html#working-papers">Working Papers</a></li>
+        <li><a href="research.html#presentations">Presentations</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="iroko-spirituality.html">Iroko</a>
+      <ul class="dropdown-menu">
+        <li><a href="iroko-spirituality.html">Iroko Spirituality</a></li>
+        <li><a href="capturing-iroko.html">Visual Ethnography</a></li>
+      </ul>
+    </li>
+    <li><a href="foundation-day/2026.html">Foundation Day</a></li>
+  </ul>
+</nav>
+
+<div class="page-content">
+
+  <div class="cv-header">
+    <p class="section-lead" style="margin-bottom:.4rem;">Curriculum Vitae &middot; Selected</p>
+    <h1 class="cv-name">Délé Fágbèmí Ọ̀.</h1>
+    <p class="cv-title">Founder &amp; Executive Director, Iroko Historical Society &middot; Babalawo &middot; Olofista &middot; Olu-Iroko</p>
+    <p class="cv-contact">
+      <a href="https://irokosociety.org">irokosociety.org</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://ontology.irokosociety.org" class="ext">ontology.irokosociety.org</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:senior.curator@irokosociety.org" class="js-email">[protected]</a>
+    </p>
+  </div>
+
+  <p class="cv-note">
+    This is a selected scholarly and practitioner CV. It reflects academic credentials,
+    initiatory standing, publications, presentations, fieldwork, and institutional roles
+    relevant to the work of the Iroko Historical Society.
+    <!-- Uncomment when PDF is ready:
+    A full CV is available upon request.
+    <a href="assets/Fagbemi-CV-selected.pdf" class="ext">Download PDF version</a>
+    -->
+  </p>
+
+  <!-- ── EDUCATION ─────────────────────────────────────────────────────────── -->
+  <h2>Education</h2>
+
+  <div class="cv-row">
+    <span class="cv-year">2024 &ndash;<br>2028</span>
+    <div class="cv-item">
+      <strong>Master of Library &amp; Information Science</strong>
+      <span class="cv-venue">University of Alabama &middot; Data Science &amp; Analytics concentration &middot; Expected 2028</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2015</span>
+    <div class="cv-item">
+      <strong>Master of Arts, Anthropology</strong>
+      <span class="cv-venue">Tulane University</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2001</span>
+    <div class="cv-item">
+      <strong>Juris Doctor</strong>
+      <span class="cv-venue">Case Western Reserve University School of Law</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2001</span>
+    <div class="cv-item">
+      <strong>Master of Business Administration</strong>
+      <span class="cv-venue">Case Western Reserve University Weatherhead School of Management</span>
+    </div>
+  </div>
+
+  <!-- ── INITIATORY CREDENTIALS ─────────────────────────────────────────────── -->
+  <h2>Initiatory Credentials</h2>
+  <p style="font-size:.85rem;margin-bottom:1.25rem;">Credentials in the Lucumí tradition,
+  earned through formal initiatory processes in the United States, Cuba, and Brazil.
+  More than two decades of active practice, fieldwork, and community stewardship.</p>
+
+  <div class="cred-row">
+    <span class="cred-year">2011</span>
+    <div class="cred-item">
+      <strong>Olu-Iroko</strong> &mdash; Custodian of Iroko in the Lucumí tradition.
+      The initiatory foundation of the Iroko Historical Society's name and mission.
+    </div>
+  </div>
+
+  <div class="cred-row">
+    <span class="cred-year">2009</span>
+    <div class="cred-item">
+      <strong>Olofista</strong> &mdash; Initiated holder of Olófin/Olódumare in the
+      Lucumí Babalawo lineage. Havana, Cuba.
+    </div>
+  </div>
+
+  <div class="cred-row">
+    <span class="cred-year">2002</span>
+    <div class="cred-item">
+      <strong>Babalawo</strong> &mdash; Initiated priest of Ifá divination within the
+      Hermandad de Babalawo, Havana, Cuba. Lineage traceable to the foundational
+      ikin of Adechina.
+    </div>
+  </div>
+
+  <div class="cred-row">
+    <span class="cred-year">1995</span>
+    <div class="cred-item">
+      <strong>Olo-orisha (Obatalá)</strong> &mdash; Initial consecration into
+      Lucumí/Yoruba-derived sacred practice.
+    </div>
+  </div>
+
+  <!-- ── INSTITUTIONAL ROLES ───────────────────────────────────────────────── -->
+  <h2>Institutional Roles</h2>
+
+  <div class="cv-row">
+    <span class="cv-year">2024 &ndash;</span>
+    <div class="cv-item">
+      <strong>Founder &amp; Executive Director</strong>
+      <span class="cv-venue">Iroko Historical Society &middot; <a href="https://irokosociety.org" class="ext">irokosociety.org</a></span>
+      Postcustodial digital archive for Afro-Atlantic sacred materials. Directing
+      collections development, ethical access governance, and the Iroko Framework
+      semantic vocabulary infrastructure.
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2024 &ndash;</span>
+    <div class="cv-item">
+      <strong>Executive Director</strong>
+      <span class="cv-venue">Ilé Añá Olofí, Inc. &middot; 501(c)(3) &middot; New Orleans, Louisiana</span>
+      Parent nonprofit organization of the Iroko Historical Society.
+    </div>
+  </div>
+
+  <!-- ── PUBLICATIONS ───────────────────────────────────────────────────────── -->
+  <h2>Publications</h2>
+
+  <h3>Forthcoming Submission</h3>
+
+  <div class="cv-row">
+    <span class="cv-year">2026</span>
+    <div class="cv-item">
+      <strong>Havana to the Sabine: People Laundering, Slave Paper, and Documentary
+      Sovereignty in the Post-1808 Gulf</strong>
+      <span class="cv-venue"><em>The American Archivist</em> &middot; Target: vol. 90.1
+      (June&ndash;July 2026)</span>
+      &#9733; University of Alabama Outstanding Student Paper Award 2026
+      (awarded under the title &#x201C;Havana to the Sabine: People Laundering and
+      the Archival Violence of the Gulf Slave Trade&#x201D;)
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2026</span>
+    <div class="cv-item">
+      <strong>Sealed from the Inside: Archival Latency and the Governance of Sacred
+      Knowledge in Abaku&aacute;, Bizango, and &Ograve;r&ograve;</strong>
+      <span class="cv-venue"><em>Archivaria</em> &middot; Target submission: September 2026</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2027</span>
+    <div class="cv-item">
+      <strong>Built Without Him: Gender, Institutional Architecture, and the
+      Disappearance of Male Initiatory Authority in Brazilian Candombl&eacute;</strong>
+      <span class="cv-venue">Target submission: February&ndash;March 2027</span>
+    </div>
+  </div>
+
+  <h3>Published</h3>
+
+  <div class="cv-row">
+    <span class="cv-year">2026</span>
+    <div class="cv-item">
+      <strong>The Iroko Framework: A Semantic Vocabulary System for Afro-Atlantic
+      Sacred Knowledge Governance</strong>
+      <span class="cv-venue">Zenodo &middot; DOI:
+      <a href="https://doi.org/10.5281/zenodo.18826673" class="ext">10.5281/zenodo.18826673</a></span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2012</span>
+    <div class="cv-item">
+      Ethnographic photography published in: Luis, William. &#x201C;Palo and Paleros:
+      An Interview with Oba Frank Martin.&#x201D;
+      <em>Afro-Hispanic Review</em> 31, no. 1 (2012): 159&ndash;68.
+    </div>
+  </div>
+
+  <h3>Proceedings (Forthcoming)</h3>
+
+  <div class="cv-row">
+    <span class="cv-year">2026</span>
+    <div class="cv-item">
+      <strong>Entre el esp&iacute;ritu y la custodia: Caminos &eacute;ticos para la
+      digitalizaci&oacute;n de archivos sagrados afrocaribe&ntilde;os</strong>
+      <span class="cv-venue">In <em>Proceedings</em>, IV International Meeting on the
+      Preservation of Documentary Heritage &middot; Biblioteca Nacional de Cuba
+      Jos&eacute; Mart&iacute; &middot; Havana, Cuba &middot; September 2025</span>
+    </div>
+  </div>
+
+  <!-- ── WORKING PAPERS ─────────────────────────────────────────────────────── -->
+  <h2>Working Papers &amp; Papers in Development</h2>
+
+  <div class="cv-row">
+    <span class="cv-year">2025 &ndash;</span>
+    <div class="cv-item">
+      <strong>Ritual Archives: Memory, Secrecy, and Sacred Infrastructure in
+      Afro-Atlantic Traditions</strong>
+      <span class="cv-venue">Submitted: Society for the Anthropology of Religion
+      Graduate Student Paper Prize 2025 &middot; Revising for journal submission</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2025 &ndash;</span>
+    <div class="cv-item">
+      <strong>Sovereignty without the State: Ritual Coordination and the Afterlife
+      of Game Theory</strong>
+      <span class="cv-venue">Manuscript in early development</span>
+    </div>
+  </div>
+
+  <!-- ── PRESENTATIONS ──────────────────────────────────────────────────────── -->
+  <h2>Presentations</h2>
+
+  <div class="cv-row">
+    <span class="cv-year">2026</span>
+    <div class="cv-item">
+      <strong>Sealed from the Inside: Rupture, Latency, and Sacred Survival in
+      Abaku&aacute;, Bizango, and &Ograve;r&ograve;</strong>
+      <span class="cv-venue">African Studies Association 69th Annual Meeting &middot;
+      New Orleans, Louisiana &middot; December 2026 &middot; <em>Accepted</em></span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2026</span>
+    <div class="cv-item">
+      <strong>Havana to the Sabine</strong> &mdash; Foundation Day Public Lecture
+      <span class="cv-venue">Iroko Historical Society Foundation Day &middot;
+      Virtual &middot; July 18, 2026</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2025</span>
+    <div class="cv-item">
+      <strong>Entre el esp&iacute;ritu y la custodia: Caminos &eacute;ticos para la
+      digitalizaci&oacute;n de archivos sagrados afrocaribe&ntilde;os</strong>
+      <span class="cv-venue">IV International Meeting on the Preservation of
+      Documentary Heritage &middot; Biblioteca Nacional de Cuba Jos&eacute; Mart&iacute;
+      &middot; Havana, Cuba &middot; September 2025 &middot; <em>Invited</em></span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2025</span>
+    <div class="cv-item">
+      <strong>Spirits in the Archive: Reclaiming Sacred Space and Ancestral Memory
+      in Africana Religions</strong>
+      <span class="cv-venue">KOSANBA 2025: Africana Religious Activism, Resistance
+      &amp; Rejuvenation Conference &middot; August 2025</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2025</span>
+    <div class="cv-item">
+      <strong>Digitizing the Sacred: A Case Study of the Library of Babala&#769;wo
+      Irete Obara</strong>
+      <span class="cv-venue">Society of American Archivists (SAA) Research Forum
+      &middot; Lightning Talk &middot; July 2025</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2016</span>
+    <div class="cv-item">
+      <strong>Can Orunmila Talk via Skype?: Babala&#769;wo and Remote Divination
+      in the 21st Century</strong>
+      <span class="cv-venue">Fourth Annual ADRSA Conference &middot; Harvard University
+      &middot; April 2016</span>
+    </div>
+  </div>
+
+  <!-- ── GRANTS & AWARDS ────────────────────────────────────────────────────── -->
+  <h2>Grants &amp; Awards</h2>
+
+  <div class="cv-row">
+    <span class="cv-year">2026</span>
+    <div class="cv-item">
+      <strong>Outstanding Student Paper Award</strong>
+      <span class="cv-venue">University of Alabama &middot; Awarded for &#x201C;Havana
+      to the Sabine: People Laundering and the Archival Violence of the Gulf Slave
+      Trade&#x201D;</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2025</span>
+    <div class="cv-item">
+      <strong>Dr. E. J. Josey and Ms. Effie Lee Morris Scholarship</strong>
+      <span class="cv-venue">Black Caucus of the American Library Association
+      (BCALA) &middot; 2025</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2015</span>
+    <div class="cv-item">
+      <strong>Tinker Summer Field Research Grant</strong>
+      <span class="cv-venue">Tulane University &middot; Funded ethnobotanical
+      fieldwork in Puerto Rico; thirteen specimens contributed to the Tulane
+      University Herbarium</span>
+    </div>
+  </div>
+
+  <!-- ── FIELDWORK ──────────────────────────────────────────────────────────── -->
+  <h2>Fieldwork</h2>
+
+  <div class="cv-row">
+    <span class="cv-year">2002 &ndash;</span>
+    <div class="cv-item">
+      <strong>Cuba (Havana)</strong>
+      <span class="cv-venue">Long-term ethnographic fieldwork collaborating with
+      Afro-Cuban religious communities and custodians of sacred materials. Primary
+      research site: Library of Babala&#769;wo Irete Obara. IRB-approved through
+      the University of Alabama for ongoing MLIS thesis research.</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2006</span>
+    <div class="cv-item">
+      <strong>Brazil (Bahia, Salvador)</strong>
+      <span class="cv-venue">Ethnographic research on Afro-Brazilian religious
+      practice and institutional transmission in Candomblé communities.</span>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2015</span>
+    <div class="cv-item">
+      <strong>Puerto Rico</strong>
+      <span class="cv-venue">Ethnobotanical fieldwork funded by Tinker Summer Field
+      Research Grant. Documentation of ritual plants used in Lucumí practice.</span>
+    </div>
+  </div>
+
+  <!-- ── DIGITAL SCHOLARSHIP ────────────────────────────────────────────────── -->
+  <h2>Digital Scholarship &amp; Infrastructure</h2>
+
+  <div class="cv-row">
+    <span class="cv-year">2024 &ndash;</span>
+    <div class="cv-item">
+      <strong>Iroko Framework</strong>
+      <span class="cv-venue"><a href="https://ontology.irokosociety.org" class="ext">ontology.irokosociety.org</a></span>
+      Semantic vocabulary system for the ethical description and governance of
+      Afro-Atlantic sacred knowledge. Sixteen modules, 93 classes, 386 properties,
+      589 concepts. Published CC0. DOI:
+      <a href="https://doi.org/10.5281/zenodo.18826673" class="ext">10.5281/zenodo.18826673</a>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-year">2024 &ndash;</span>
+    <div class="cv-item">
+      <strong>Iroko Historical Society Digital Archive</strong>
+      <span class="cv-venue"><a href="https://irokosociety.org" class="ext">irokosociety.org</a></span>
+      Postcustodial digital archive for Afro-Atlantic sacred materials, ritual
+      protocols, and heritage documentation.
+    </div>
+  </div>
+
+  <hr class="section-divider">
+  <p style="font-size:.8rem;font-style:italic;color:var(--text-muted);">
+    Selected CV &middot; Current as of March 2026 &middot;
+    <a href="founder.html">Return to Founder page</a>
+  </p>
+
+</div><!-- end .page-content -->
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Iroko Historical Society</h4>
+      <p>A postcustodial cultural heritage complex comprising a digital archive,
+      research library, and living museum focused on Afro-Atlantic sacred knowledge
+      systems.</p>
+      <p style="margin-top:.75rem">Tuskegee, Alabama &middot; Est. 2024</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <a href="about.html">About the Society</a>
+      <a href="collections.html">Collections</a>
+      <a href="access-policy.html">Access Policy</a>
+      <a href="mission.html">Mission &amp; Stewardship</a>
+      <a href="research.html">Research &amp; Scholarship</a>
+      <a href="capturing-iroko.html">Visual Ethnography</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Framework</h4>
+      <a href="https://ontology.irokosociety.org/" target="_blank">Ontology ↗</a>
+      <a href="https://ontology.irokosociety.org/whitepaper" target="_blank">White Paper ↗</a>
+      <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank">Zenodo DOI ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024&ndash;2026 Iroko Historical Society &middot; Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc. All rights reserved.</p>
+    <p>Vocabulary published under CC0 1.0 Universal &middot; <a href="#" class="js-email">[protected]</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var u='senior.curator',d='irokosociety.org';
+  var a=document.querySelectorAll('.js-email');
+  a.forEach(function(el){
+    el.href='mailto:'+u+'@'+d;
+    el.textContent=u+'@'+d;
+  });
+})();
+</script>
+<script src="assets/nav.js"></script>
+</body>
+</html>
