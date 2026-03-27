@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write to Us — Iroko Historical Society</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZP3KZWLS4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SZP3KZWLS4');
+  </script>
+
+  <style>
+    /* ── top bar ─────────────────────────────────────────── */
+    .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
+
+    /* ── nav dropdowns ───────────────────────────────────── */
+    nav ul{position:relative}
+    .nav-dropdown{position:relative}
+    .nav-dropdown>a::after{content:' ▾';font-size:.6rem;opacity:.7}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--green-deep);border:1px solid var(--green-border);border-top:2px solid var(--green-light);min-width:200px;list-style:none;margin:0;padding:.4rem 0;z-index:200;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .nav-dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu li a{display:block;padding:.5rem 1.1rem;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(237,234,208,.7);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s;height:auto;line-height:1.4}
+    .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(255,255,255,.1);color:var(--cream)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem;margin-left:auto}
+
+    /* ── form layout ─────────────────────────────────────── */
+    .form-wrap{max-width:720px;margin:0 auto;padding:3rem 2rem 5rem}
+
+    .form-wrap .page-eyebrow{
+      font-family:var(--font-sans);
+      font-size:.72rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--text-muted);
+      margin-bottom:.6rem;
+    }
+    .form-wrap h1{
+      font-family:var(--font-display);
+      font-size:clamp(1.7rem,3.5vw,2.4rem);
+      color:var(--green-deep);
+      margin-bottom:.5rem;
+      line-height:1.2;
+    }
+    .form-wrap .form-intro{
+      font-family:var(--font-sans);
+      font-size:.9rem;
+      color:var(--text-muted);
+      line-height:1.8;
+      max-width:580px;
+      margin-bottom:2.5rem;
+    }
+
+    /* ── form fields ─────────────────────────────────────── */
+    .contact-form{display:flex;flex-direction:column;gap:1.4rem}
+
+    .field-group{display:flex;flex-direction:column;gap:.35rem}
+    .field-group label{
+      font-family:var(--font-sans);
+      font-size:.72rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--green-deep);
+      font-weight:600;
+    }
+    .field-group .field-hint{
+      font-family:var(--font-sans);
+      font-size:.75rem;
+      color:var(--text-muted);
+      margin-top:-.2rem;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form select,
+    .contact-form textarea{
+      font-family:var(--font-sans);
+      font-size:.88rem;
+      color:var(--green-deep);
+      background:#fff;
+      border:1.5px solid var(--cream-dark, #d4cfb4);
+      border-radius:3px;
+      padding:.65rem .85rem;
+      width:100%;
+      box-sizing:border-box;
+      transition:border-color .15s, box-shadow .15s;
+      appearance:none;
+      -webkit-appearance:none;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus{
+      outline:none;
+      border-color:var(--green-mid);
+      box-shadow:0 0 0 3px rgba(var(--green-mid-rgb, 80,110,60),.12);
+    }
+    .contact-form select{
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23556b3a' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right .85rem center;
+      padding-right:2.2rem;
+      cursor:pointer;
+    }
+    .contact-form textarea{
+      resize:vertical;
+      min-height:160px;
+      line-height:1.7;
+    }
+
+    /* two-col row for name + email */
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+    @media(max-width:560px){.field-row{grid-template-columns:1fr}}
+
+    /* ── required star ───────────────────────────────────── */
+    .req{color:var(--green-mid);margin-left:.15rem}
+
+    /* ── submit button ───────────────────────────────────── */
+    .form-submit{
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      margin-top:.5rem;
+    }
+    .btn-send{
+      font-family:var(--font-sans);
+      font-size:.78rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      font-weight:600;
+      background:var(--green-deep);
+      color:var(--cream);
+      border:none;
+      border-radius:3px;
+      padding:.75rem 2rem;
+      cursor:pointer;
+      transition:background .18s, transform .12s;
+    }
+    .btn-send:hover{background:var(--green-mid);transform:translateY(-1px)}
+    .btn-send:active{transform:translateY(0)}
+
+    /* ── success / error states ──────────────────────────── */
+    .form-status{
+      display:none;
+      font-family:var(--font-sans);
+      font-size:.88rem;
+      line-height:1.7;
+      padding:.9rem 1.1rem;
+      border-radius:3px;
+      margin-top:1rem;
+    }
+    .form-status.success{
+      display:block;
+      background:#eef4e8;
+      border-left:3px solid var(--green-mid);
+      color:var(--green-deep);
+    }
+    .form-status.error{
+      display:block;
+      background:#fdf4f0;
+      border-left:3px solid #b85c38;
+      color:#7a3520;
+    }
+
+    /* ── divider + direct contact ────────────────────────── */
+    .alt-contact{
+      margin-top:3rem;
+      padding-top:2rem;
+      border-top:1px solid var(--cream-dark, #d4cfb4);
+    }
+    .alt-contact p{
+      font-family:var(--font-sans);
+      font-size:.82rem;
+      color:var(--text-muted);
+      line-height:1.75;
+    }
+    .alt-contact a{color:var(--green-mid)}
+    .alt-contact a:hover{color:var(--green-deep)}
+
+    /* ── footer ──────────────────────────────────────────── */
+    .site-footer{background:var(--green-deep);color:rgba(237,234,208,.7);padding:2rem 1.5rem;border-top:3px solid var(--green-border)}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:center;margin-bottom:1.25rem}
+    .footer-links a{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(237,234,208,.55);text-decoration:none}
+    .footer-links a:hover{color:var(--cream)}
+    .footer-legal{text-align:center;font-family:var(--font-sans);font-size:.72rem;color:rgba(237,234,208,.4);line-height:1.8}
+    .footer-legal a{color:rgba(237,234,208,.5)}
+    .footer-legal a:hover{color:var(--cream)}
+    a.ext::after{content:' ↗';font-size:.75em;opacity:.6}
+
+    @media(max-width:768px){
+      .nav-toggle{display:block}
+      nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--green-deep);border-top:1px solid var(--green-border);flex-direction:column;padding:.5rem 0;z-index:199}
+      nav ul.open{display:flex}
+      nav ul li a{padding:.65rem 1.5rem;width:100%;display:block}
+      .dropdown-menu{position:static;box-shadow:none;border:none;border-left:3px solid var(--green-light);background:rgba(0,0,0,.15);margin-left:1rem}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials</div>
+
+<nav>
+  <a href="index.html" class="brand">
+    <img src="assets/IHS-Logo.jpg" alt="IHS Logo">
+    <span>Iroko Historical Society</span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="about.html" class="active">The Society</a>
+      <ul class="dropdown-menu">
+        <li><a href="about.html">Our Vision</a></li>
+        <li><a href="founder.html">The Founder</a></li>
+        <li><a href="our-stance.html">Our Stance</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="collections.html">The Archive</a>
+      <ul class="dropdown-menu">
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="access-policy.html">Access &amp; Use Policy</a></li>
+        <li><a href="mission.html">Mission &amp; Stewardship</a></li>
+        <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown-menu">
+        <li><a href="research.html#peer-reviewed">Publications</a></li>
+        <li><a href="research.html#working-papers">Working Papers</a></li>
+        <li><a href="research.html#presentations">Presentations</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="iroko-spirituality.html">Iroko</a>
+      <ul class="dropdown-menu">
+        <li><a href="iroko-spirituality.html">Iroko Spirituality</a></li>
+        <li><a href="capturing-iroko.html">Visual Ethnography</a></li>
+      </ul>
+    </li>
+    <li><a href="foundation-day/2026.html">Foundation Day</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE CONTENT ───────────────────────────────────────── -->
+<div class="form-wrap">
+
+  <p class="page-eyebrow">The Society</p>
+  <h1>Write to Us</h1>
+  <p class="form-intro">
+    Use this form for research inquiries, access requests, partnership proposals, or general correspondence. All messages are received by the Society's senior curator and responded to personally.
+  </p>
+
+  <!-- ─────────────────────────────────────────────────────
+       ACTION: replace YOUR_FORMSPREE_ID below with the
+       endpoint from your Formspree dashboard, e.g.
+       https://formspree.io/f/xpwzgkla
+  ──────────────────────────────────────────────────────── -->
+  <form
+    class="contact-form"
+    action="https://formspree.io/f/xeepoykd"
+    method="POST"
+    id="contact-form"
+  >
+
+    <div class="field-row">
+      <div class="field-group">
+        <label for="name">Your Name <span class="req">*</span></label>
+        <input type="text" id="name" name="name" required autocomplete="name" placeholder="Full name">
+      </div>
+      <div class="field-group">
+        <label for="email">Email Address <span class="req">*</span></label>
+        <input type="email" id="email" name="_replyto" required autocomplete="email" placeholder="you@example.com">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="affiliation">Institutional Affiliation or Community Standing</label>
+      <span class="field-hint">Required for research access requests.</span>
+      <input type="text" id="affiliation" name="affiliation" placeholder="University, organization, or initiatory standing">
+    </div>
+
+    <div class="field-group">
+      <label for="subject">Nature of Inquiry <span class="req">*</span></label>
+      <select id="subject" name="subject" required>
+        <option value="" disabled selected>Select one</option>
+        <option value="General Inquiry">General Inquiry</option>
+        <option value="Research Access Request">Research Access Request</option>
+        <option value="Iroko Framework / Technical">Iroko Framework / Technical</option>
+        <option value="Institutional Partnership">Institutional Partnership</option>
+        <option value="Donation or Support">Donation or Support</option>
+        <option value="Foundation Day">Foundation Day</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="message">Message <span class="req">*</span></label>
+      <span class="field-hint">For access requests, please describe the materials sought, your research purpose, and intended use or publication plans.</span>
+      <textarea id="message" name="message" required placeholder="Your message"></textarea>
+    </div>
+
+    <!-- Honeypot anti-spam field — hidden from real users -->
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+    <!-- Redirect after successful submission -->
+    <input type="hidden" name="_next" value="https://irokosociety.org/contact-form.html?sent=1">
+    <input type="hidden" name="_subject" value="IHS Contact Form Submission">
+
+    <div class="form-submit">
+      <button type="submit" class="btn-send">Send Message</button>
+    </div>
+
+  </form>
+
+  <div class="form-status success" id="status-success">
+    Your message has been received. We respond to all correspondence personally and will be in touch.
+  </div>
+  <div class="form-status error" id="status-error">
+    Something went wrong. Please try again, or write directly to <a class="js-email" href="#">[email]</a>.
+  </div>
+
+  <div class="alt-contact">
+    <p>Prefer to write directly? Reach us at <a class="js-email" href="#">[email]</a>.<br>
+    For access requests, please review the <a href="access-policy.html">Access &amp; Use Policy</a> before writing.</p>
+  </div>
+
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="collections.html">Collections</a>
+    <a href="access-policy.html">Access Policy</a>
+    <a href="research.html">Research</a>
+    <a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-legal">
+    Iroko Historical Society &middot; An elaboration of Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc., a registered 501(c)(3)<br>
+    &copy; 2024&ndash;2026 Iroko Historical Society &middot; Vocabulary published under CC0 1.0 Universal<br>
+    Contact: <a class="js-email" href="#"></a>
+  </div>
+</footer>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Iroko Historical Society</h4>
+      <p>A postcustodial cultural heritage complex comprising a digital archive, research library, and living museum focused on Afro-Atlantic sacred knowledge systems.</p>
+      <p style="margin-top:.75rem">New Orleans, Louisiana &middot; Est. 2024</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <a href="about.html">About the Society</a>
+      <a href="collections.html">Collections</a>
+      <a href="access-policy.html">Access Policy</a>
+      <a href="mission.html">Mission &amp; Stewardship</a>
+      <a href="research.html">Research &amp; Scholarship</a>
+      <a href="capturing-iroko.html">Visual Ethnography</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Framework</h4>
+      <a href="https://ontology.irokosociety.org/" target="_blank">Ontology ↗</a>
+      <a href="https://ontology.irokosociety.org/whitepaper" target="_blank">White Paper ↗</a>
+      <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank">Zenodo DOI ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024&ndash;2026 Iroko Historical Society &middot; Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc. All rights reserved.</p>
+    <p>Vocabulary published under CC0 1.0 Universal &middot; <a class="js-email" href="#">[protected]</a></p>
+  </div>
+</footer>
+
+<script>
+/* ── Email construction ─────────────────────────────────── */
+(function(){
+  var u='senior.curator', d='irokosociety.org';
+  document.querySelectorAll('.js-email').forEach(function(el){
+    el.href='mailto:'+u+'@'+d;
+    el.textContent=u+'@'+d;
+  });
+})();
+
+/* ── Formspree AJAX submission ──────────────────────────── */
+(function(){
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+
+  // Show success message if redirected back with ?sent=1
+  if (window.location.search.indexOf('sent=1') !== -1) {
+    document.getElementById('status-success').style.display = 'block';
+    form.style.display = 'none';
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('.btn-send');
+    btn.textContent = 'Sending\u2026';
+    btn.disabled = true;
+
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res){
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('status-success').style.display = 'block';
+      } else {
+        res.json().then(function(data){
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          document.getElementById('status-error').style.display = 'block';
+        });
+      }
+    })
+    .catch(function(){
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+      document.getElementById('status-error').style.display = 'block';
+    });
+  });
+})();
+</script>
+
+<script src="assets/nav.js"></script>
+</body>
+</html>
