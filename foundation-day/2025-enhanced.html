@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Foundation Day 2025 — The inaugural observance of the Iroko Historical Society. Year One archive.">
+  <title>Foundation Day 2025 — Iroko Historical Society</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/IHS-Logo.svg">
+  <style>
+    .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
+    nav ul{position:relative}
+    .nav-dropdown{position:relative}
+    .nav-dropdown>a::after{content:' ▾';font-size:.6rem;opacity:.7}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--green-deep);border:1px solid var(--green-border);border-top:2px solid var(--green-light);min-width:200px;list-style:none;margin:0;padding:.4rem 0;z-index:200;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .nav-dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu li a{display:block;padding:.5rem 1.1rem;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(237,234,208,.7);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s;height:auto;line-height:1.4}
+    .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(255,255,255,.1);color:var(--cream)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem;margin-left:auto}
+    a.ext::after{content:' ↗';font-size:.75em;opacity:.6}
+
+    /* ── Hero ── */
+    .fd-hero{background:var(--green-deep);background-image:radial-gradient(ellipse at 70% 40%,rgba(58,122,68,.25) 0%,transparent 60%),radial-gradient(ellipse at 15% 80%,rgba(30,74,39,.45) 0%,transparent 50%);color:var(--cream);padding:4.5rem 2rem 3.5rem;border-bottom:4px solid var(--green-border);position:relative;overflow:hidden}
+    .fd-hero::after{content:"I";position:absolute;right:3rem;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:11rem;font-weight:700;color:rgba(58,122,68,.18);line-height:1;pointer-events:none;user-select:none}
+    .fd-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+    .fd-eyebrow{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,234,208,.6);margin-bottom:.8rem}
+    .fd-hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:.02em;color:var(--cream);margin-bottom:.35rem;line-height:1.1}
+    .fd-hero-year{font-family:var(--font-display);font-size:1.1rem;color:var(--gold-light);letter-spacing:.12em;margin-bottom:1.25rem}
+    .fd-hero-rule{width:48px;height:3px;background:var(--green-light);margin-bottom:1.5rem}
+    .fd-hero p.lead{max-width:580px;font-family:var(--font-sans);font-size:.95rem;line-height:1.85;color:rgba(237,234,208,.85);font-style:italic}
+
+    /* ── Layout ── */
+    .fd-layout{max-width:1100px;margin:0 auto;padding:3.5rem 2rem 5rem;display:grid;grid-template-columns:1fr 300px;gap:4rem;align-items:start}
+
+    /* ── Primary ── */
+    .block-label{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--cream-dark)}
+    .fd-primary h2{font-family:var(--font-display);font-size:1.3rem;color:var(--green-deep);margin-bottom:.75rem}
+    .fd-primary h2::after{content:'';display:block;width:32px;height:2px;background:var(--green-light);margin-top:.4rem}
+    .fd-primary p{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:.85rem}
+
+    /* ── Gallery buttons ── */
+    .gallery-links{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.25rem 0 2rem}
+    .gallery-btn{font-family:var(--font-sans);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.6rem 1.25rem;border:2px solid var(--green-deep);color:var(--green-deep);text-decoration:none;border-radius:2px;transition:background .2s,color .2s}
+    .gallery-btn:hover{background:var(--green-deep);color:var(--cream)}
+    .gallery-btn.community{border-color:var(--gold);color:var(--gold)}
+    .gallery-btn.community:hover{background:var(--gold);color:var(--white)}
+
+    /* ── Address placeholder ── */
+    .address-placeholder{background:var(--cream-light);border:1px dashed var(--cream-dark);border-left:4px solid var(--green-border);padding:2rem;margin:1.5rem 0 2.5rem}
+    .address-placeholder .ap-label{font-family:var(--font-sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.75rem}
+    .address-placeholder p{font-family:var(--font-sans);font-size:.88rem;color:var(--text-muted);line-height:1.75;margin:0;font-style:italic}
+
+    /* ── Pilgrimage section ── */
+    .pilgrimage-block{background:var(--cream-light);border:1px solid var(--cream-dark);border-left:4px solid var(--green-deep);padding:2rem 2rem 1.75rem;margin:2.5rem 0}
+    .pilgrimage-block .pilgrim-eyebrow{font-family:var(--font-sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-mid);margin-bottom:.75rem}
+    .pilgrimage-block h2{font-family:var(--font-display);font-size:1.2rem;color:var(--green-deep);margin-bottom:.6rem}
+    .pilgrimage-block h2::after{content:'';display:block;width:32px;height:2px;background:var(--green-light);margin-top:.4rem;margin-bottom:.9rem}
+    .pilgrimage-block p{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:.85rem}
+    .pilgrimage-block p:last-child{margin-bottom:0}
+
+    /* ── Sidebar ── */
+    .fd-sidebar{border-left:1px solid var(--cream-dark);padding-left:2.5rem}
+    .sidebar-heading{font-family:var(--font-display);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green-deep);border-bottom:2px solid var(--green-deep);padding-bottom:.6rem;margin-bottom:0}
+    .archive-entry{padding:1.6rem 0;border-bottom:1px solid var(--cream-dark)}
+    .archive-entry:last-child{border-bottom:none}
+    .archive-year-row{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.2rem}
+    .archive-year{font-family:var(--font-display);font-size:1.75rem;color:var(--green-deep);font-weight:700;line-height:1}
+    .archive-current-badge{font-family:var(--font-sans);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--cream);background:var(--green-deep);padding:.15em .55em}
+    .archive-theme{font-family:var(--font-serif);font-style:italic;font-size:.95rem;color:var(--text-main);margin-bottom:.5rem}
+    .archive-meta{font-family:var(--font-sans);font-size:.75rem;color:var(--text-muted);line-height:1.7}
+    .archive-links{margin-top:.85rem;display:flex;flex-direction:column;gap:.3rem}
+    .archive-link{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--green-mid);text-decoration:none;transition:color .15s}
+    .archive-link:hover{color:var(--green-deep)}
+
+    /* ── Footer ── */
+    .site-footer{background:var(--green-deep);color:rgba(237,234,208,.7);padding:2rem 1.5rem;border-top:3px solid var(--green-border)}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:center;margin-bottom:1.25rem}
+    .footer-links a{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(237,234,208,.55);text-decoration:none}
+    .footer-links a:hover{color:var(--cream)}
+    .footer-legal{text-align:center;font-family:var(--font-sans);font-size:.72rem;color:rgba(237,234,208,.4);line-height:1.8}
+    .footer-legal a{color:rgba(237,234,208,.5)}
+    .footer-legal a:hover{color:var(--cream)}
+
+    /* ── Responsive ── */
+    @media(max-width:860px){
+      .fd-layout{grid-template-columns:1fr;gap:0}
+      .fd-sidebar{border-left:none;border-top:1px solid var(--cream-dark);padding-left:0;padding-top:2.5rem;margin-top:2.5rem}
+      .fd-hero::after{display:none}
+    }
+    @media(max-width:768px){
+      .nav-toggle{display:block}
+      nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--green-deep);border-top:1px solid var(--green-border);flex-direction:column;padding:.5rem 0;z-index:199}
+      nav ul.open{display:flex}
+      nav ul li a{padding:.65rem 1.5rem;width:100%;display:block}
+      .dropdown-menu{position:static;box-shadow:none;border:none;border-left:3px solid var(--green-light);background:rgba(0,0,0,.15);margin-left:1rem}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
+    }
+  </style>
+
+    /* ── Address paper + share ── */
+    .address-share{max-width:720px;margin:1rem auto 0;text-align:right}
+    .address-share button{background:none;border:1px solid #aaa;padding:.4rem .8rem;cursor:pointer;font-size:.9rem;font-family:var(--font-sans);color:var(--green-deep)}
+    .address-share button:hover{border-color:#000}
+    .address-full{max-width:720px;margin:2rem auto;padding:2rem;background-color:#ffffff;border:1px solid #ddd;box-shadow:0 4px 12px rgba(0,0,0,.05);line-height:1.6}
+    .address-full h2{margin-bottom:.5rem}
+    .address-header{margin-bottom:1.5rem}
+    .address-date{font-style:italic;margin-bottom:1.5rem}
+    .address-full p{margin-bottom:1.2rem}
+    .address-signature{margin-top:2rem}
+
+  <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZP3KZWLS4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SZP3KZWLS4');
+  </script>
+</head>
+<body>
+<div class="top-bar">Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials</div>
+<nav>
+  <a href="../index.html" class="brand">
+    <img src="../assets/IHS-Logo.jpg" alt="IHS Logo">
+    <span>Iroko Historical Society</span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="../about.html">The Society</a>
+      <ul class="dropdown-menu">
+        <li><a href="../about.html">Our Vision</a></li>
+        <li><a href="../founder.html">The Founder</a></li>
+        <li><a href="../our-stance.html">Our Stance</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="../collections.html">The Archive</a>
+      <ul class="dropdown-menu">
+        <li><a href="../collections.html">Collections</a></li>
+        <li><a href="../access-policy.html">Access &amp; Use Policy</a></li>
+        <li><a href="../mission.html">Mission &amp; Stewardship</a></li>
+        <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="../research.html">Research</a>
+      <ul class="dropdown-menu">
+        <li><a href="../research.html#peer-reviewed">Publications</a></li>
+        <li><a href="../research.html#working-papers">Working Papers</a></li>
+        <li><a href="../research.html#presentations">Presentations</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="../iroko-spirituality.html">Iroko</a>
+      <ul class="dropdown-menu">
+        <li><a href="../iroko-spirituality.html">Iroko Spirituality</a></li>
+        <li><a href="../capturing-iroko.html">Visual Ethnography</a></li>
+      </ul>
+    </li>
+    <li><a href="2026.html" class="active">Foundation Day</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="fd-hero">
+  <div class="fd-hero-inner">
+    <p class="fd-eyebrow">Foundation Day &middot; Iroko Historical Society</p>
+    <h1>Year One</h1>
+    <p class="fd-hero-year">2025 &mdash; The Inaugural Observance</p>
+    <div class="fd-hero-rule"></div>
+    <p class="lead">Whispers in the canopy: public offerings of prayers, sacred spaces, and the unseen weight of ancestral presence &mdash; shared in honor of the Society&rsquo;s founding, where wind moves through treetops and memory stirs beneath the sacred branches.</p>
+  </div>
+</header>
+
+<!-- MAIN LAYOUT -->
+<div class="fd-layout">
+
+  <main class="fd-primary">
+
+    <p class="block-label">The Observance</p>
+
+    <h2>July 14, 2025</h2>
+    <p>The inaugural Foundation Day marked the first annual observance tied to the initiatory anniversary of the Society&rsquo;s founding. The date is private; its significance is held by the tradition. This page serves as the permanent institutional record of Year One.</p>
+
+    <p class="block-label" style="margin-top:2rem;">State of the Society</p>
+
+    <div class="address-placeholder">
+      <p class="ap-label">Annual Address &mdash; Year One</p>
+
+      <p>The 2025 State of the Society address marks the completion of the Society&rsquo;s first year. It reflects a period of preparation, study, and institutional grounding, including the launch of the Society&rsquo;s public presence, the beginning of formal archival training, and early steps toward future research and community engagement.</p>
+    </div>
+
+    <div class="address-full">
+      <h2>State of the Society</h2>
+      <p class="address-date">July 14, 2025</p>
+    
+      <p><strong>Iroko Historical Society</strong><br>
+      Foundation Day Address<br>
+      State of the Society</p>
+    
+      <p>On this Foundation Day, we mark one year since the formal establishment of the Iroko Historical Society in New Orleans. This first year has been defined not by visibility or scale, but by the quiet work of orientation, study, and preparation.</p>
+    
+      <p>The Society remains in an early stage of formation. Its primary focus has been to clarify purpose, establish direction, and begin the process of building a foundation that can support future archival, research, and community work. Rather than moving quickly into public-facing outputs, this period has been intentionally measured, allowing the work to take shape with care.</p>
+    
+      <p>A central development over the past year has been the beginning of formal archival study through the Master of Library and Information Science program at the University of Alabama. This step marks an important commitment: to ground the Society’s work not only in lived experience and community responsibility, but also in the technical, ethical, and theoretical frameworks of the archival field. The intention is not simple alignment with existing models, but a deeper understanding of them as a basis for future intervention.</p>
+    
+      <p>At the same time, the Society has established its initial public presence through the launch of its website. This early version serves as a point of orientation rather than a comprehensive archive. It reflects the Society’s guiding commitments, introduces its areas of focus, and signals the direction of future work without prematurely expanding its scope.</p>
+    
+      <p>Internally, much of the year has been devoted to conceptual development. This includes thinking through the structure of a future archive, the responsibilities involved in stewarding sensitive and community-held knowledge, and the practical realities of building a system that can hold both public and restricted materials. These questions remain open and are being approached deliberately, without rushing toward resolution.</p>
+    
+      <p>The Society is also preparing to enter a more active phase of engagement. The coming months will include the development of research papers and presentations that begin to articulate the Society’s emerging perspective on archives, memory, and spiritual stewardship. These initial contributions are intended to open a line of dialogue rather than to present a finished framework.</p>
+    
+      <p>This preparatory period has not been without its challenges. Building something that does not yet fully exist requires patience, restraint, and a willingness to work without immediate recognition. Progress has been incremental, and at times uncertain. Yet this pace has been necessary to ensure that the work is grounded and sustainable.</p>
+    
+      <p>Foundation Day, in this first year, is best understood as a point of departure rather than arrival. The Society has established its intention, begun its training, and set its course. The work that follows will move from preparation into expression, but always with the same commitment to care, responsibility, and long-term stewardship.</p>
+    
+      <p>We move forward with clarity and purpose.</p>
+    
+      <p class="address-signature">
+        Délé Fágbèmí Ọ̀.<br>
+        Founder and Steward<br>
+        Iroko Historical Society
+      </p>
+    </div>
+    
+    <p class="block-label" style="margin-top:2rem;">Community Photography &mdash; 2025 Submissions</p>
+
+    <p>The following gallery contains community-submitted images from the Society&rsquo;s inaugural Foundation Day photography call. Submissions document sacred spaces, material culture, and community life across the Afro-Atlantic world.</p>
+
+    <div class="gallery-links">
+      <a href="https://irokosociety.photoshelter.com/gallery/G0000emYJ_7Ralo8" target="_blank" class="gallery-btn community">2025 Community Submissions ↗</a>
+    </div>
+
+  <div class="pilgrimage-block">
+    <p class="pilgrim-eyebrow">Year One &mdash; Key Milestones</p>
+    <h2>Foundational Developments</h2>
+    <ul>
+      <li>Formal establishment of the Iroko Historical Society (July 14, 2024, New Orleans)</li>
+      <li>Finalization of the Society&rsquo;s name and institutional direction</li>
+      <li>Launch of the initial website (<a href="https://irokosociety.org" target="_blank">irokosociety.org</a>)</li>
+      <li>Begin Master of Library and Information Science (MLIS) studies at the University of Alabama</li>
+      <li>Awarded the Dr. E. J. Josey and Effie Lee Morris Scholarship (BCALA), 2025&ndash;2026</li>
+      <li>Private Foundation Day observance marking the Society&rsquo;s first year</li>
+      <li>Initial community engagement through a small number of sacred tree photo submissions, establishing an early participatory archive</li>
+    </ul>
+    <p>Additional materials and documentation will be added as the Society&rsquo;s work develops.</p>
+  </div>  </main>
+
+  <aside class="fd-sidebar">
+
+    <p class="sidebar-heading">Foundation Day Archive</p>
+
+    <div class="archive-entry">
+      <div class="archive-year-row">
+        <span class="archive-year">2026</span>
+      </div>
+      <p class="archive-theme">Year Two</p>
+      <p class="archive-meta">
+        July 14 observance<br>
+        July 18 public panel &amp; presentation<br>
+        Virtual &mdash; restricted registration<br>
+        Registration opens April 2026
+      </p>
+      <div class="archive-links">
+        <a class="archive-link" href="2026.html">&rarr; Foundation Day 2026</a>
+      </div>
+    </div>
+
+    <div class="archive-entry">
+      <div class="archive-year-row">
+        <span class="archive-year">2025</span>
+        <span class="archive-current-badge">This Page</span>
+      </div>
+      <p class="archive-theme">Year One &mdash; Founding</p>
+      <p class="archive-meta">
+        July 14 observance<br>
+        Community photography call<br>
+        Framework white paper published
+      </p>
+      <div class="archive-links">
+        <a class="archive-link" href="https://irokosociety.photoshelter.com/gallery/G0000emYJ_7Ralo8" target="_blank">&rarr; 2025 Community Gallery ↗</a>
+        <!-- Uncomment when address is published:
+        <a class="archive-link" href="address-2025.html">&rarr; State of the Society, 2025</a>
+        -->
+      </div>
+    </div>
+
+  </aside>
+
+</div><!-- end fd-layout -->
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../index.html">Home</a>
+    <a href="../collections.html">Collections</a>
+    <a href="../access-policy.html">Access Policy</a>
+    <a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+  <div class="footer-legal">
+    Iroko Historical Society<br>
+    An elaboration of Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc., a registered 501(c)(3)<br>
+    Foundation Day is observed annually on July 14. &nbsp;&middot;&nbsp;
+    <a href="#" class="js-email">[protected]</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var u='senior.curator',d='irokosociety.org';
+  document.querySelectorAll('.js-email').forEach(function(el){
+    el.href='mailto:'+u+'@'+d;
+    el.textContent=u+'@'+d;
+  });
+})();
+</script>
+
+<script>
+function shareAddress() {
+  const url = window.location.href.split('#')[0] + "#state-of-the-society";
+  const title = "State of the Society (2025) — Iroko Historical Society";
+
+  if (navigator.share) {
+    navigator.share({
+      title: title,
+      url: url
+    });
+  } else if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert("Link copied to clipboard");
+    });
+  } else {
+    prompt("Copy this link:", url);
+  }
+}
+</script>
+
+<script src="../assets/nav.js"></script>
+</body>
+</html>
