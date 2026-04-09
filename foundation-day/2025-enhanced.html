@@ -97,18 +97,20 @@
       .nav-dropdown:hover .dropdown-menu{display:none}
       .nav-dropdown.open .dropdown-menu{display:block}
     }
-  </style>
 
     /* ── Address paper + share ── */
-    .address-share{max-width:720px;margin:1rem auto 0;text-align:right}
-    .address-share button{background:none;border:1px solid #aaa;padding:.4rem .8rem;cursor:pointer;font-size:.9rem;font-family:var(--font-sans);color:var(--green-deep)}
-    .address-share button:hover{border-color:#000}
-    .address-full{max-width:720px;margin:2rem auto;padding:2rem;background-color:#ffffff;border:1px solid #ddd;box-shadow:0 4px 12px rgba(0,0,0,.05);line-height:1.6}
-    .address-full h2{margin-bottom:.5rem}
-    .address-header{margin-bottom:1.5rem}
-    .address-date{font-style:italic;margin-bottom:1.5rem}
-    .address-full p{margin-bottom:1.2rem}
-    .address-signature{margin-top:2rem}
+    .address-paper-wrap{margin:1.5rem 0 2.5rem}
+    .address-share{text-align:right;margin-bottom:.5rem}
+    .address-share button{background:none;border:1px solid var(--green-border);padding:.35rem .85rem;cursor:pointer;font-size:.78rem;font-family:var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--green-deep);border-radius:2px;transition:background .2s,color .2s}
+    .address-share button:hover{background:var(--green-deep);color:var(--cream);border-color:var(--green-deep)}
+    .address-full{padding:2rem 2.25rem;background-color:#ffffff;border:1px solid #ddd;box-shadow:0 4px 16px rgba(0,0,0,.07);line-height:1.6}
+    .address-full h2{font-family:var(--font-display);font-size:1.2rem;color:var(--green-deep);margin-bottom:.35rem}
+    .address-full h2::after{content:'';display:block;width:32px;height:2px;background:var(--green-light);margin-top:.4rem;margin-bottom:1rem}
+    .address-date{font-style:italic;font-family:var(--font-sans);font-size:.85rem;color:var(--text-muted);margin-bottom:1.5rem}
+    .address-full p{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:1rem}
+    .address-full p:last-child{margin-bottom:0}
+    .address-signature{margin-top:2rem;font-family:var(--font-sans);font-size:.9rem;color:var(--text-main)}
+  </style>
 
   <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
   <!-- Google Analytics -->
@@ -190,13 +192,15 @@
 
     <p class="block-label" style="margin-top:2rem;">State of the Society</p>
 
-    <div class="address-placeholder">
-      <p class="ap-label">Annual Address &mdash; Year One</p>
-
-      <p>The 2025 State of the Society address marks the completion of the Society&rsquo;s first year. It reflects a period of preparation, study, and institutional grounding, including the launch of the Society&rsquo;s public presence, the beginning of formal archival training, and early steps toward future research and community engagement.</p>
-    </div>
-
-    <div class="address-full">
+    <div class="address-paper-wrap" id="state-of-the-society">
+      <div class="address-placeholder">
+        <p class="ap-label">Annual Address &mdash; Year One</p>
+        <p>The 2025 State of the Society address marks the completion of the Society&rsquo;s first year. It reflects a period of preparation, study, and institutional grounding, including the launch of the Society&rsquo;s public presence, the beginning of formal archival training, and early steps toward future research and community engagement.</p>
+      </div>
+      <div class="address-share">
+        <button onclick="shareAddress()" aria-label="Share this address">Share Address</button>
+      </div>
+      <div class="address-full">
       <h2>State of the Society</h2>
       <p class="address-date">July 14, 2025</p>
     
@@ -228,6 +232,7 @@
         Iroko Historical Society
       </p>
     </div>
+    </div><!-- end address-paper-wrap -->
     
     <p class="block-label" style="margin-top:2rem;">Community Photography &mdash; 2025 Submissions</p>
 
