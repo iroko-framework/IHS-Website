@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+
 /* ============================================================
    IHS SITE — Brand palette from logo
    Cream parchment + Deep forest green
@@ -21,8 +23,6 @@
   --font-sans:   'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
   --font-display:'Cinzel', var(--font-serif);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
