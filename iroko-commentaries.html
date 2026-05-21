@@ -3,50 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Visual ethnography by Délé Fágbèmí Ọ̀ — documentary photography of sacred spaces, ritual practice, and community life across the Afro-Atlantic world.">
-  <title>Visual Ethnography — Iroko Historical Society</title>
+  <meta name="description" content="Iroko Commentaries gathers practitioner-scholar essays and reflections from the Living Museum and Iroko wing of the Iroko Historical Society.">
+  <title>Iroko Commentaries &mdash; Iroko Historical Society</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="assets/IHS-Logo.svg">
   <style>
-    /* top bar */
     .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
-    /* nav dropdowns — extends style.css nav */
     nav ul{position:relative}
     .nav-dropdown{position:relative}
-    .nav-dropdown>a::after{content:' ▾';font-size:.6rem;opacity:.7}
+    .nav-dropdown>a::after{content:' \25BE';font-size:.6rem;opacity:.7}
     .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--green-deep);border:1px solid var(--green-border);border-top:2px solid var(--green-light);min-width:200px;list-style:none;margin:0;padding:.4rem 0;z-index:200;box-shadow:0 6px 18px rgba(0,0,0,.35)}
     .nav-dropdown:hover .dropdown-menu{display:block}
     .dropdown-menu li a{display:block;padding:.5rem 1.1rem;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(237,234,208,.7);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s;height:auto;line-height:1.4}
     .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(255,255,255,.1);color:var(--cream)}
-    /* nav toggle (mobile) */
     .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem;margin-left:auto}
-    /* page-content for newer inner pages */
-    .page-content{max-width:860px;margin:0 auto;padding:3rem 2rem 4rem}
+    .page-content{max-width:860px;margin:0 auto;padding:3rem 2rem 5rem}
     .page-content h1{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--green-deep);margin-bottom:1.25rem}
     .page-content h2{font-family:var(--font-display);font-size:1.25rem;color:var(--green-deep);margin:2rem 0 .6rem}
-    .page-content h3{font-family:var(--font-sans);font-size:1rem;font-weight:600;color:var(--green-mid);margin:1.5rem 0 .4rem}
     .page-content p{font-family:var(--font-sans);font-size:.92rem;color:var(--text-muted);line-height:1.85;margin-bottom:1rem}
-    .page-content ul,.page-content ol{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.8;margin:0 0 1rem 1.5rem}
-    .page-content li{margin-bottom:.3rem}
-    .page-content blockquote{border-left:3px solid var(--green-deep);padding:.5rem 0 .5rem 1.25rem;margin:1.5rem 0;font-style:italic;color:var(--text-muted)}
     .page-content hr.section-divider{border:none;border-top:1px solid var(--cream-dark);margin:2.5rem 0}
     .page-content a{color:var(--green-mid)}
     .page-content a:hover{color:var(--green-deep)}
     .section-lead{font-family:var(--font-sans);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
-    .text-muted{color:var(--text-muted)}
-    /* site-footer alias for new pages */
-    .site-footer{background:var(--green-deep);color:rgba(237,234,208,.7);padding:2rem 1.5rem;border-top:3px solid var(--green-border)}
-    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:center;margin-bottom:1.25rem}
-    .footer-links a{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(237,234,208,.55);text-decoration:none}
-    .footer-links a:hover{color:var(--cream)}
-    .footer-legal{text-align:center;font-family:var(--font-sans);font-size:.72rem;color:rgba(237,234,208,.4);line-height:1.8}
-    .footer-legal a{color:rgba(237,234,208,.5)}
-    .footer-legal a:hover{color:var(--cream)}
-    /* ext link indicator */
-    a.ext::after{content:' ↗';font-size:.75em;opacity:.6}
-    .gallery-links{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.25rem 0 2rem}
-    .gallery-btn{font-family:var(--font-sans);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.6rem 1.25rem;border:2px solid var(--green-deep);color:var(--green-deep);text-decoration:none;border-radius:2px;transition:background .2s,color .2s}
-    .gallery-btn:hover{background:var(--green-deep);color:var(--cream)}
+    .commentary-grid{display:grid;gap:1.35rem;margin-top:1.5rem}
+    .commentary-card{background:var(--white);border:1px solid var(--cream-dark);border-top:4px solid var(--green-deep);border-radius:2px;padding:1.65rem 1.75rem;transition:box-shadow .2s,transform .2s}
+    .commentary-card:hover{box-shadow:0 6px 24px rgba(30,74,39,.12);transform:translateY(-2px)}
+    .commentary-meta{display:flex;flex-wrap:wrap;gap:.5rem .75rem;align-items:center;margin-bottom:.75rem}
+    .commentary-tag,.commentary-status{font-family:var(--font-sans);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:2px}
+    .commentary-tag{color:var(--green-light)}
+    .commentary-status{background:rgba(30,74,39,.1);color:var(--green-deep);padding:.2em .65em}
+    .commentary-card h2{font-size:1.2rem;line-height:1.35;margin:.15rem 0 .35rem}
+    .commentary-subtitle{font-family:var(--font-serif);font-size:1rem;color:var(--text-main);font-style:italic;line-height:1.55;margin-bottom:.85rem}
+    .commentary-card p{font-size:.88rem;line-height:1.7;margin-bottom:1.1rem}
+    .commentary-card .btn{font-size:.72rem}
+    a.ext::after{content:' \2197';font-size:.75em;opacity:.6}
     @media(max-width:768px){
       .nav-toggle{display:block}
       nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--green-deep);border-top:1px solid var(--green-border);flex-direction:column;padding:.5rem 0;z-index:199}
@@ -55,10 +45,10 @@
       .dropdown-menu{position:static;box-shadow:none;border:none;border-left:3px solid var(--green-light);background:rgba(0,0,0,.15);margin-left:1rem}
       .nav-dropdown:hover .dropdown-menu{display:none}
       .nav-dropdown.open .dropdown-menu{display:block}
+      .commentary-card{padding:1.35rem}
     }
   </style>
   <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
-  <!-- Google Analytics — IHS Site + Visual Ethnography -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZP3KZWLS4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -108,63 +98,41 @@
       <a href="iroko-spirituality.html" class="active">Iroko</a>
       <ul class="dropdown-menu">
         <li><a href="iroko-spirituality.html">Iroko Spirituality</a></li>
-        <li><a href="capturing-iroko.html" class="active">Visual Ethnography</a></li>
-        <li><a href="iroko-commentaries.html">Commentary</a></li>
+        <li><a href="capturing-iroko.html">Visual Ethnography</a></li>
+        <li><a href="iroko-commentaries.html" class="active">Commentary</a></li>
       </ul>
     </li>
     <li><a href="foundation-day/2026.html">Foundation Day</a></li>
   </ul>
 </nav>
 
+<section class="hero" style="padding:4rem 2rem 3rem;">
+  <p class="subtitle">Iroko &middot; Living Museum</p>
+  <h1>Iroko Commentaries</h1>
+</section>
+
 <div class="page-content">
-
-  <p class="section-lead" style="margin-bottom:0.35rem;">The Archive &middot; Visual Holdings</p>
-  <h1>Visual Ethnography</h1>
-
-  <p style="font-family:var(--font-sans);font-size:0.92rem;color:var(--text-muted);max-width:720px;line-height:1.85;margin-bottom:1.25rem;">
-    D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &#7884;&#768;. maintains an ongoing visual ethnography portfolio documenting sacred spaces, ritual practice, and community life across the Afro-Atlantic world. These images serve as both primary source documentation and a form of engaged scholarship, recording material culture, built environments, and ceremonial contexts that rarely enter formal archival collections.
+  <p class="section-lead" style="margin-bottom:.35rem;">Interpretive Writings</p>
+  <p style="max-width:760px;">
+    Iroko Commentaries gathers essays, reflections, and position pieces on Afro-Atlantic sacred practice, archives, religious authority, visual ethnography, and the ethics of cultural stewardship. These writings are interpretive rather than institutional policy, grounded in practitioner-scholar reflection and the living concerns of the Iroko Historical Society.
   </p>
 
-  <div class="photo-credit-bar" style="font-family:var(--font-sans);font-size:.82rem;color:var(--text-muted);margin:1.25rem 0;padding:.75rem 0;border-top:1px solid var(--cream-dark);border-bottom:1px solid var(--cream-dark);">
-    All photographs &copy; D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &#7884;&#768;., on loan to Iroko Historical Society.
-    Reproduction or use without written authorization is prohibited.
-  </div>
+  <hr class="section-divider">
 
-  <div class="archive-search-block">
-    <h3>Search the Full Archive</h3>
-    <p>Search across all holdings by subject, location, tradition, or material culture.</p>
-    <form action="https://irokosociety.photoshelter.com/search" method="get">
-      <div class="search-row">
-        <input type="text" name="I_DSC" placeholder="Havana, bat&aacute;, il&eacute;, Matanzas&hellip;" aria-label="Search archive">
-        <input type="submit" value="Search">
-        <input type="hidden" name="I_DSC_AND" value="t">
-        <input type="hidden" name="_ACT" value="search">
+  <p class="section-lead">Essays</p>
+  <div class="commentary-grid">
+    <article class="commentary-card">
+      <div class="commentary-meta">
+        <span class="commentary-tag">Sacred Speech &amp; Practice</span>
+        <span class="commentary-status">Draft forthcoming</span>
       </div>
-    </form>
+      <h2>The Bones Fall: Prophecy or Verdict?</h2>
+      <div class="commentary-subtitle">The Tyranny of Oracular Inflation and the Ethics of Sacred Speech</div>
+      <p>An essay on divination, translation, disproportionate sacred speech, and the danger of religious warnings becoming social verdicts.</p>
+      <a href="the-bones-fall-prophecy-or-verdict.html" class="btn btn-outline">Essay Forthcoming</a>
+    </article>
   </div>
-
-  <p class="section-lead" style="margin-top:2.5rem;">Browse by Selected Gallery</p>
-  <div class="gallery-links">
-    <a href="https://irokosociety.photoshelter.com/gallery/G0000n01IpmZArsk" target="_blank" class="gallery-btn">Gallery 1 ↗</a>
-    <a href="https://irokosociety.photoshelter.com/gallery/G0000d7RDGj.F8rU" target="_blank" class="gallery-btn">Gallery 2 ↗</a>
-    <a href="https://irokosociety.photoshelter.com/gallery/G0000QFiiQzYg_tQ" target="_blank" class="gallery-btn">Gallery 3 ↗</a>
-    <a href="https://irokosociety.photoshelter.com/gallery/G0000W6Jji9.5UoQ" target="_blank" class="gallery-btn">Gallery 4 ↗</a>
-    <a href="https://irokosociety.photoshelter.com/gallery/G0000wmS8Bm8LvC0" target="_blank" class="gallery-btn">Gallery 5 ↗</a>
-    <a href="https://irokosociety.photoshelter.com/gallery/G0000.4_pkmB5cac" target="_blank" class="gallery-btn">Gallery 6 ↗</a>
-    <a href="https://irokosociety.photoshelter.com/gallery/G00001tkpfVJb82s" target="_blank" class="gallery-btn">Gallery 7 ↗</a>
-    <a href="https://irokosociety.photoshelter.com/gallery/G00009nv20VHOAEU" target="_blank" class="gallery-btn">Gallery 8 ↗</a>
-  </div>
-
-  <div class="access-note" style="margin-top:2rem;">
-    <strong>Access note:</strong> This portfolio contains both publicly viewable and restricted materials.
-    Images depicting restricted ceremonial content are governed by Tiers 3&ndash;6 of the Society's
-    <a href="access-policy.html">access framework</a>.
-    Licensing and research access inquiries: <a href="#" class="js-email">[protected]</a>
-  </div>
-
 </div>
-
-
 
 <footer>
   <div class="footer-inner">
@@ -181,17 +149,18 @@
       <a href="mission.html">Mission &amp; Stewardship</a>
       <a href="research.html">Research &amp; Scholarship</a>
       <a href="capturing-iroko.html">Visual Ethnography</a>
+      <a href="iroko-commentaries.html">Iroko Commentaries</a>
       <a href="contact.html">Contact</a>
     </div>
     <div>
       <h4>Per Medjat &amp; Framework</h4>
-      <a href="https://medjat.irokosociety.org/" target="_blank">Per Medjat ↗</a>
-      <a href="https://ontology.irokosociety.org/" target="_blank">Iroko Framework ↗</a>
-      <a href="https://ontology.irokosociety.org/whitepaper" target="_blank">White Paper ↗</a>
-      <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank">Zenodo DOI ↗</a>
+      <a href="https://medjat.irokosociety.org/" target="_blank">Per Medjat &#8599;</a>
+      <a href="https://ontology.irokosociety.org/" target="_blank">Iroko Framework &#8599;</a>
+      <a href="https://ontology.irokosociety.org/whitepaper" target="_blank">White Paper &#8599;</a>
+      <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank">Zenodo DOI &#8599;</a>
     </div>
   </div>
-    <div class="footer-bottom">
+  <div class="footer-bottom">
     <p>&copy; 2024&ndash;2026 Iroko Historical Society &middot; Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc. All rights reserved.</p>
     <p>Vocabulary published under CC0 1.0 Universal &middot; <a href="#" class="js-email">[protected]</a></p>
   </div>
