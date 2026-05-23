@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Iroko Commentaries gathers practitioner-scholar essays and reflections from the Living Museum and Iroko wing of the Iroko Historical Society.">
-  <title>Iroko Commentaries &mdash; Iroko Historical Society</title>
+  <meta name="description" content="A practitioner-archivist on the difference between proximity and accountability, and the communities who understood it long before scholars did. By D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &#7884;&#768;.">
+  <title>The Scholar Is Not the Custodian &mdash; Iroko Historical Society</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="assets/IHS-Logo.svg">
   <style>
@@ -18,24 +18,25 @@
     .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(255,255,255,.1);color:var(--cream)}
     .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem;margin-left:auto}
     .page-content{max-width:860px;margin:0 auto;padding:3rem 2rem 5rem}
-    .page-content h1{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--green-deep);margin-bottom:1.25rem}
+    .page-content h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);color:var(--green-deep);line-height:1.22;margin-bottom:.75rem}
+    .essay-title{font-variant-caps:small-caps;font-feature-settings:"smcp" 1,"c2sc" 0;letter-spacing:.025em}
     .page-content h2{font-family:var(--font-display);font-size:1.25rem;color:var(--green-deep);margin:2rem 0 .6rem}
     .page-content p{font-family:var(--font-sans);font-size:.92rem;color:var(--text-muted);line-height:1.85;margin-bottom:1rem}
-    .page-content hr.section-divider{border:none;border-top:1px solid var(--cream-dark);margin:2.5rem 0}
     .page-content a{color:var(--green-mid)}
     .page-content a:hover{color:var(--green-deep)}
     .section-lead{font-family:var(--font-sans);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
-    .commentary-grid{display:grid;gap:1.35rem;margin-top:1.5rem}
-    .commentary-card{background:var(--white);border:1px solid var(--cream-dark);border-top:4px solid var(--green-deep);border-radius:2px;padding:1.65rem 1.75rem;transition:box-shadow .2s,transform .2s}
-    .commentary-card:hover{box-shadow:0 6px 24px rgba(30,74,39,.12);transform:translateY(-2px)}
-    .commentary-meta{display:flex;flex-wrap:wrap;gap:.5rem .75rem;align-items:center;margin-bottom:.75rem}
-    .commentary-tag,.commentary-status{font-family:var(--font-sans);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:2px}
-    .commentary-tag{color:var(--green-light)}
-    .commentary-status{background:rgba(30,74,39,.1);color:var(--green-deep);padding:.2em .65em}
-    .commentary-card h2{font-size:1.2rem;line-height:1.35;margin:.15rem 0 .35rem}
-    .commentary-subtitle{font-family:var(--font-serif);font-size:1rem;color:var(--text-main);font-style:italic;line-height:1.55;margin-bottom:.85rem}
-    .commentary-card p{font-size:.88rem;line-height:1.7;margin-bottom:1.1rem}
-    .commentary-card .btn{font-size:.72rem}
+    .return-link{display:inline-block;font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-mid);text-decoration:none;margin-bottom:1.5rem}
+    .return-link:hover{color:var(--green-deep)}
+    .essay-kicker{font-family:var(--font-sans);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-light);margin-bottom:.7rem}
+    .essay-subtitle{font-family:var(--font-serif);font-size:clamp(1.08rem,2.2vw,1.35rem);font-style:italic;line-height:1.55;color:var(--text-main);max-width:760px;margin-bottom:1rem}
+    .essay-meta,.essay-author{font-family:var(--font-sans);font-size:.82rem;color:var(--text-muted);line-height:1.6}
+    .essay-meta{letter-spacing:.06em;text-transform:uppercase;margin-bottom:.25rem}
+    .essay-author{margin-bottom:1.35rem}
+    .essay-deck{font-family:var(--font-sans);font-size:1rem;color:var(--text-muted);line-height:1.85;max-width:760px;margin:1.5rem 0 0;padding-top:1.25rem;border-top:1px solid var(--cream-dark)}
+    .essay-body{max-width:720px;margin:3rem auto 0}
+    .medium-panel{background:var(--white);border:1px solid var(--cream-dark);border-top:4px solid var(--green-deep);border-radius:2px;padding:2rem}
+    .medium-panel p{font-family:var(--font-serif);font-size:1.05rem;color:var(--text-main);line-height:1.75;margin:0 0 1.25rem}
+    .medium-panel p:last-child{margin:0}
     a.ext::after{content:' \2197';font-size:.75em;opacity:.6}
     @media(max-width:768px){
       .nav-toggle{display:block}
@@ -45,7 +46,8 @@
       .dropdown-menu{position:static;box-shadow:none;border:none;border-left:3px solid var(--green-light);background:rgba(0,0,0,.15);margin-left:1rem}
       .nav-dropdown:hover .dropdown-menu{display:none}
       .nav-dropdown.open .dropdown-menu{display:block}
-      .commentary-card{padding:1.35rem}
+      .page-content{padding:2.5rem 1.25rem 4rem}
+      .medium-panel{padding:1.5rem}
     }
   </style>
   <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
@@ -106,56 +108,26 @@
   </ul>
 </nav>
 
-<section class="hero" style="padding:4rem 2rem 3rem;">
-  <p class="subtitle">Iroko &middot; Living Museum</p>
-  <h1>Iroko Commentaries</h1>
-</section>
-
 <div class="page-content">
-  <p class="section-lead" style="margin-bottom:.35rem;">Interpretive Writings</p>
-  <p style="max-width:760px;">
-    Iroko Commentaries gathers essays, reflections, and position pieces on Afro-Atlantic sacred practice, archives, religious authority, visual ethnography, and the ethics of cultural stewardship. These writings are interpretive rather than institutional policy, grounded in practitioner-scholar reflection and the living concerns of the Iroko Historical Society.
-  </p>
+  <a href="iroko-commentaries.html" class="return-link">Back to Iroko Commentaries</a>
 
-  <hr class="section-divider">
+  <article>
+    <header>
+      <p class="essay-kicker">Iroko &middot; Commentary</p>
+      <h1 class="essay-title">The Scholar Is Not the Custodian</h1>
+      <div class="essay-subtitle">On the difference between proximity and accountability</div>
+      <div class="essay-meta">Iroko Commentary &middot; Archives &amp; Stewardship &middot; May 2026</div>
+      <div class="essay-author">By D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &#7884;&#768;.</div>
+      <p class="essay-deck">A practitioner-archivist on scholarly access, initiatory obligation, and why communities sealed their archives long before archival theory had a word for what they were doing. The archive remembers who came in. It does not record what came due on the way out.</p>
+    </header>
 
-  <p class="section-lead">Essays</p>
-  <div class="commentary-grid">
-
-    <article class="commentary-card">
-      <div class="commentary-meta">
-        <span class="commentary-tag">Sacred Speech &amp; Practice</span>
-        <span class="commentary-status">May 2026</span>
+    <div class="essay-body">
+      <div class="medium-panel">
+        <p>This essay was originally published on Medium in May 2026.</p>
+        <p><a href="https://medium.com/@dele.fagbemi.o/the-scholar-is-not-the-custodian-161e3b551595" class="ext" target="_blank" rel="noopener">Read &ldquo;The Scholar Is Not the Custodian&rdquo; on Medium</a></p>
       </div>
-      <h2>The Bones Fall: Prophecy or Verdict?</h2>
-      <div class="commentary-subtitle">On Divinatory Inflation and the Ethics of Sacred Speech</div>
-      <p>On divination, divinatory inflation, and the ethics of sacred speech. What happens when a warning becomes a destiny, a proverb becomes a verdict, and a person must live inside a message that was never meant to be their final address.</p>
-      <a href="the-bones-fall-prophecy-or-verdict.html" class="btn btn-outline">Read Essay</a>
-    </article>
-
-    <article class="commentary-card">
-      <div class="commentary-meta">
-        <span class="commentary-tag">Archives &amp; Stewardship</span>
-        <span class="commentary-status">Medium &middot; May 2026</span>
-      </div>
-      <h2>The Scholar Is Not the Custodian</h2>
-      <div class="commentary-subtitle">On the difference between proximity and accountability</div>
-      <p>A practitioner-archivist on scholarly access, initiatory obligation, and why communities sealed their archives long before archival theory had a word for what they were doing.</p>
-      <a href="the-scholar-is-not-the-custodian.html" class="btn btn-outline">Read Essay</a>
-    </article>
-
-    <article class="commentary-card">
-      <div class="commentary-meta">
-        <span class="commentary-tag">History &amp; Memory</span>
-        <span class="commentary-status">Medium &middot; March 2026</span>
-      </div>
-      <h2>Bread Before the End: Havana and the Memory of Constantinople</h2>
-      <div class="commentary-subtitle">On cities that keep going anyway</div>
-      <p>What the final weeks of Constantinople tell us about cities that maintain their rhythms when the horizon is already full of smoke, and what Havana is doing right now.</p>
-      <a href="bread-before-the-end.html" class="btn btn-outline">Read Essay</a>
-    </article>
-
-  </div>
+    </div>
+  </article>
 </div>
 
 <footer>
