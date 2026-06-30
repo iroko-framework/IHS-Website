@@ -237,8 +237,15 @@ def render_logo_panel(img: Image.Image) -> int:
     return TEXT_X_LOGO
 
 
-def render_photo_panel(img: Image.Image, photo_url: str) -> int:
-    """Download and paste photo. Returns text_x."""
+def render_photo_panel(img: Image.Image, photo_url: str,
+                       offset_x: int = 0, offset_y: int = 0) -> int:
+    """Download and paste photo. Returns text_x.
+
+    offset_x / offset_y: shift the crop window in pixels from the default
+    centre position. Positive x moves the window right (reveals more of the
+    left side of the source); positive y moves it down (reveals more of the
+    top). Use negative values to go the other way.
+    """
     print(f"    Downloading photo …")
     r = requests.get(photo_url, timeout=30)
     r.raise_for_status()
@@ -255,8 +262,10 @@ def render_photo_panel(img: Image.Image, photo_url: str) -> int:
         new_h = int(photo.height * PHOTO_W / photo.width)
 
     photo = photo.resize((new_w, new_h), Image.LANCZOS)
-    left  = (new_w - PHOTO_W) // 2
-    top   = (new_h - PHOTO_H) // 2
+
+    # Default centre crop, shifted by offset
+    left = max(0, min((new_w - PHOTO_W) // 2 + offset_x, new_w - PHOTO_W))
+    top  = max(0, min((new_h - PHOTO_H) // 2 + offset_y, new_h - PHOTO_H))
     photo = photo.crop((left, top, left + PHOTO_W, top + PHOTO_H))
     img.paste(photo, (PHOTO_X, PHOTO_Y))
     return TEXT_X_PHOTO
@@ -270,7 +279,11 @@ def make_og_image(page: dict) -> Image.Image:
 
     # Left panel
     if page.get("layout") == "photo":
-        text_x = render_photo_panel(img, page["photo_url"])
+        text_x = render_photo_panel(
+            img, page["photo_url"],
+            offset_x=page.get("photo_offset_x", 0),
+            offset_y=page.get("photo_offset_y", 0),
+        )
     else:
         text_x = render_logo_panel(img)
 
@@ -518,6 +531,11 @@ PAGES = [
             "/I00001I.Ui3.Uzdk/fit=700x700/fill="
             "/g=G0000n01IpmZArsk/I00001I.Ui3.Uzdk.jpg"
         ),
+        # Crop offset — tweak these to reframe the photo:
+        # positive offset_x → shift window right (shows more left edge of photo)
+        # positive offset_y → shift window down  (shows more top of photo)
+        photo_offset_x = 0,
+        photo_offset_y = 50,
         label      = "IROKO · VISUAL ETHNOGRAPHY",
         title      = "Visual Ethnography",
         subtitle   = "Documentary photography of sacred spaces, ritual practice, and community life across the Afro-Atlantic world.",
