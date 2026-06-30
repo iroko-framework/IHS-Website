@@ -16,8 +16,7 @@
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Write to Us — Iroko Historical Society">
   <meta name="twitter:description" content="Reach the Iroko Historical Society for research inquiries, collection access requests, licensing, and general correspondence.">
-  <meta name="twitter:image"       content="https://irokosociety.org/assets/og-contact.png">
-  <link rel="stylesheet" href="style.css">
+  <meta name="twitter:image"       content="https://irokosociety.org/assets/og-contact.png">  <link rel="stylesheet" href="style.css">
   <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZP3KZWLS4"></script>
@@ -403,56 +402,4 @@
 /* ── Email construction ─────────────────────────────────── */
 (function(){
   var u='senior.curator', d='irokosociety.org';
-  document.querySelectorAll('.js-email').forEach(function(el){
-    el.href='mailto:'+u+'@'+d;
-    el.textContent=u+'@'+d;
-  });
-})();
-
-/* ── Formspree AJAX submission ──────────────────────────── */
-(function(){
-  var form = document.getElementById('contact-form');
-  if (!form) return;
-
-  // Show success message if redirected back with ?sent=1
-  if (window.location.search.indexOf('sent=1') !== -1) {
-    document.getElementById('status-success').style.display = 'block';
-    form.style.display = 'none';
-  }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var btn = form.querySelector('.btn-send');
-    btn.textContent = 'Sending\u2026';
-    btn.disabled = true;
-
-    var data = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(function(res){
-      if (res.ok) {
-        form.style.display = 'none';
-        document.getElementById('status-success').style.display = 'block';
-      } else {
-        res.json().then(function(data){
-          btn.textContent = 'Send Message';
-          btn.disabled = false;
-          document.getElementById('status-error').style.display = 'block';
-        });
-      }
-    })
-    .catch(function(){
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
-      document.getElementById('status-error').style.display = 'block';
-    });
-  });
-})();
-</script>
-
-<script src="assets/nav.js"></script>
-</body>
-</html>
+  docum

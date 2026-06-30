@@ -17,8 +17,7 @@
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Foundation Day 2025 — Iroko Historical Society">
   <meta name="twitter:description" content="The inaugural Foundation Day of the Iroko Historical Society — marking the first year of postcustodial archival work.">
-  <meta name="twitter:image"       content="https://irokosociety.org/assets/og-foundation-day-2025.png">
-  <link rel="stylesheet" href="../style.css">
+  <meta name="twitter:image"       content="https://irokosociety.org/assets/og-foundation-day-2025.png">  <link rel="stylesheet" href="../style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/IHS-Logo.svg">
   <style>
     .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
@@ -305,58 +304,3 @@
         <a class="archive-link" href="https://irokosociety.photoshelter.com/gallery/G0000emYJ_7Ralo8" target="_blank">&rarr; 2025 Community Gallery ↗</a>
         <a class="archive-link" href="2025.html#state-of-the-society">&rarr; State of the Society, 2025</a>
       </div>
-    </div>
-
-  </aside>
-
-</div><!-- end fd-layout -->
-
-<footer class="site-footer">
-  <div class="footer-links">
-    <a href="../index.html">Home</a>
-    <a href="../collections.html">Collections</a>
-    <a href="../access-policy.html">Access Policy</a>
-    <a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a>
-    <a href="../contact.html">Contact</a>
-  </div>
-  <div class="footer-legal">
-    Iroko Historical Society<br>
-    An elaboration of Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc., a registered 501(c)(3)<br>
-    Foundation Day is observed annually on July 14. &nbsp;&middot;&nbsp;
-    <a href="#" class="js-email">[protected]</a>
-  </div>
-</footer>
-
-<script>
-(function(){
-  var u='senior.curator',d='irokosociety.org';
-  document.querySelectorAll('.js-email').forEach(function(el){
-    el.href='mailto:'+u+'@'+d;
-    el.textContent=u+'@'+d;
-  });
-})();
-</script>
-
-<script>
-function shareAddress() {
-  const url = window.location.href.split('#')[0] + "#state-of-the-society";
-  const title = "State of the Society (2025) — Iroko Historical Society";
-
-  if (navigator.share) {
-    navigator.share({
-      title: title,
-      url: url
-    });
-  } else if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url).then(function() {
-      alert("Link copied to clipboard");
-    });
-  } else {
-    prompt("Copy this link:", url);
-  }
-}
-</script>
-
-<script src="../assets/nav.js"></script>
-</body>
-</html>

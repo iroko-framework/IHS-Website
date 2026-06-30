@@ -8,12 +8,11 @@ Run from the IHS-Website directory:
     python generate-og.py
 
 What it does:
-  1. Downloads Cinzel Bold, EB Garamond Italic, and Source Sans 3 into fonts/
+  1. Downloads EB Garamond Bold, EB Garamond Italic, and Source Sans 3 into fonts/
   2. Generates 1200×630 branded PNG files into assets/
   3. Injects/updates og: and twitter: meta tags in each HTML file
 
-Pages with existing hand-crafted OG images are skipped unless you
-pass --force on the command line.
+Run with --force to regenerate PNGs that already exist.
 """
 
 import io
@@ -86,7 +85,7 @@ SZ_DOMAIN = 16
 
 # ── font management ───────────────────────────────────────────────────────────
 _FONT_SPECS = {
-    "cinzel_bold":   ("Cinzel",        "700", "0"),
+    "garamond_bold": ("EB Garamond",   "700", "0"),
     "garamond_ital": ("EB Garamond",   "400", "1"),
     "sourcesans":    ("Source Sans 3", "400", "0"),
 }
@@ -137,10 +136,10 @@ def get_font(key: str, size: int) -> ImageFont.FreeTypeFont:
     else:
         # System-font fallbacks (Linux / macOS / Windows)
         fallbacks = {
-            "cinzel_bold":   [
-                "/usr/share/fonts/truetype/lato/Lato-Black.ttf",
-                "C:/Windows/Fonts/impact.ttf",
-                "/System/Library/Fonts/Supplemental/Impact.ttf",
+            "garamond_bold": [
+                "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+                "C:/Windows/Fonts/garabd.ttf",
+                "/System/Library/Fonts/Supplemental/Georgia Bold.ttf",
             ],
             "garamond_ital": [
                 "/usr/share/fonts/truetype/dejavu/DejaVuSerif-BoldItalic.ttf",
@@ -218,11 +217,11 @@ def auto_size_title(draw: ImageDraw.ImageDraw, title: str, max_w: int) -> tuple:
     """Return (font, size) that fits the title in ≤3 lines."""
     size = SZ_TITLE
     while size >= 32:
-        f = get_font("cinzel_bold", size)
+        f = get_font("garamond_bold", size)
         if len(wrap_text(draw, title, f, max_w)) <= 3:
             return f, size
         size -= 4
-    return get_font("cinzel_bold", 32), 32
+    return get_font("garamond_bold", 32), 32
 
 
 # ── left-panel renderers ───────────────────────────────────────────────────────
@@ -612,11 +611,13 @@ PAGES = [
         ),
         og_url     = f"{BASE_URL}/foundation-day/2026.html",
     ),
-    # ── commentaries (existing hand-crafted images — tags only) ──────────────
+    # ── commentaries ──────────────────────────────────────────────────────────
     dict(
         file       = "wont-they-do-it.html",
         slug       = "og-wont-they-do-it",
-        skip       = True,
+        label      = "IROKO · COMMENTARY",
+        title      = "Won't They Do It",
+        subtitle   = "Righteousness, Debt, and the Fallacy of Spiritual ROI",
         og_title   = "Won't They Do It — Iroko Commentary",
         og_description = (
             "Righteousness, Debt, and the Fallacy of Spiritual ROI. "
@@ -627,7 +628,9 @@ PAGES = [
     dict(
         file       = "the-bones-fall-prophecy-or-verdict.html",
         slug       = "og-bones-fall",
-        skip       = True,
+        label      = "IROKO · COMMENTARY",
+        title      = "The Bones Fall",
+        subtitle   = "Prophecy or Verdict? On Divinatory Inflation and the Ethics of Sacred Speech",
         og_title   = "The Bones Fall: Prophecy or Verdict? — Iroko Commentary",
         og_description = (
             "On Divinatory Inflation and the Ethics of Sacred Speech. "
@@ -638,7 +641,9 @@ PAGES = [
     dict(
         file       = "bread-before-the-end.html",
         slug       = "og-bread-before-end",
-        skip       = True,
+        label      = "IROKO · COMMENTARY",
+        title      = "Bread Before the End",
+        subtitle   = "Havana and the Memory of Constantinople",
         og_title   = "Bread Before the End: Havana and the Memory of Constantinople — Iroko Commentary",
         og_description = (
             "On the memory of Constantinople and the last meal before the fall. "
@@ -649,7 +654,9 @@ PAGES = [
     dict(
         file       = "the-scholar-is-not-the-custodian.html",
         slug       = "og-scholar-custodian",
-        skip       = True,
+        label      = "IROKO · COMMENTARY",
+        title      = "The Scholar Is Not the Custodian",
+        subtitle   = "On scholarly access, initiatory obligation, and sealed archives",
         og_title   = "The Scholar Is Not the Custodian — Iroko Commentary",
         og_description = (
             "On scholarly access, initiatory obligation, and sealed archives. "
