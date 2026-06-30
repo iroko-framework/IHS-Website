@@ -21,6 +21,7 @@ import re
 import sys
 import textwrap
 from pathlib import Path
+from typing import Optional
 
 # ── dependency check ──────────────────────────────────────────────────────────
 try:
@@ -93,7 +94,7 @@ _FONT_SPECS = {
 _font_cache: dict = {}
 
 
-def _download_font(key: str) -> Path | None:
+def _download_font(key: str) -> Optional[Path]:
     dest = FONTS / f"{key}.ttf"
     if dest.exists():
         return dest
@@ -179,7 +180,7 @@ def _text_h(draw: ImageDraw.ImageDraw, text: str, font) -> int:
     return bbox[3] - bbox[1]
 
 
-def wrap_text(draw: ImageDraw.ImageDraw, text: str, font, max_w: int) -> list[str]:
+def wrap_text(draw: ImageDraw.ImageDraw, text: str, font, max_w: int) -> list:
     """Word-wrap text to fit max_w pixels."""
     words = text.split()
     lines, current = [], ""
