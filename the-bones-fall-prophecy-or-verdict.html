@@ -235,9 +235,6 @@
 </div>
 
 <footer>
-</div>
-
-<footer>
   <div class="footer-inner">
     <div>
       <h4>Iroko Historical Society</h4>
@@ -271,4 +268,12 @@
 <script>
 (function(){
   var u='senior.curator',d='irokosociety.org';
-  var a=docum
+  document.querySelectorAll('.js-email').forEach(function(el){
+    el.href='mailto:'+u+'@'+d;
+    el.textContent=u+'@'+d;
+  });
+})();
+</script>
+<script src="assets/nav.js"></script>
+</body>
+</html>

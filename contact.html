@@ -169,8 +169,6 @@
     </div>
   </div>
 </section>
-  </div>
-</section>
 
 <footer class="site-footer">
   <div class="footer-links">
@@ -188,14 +186,15 @@
   </div>
 </footer>
 
-<footer>
-  <div class="footer-inner">
-    <div>
-      <h4>Iroko Historical Society</h4>
-      <p>A postcustodial cultural heritage complex comprising a digital archive, research library, and living museum focused on Afro-Atlantic sacred knowledge systems.</p>
-      <p style="margin-top:.75rem">New Orleans &middot; Miami &middot; Havana &middot; Est. 2024</p>
-    </div>
-    <div>
-      <h4>Navigate</h4>
-      <a href="about.html">About the Society</a>
-      <a href="collections
+<script>
+(function(){
+  var u='senior.curator',d='irokosociety.org';
+  document.querySelectorAll('.js-email').forEach(function(el){
+    el.href='mailto:'+u+'@'+d;
+    el.textContent=u+'@'+d;
+  });
+})();
+</script>
+<script src="assets/nav.js"></script>
+</body>
+</html>
