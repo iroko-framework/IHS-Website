@@ -255,7 +255,7 @@
     <p>The following gallery contains community-submitted images from the Society&rsquo;s inaugural Foundation Day photography call. Submissions document sacred spaces, material culture, and community life across the Afro-Atlantic world.</p>
 
     <div class="gallery-links">
-      <a href="https://irokosociety.photoshelter.com/gallery/G0000emYJ_7Ralo8" target="_blank" class="gallery-btn community">2025 Community Submissions ↗</a>
+      <a href="https://irokosociety.photoshelter.com/gallery/G0000emYJ_7Ralo8" target="_blank" rel="noopener noreferrer" class="gallery-btn community">2025 Community Submissions ↗</a>
     </div>
 
   <div class="pilgrimage-block">
@@ -264,7 +264,7 @@
     <ul>
       <li>Formal establishment of the Iroko Historical Society (July 14, 2024, New Orleans)</li>
       <li>Finalization of the Society&rsquo;s name and institutional direction</li>
-      <li>Launch of the initial website (<a href="https://irokosociety.org" target="_blank">irokosociety.org</a>)</li>
+      <li>Launch of the initial website (<a href="https://irokosociety.org" target="_blank" rel="noopener noreferrer">irokosociety.org</a>)</li>
       <li>Begin Master of Library and Information Science (MLIS) studies at the University of Alabama</li>
       <li>Private Foundation Day observance marking the Society&rsquo;s first year</li>
       <li>Initial community engagement through a small number of sacred tree photo submissions, establishing an early participatory archive</li>
@@ -321,7 +321,7 @@
         Framework white paper published
       </p>
       <div class="archive-links">
-        <a class="archive-link" href="https://irokosociety.photoshelter.com/gallery/G0000emYJ_7Ralo8" target="_blank">&rarr; 2025 Community Gallery ↗</a>
+        <a class="archive-link" href="https://irokosociety.photoshelter.com/gallery/G0000emYJ_7Ralo8" target="_blank" rel="noopener noreferrer">&rarr; 2025 Community Gallery ↗</a>
         <a class="archive-link" href="2025.html#state-of-the-society">&rarr; State of the Society, 2025</a>
       </div>
     </div>
@@ -354,6 +354,39 @@
     el.textContent=u+'@'+d;
   });
 })();
+</script>
+
+<script>
+function shareAddress() {
+  var url = window.location.origin + window.location.pathname + '#state-of-the-society';
+  var title = 'State of the Society, 2025 — Iroko Historical Society';
+  var text = 'Foundation Day 2025: the inaugural annual record of the Iroko Historical Society.';
+
+  if (navigator.share) {
+    navigator.share({ title: title, text: text, url: url }).catch(function(error) {
+      if (error && error.name !== 'AbortError') {
+        console.warn('Unable to share the State of the Society address.', error);
+      }
+    });
+    return;
+  }
+
+  var button = document.querySelector('.address-share button');
+  function confirmCopy() {
+    if (!button) return;
+    var original = button.textContent;
+    button.textContent = 'Link Copied';
+    window.setTimeout(function() { button.textContent = original; }, 2000);
+  }
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(url).then(confirmCopy).catch(function() {
+      window.prompt('Copy this link:', url);
+    });
+  } else {
+    window.prompt('Copy this link:', url);
+  }
+}
 </script>
 <script src="../assets/nav.js"></script>
 </body>

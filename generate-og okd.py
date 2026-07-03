@@ -644,33 +644,6 @@ PAGES = [
         ),
         og_url     = f"{BASE_URL}/foundation-day/2027.html",
     ),
-    # ── contribution intake ─────────────────────────────────────────────────
-    dict(
-        file       = "foundation-day/contribute.html",
-        slug       = "og-contribute",
-        label      = "IROKO · VISUAL ETHNOGRAPHY",
-        title      = "Submit a Contribution",
-        subtitle   = "Share a photograph, contextual note, or other proposed contribution for consideration by the Iroko Historical Society.",
-        og_title   = "Submit a Contribution — Iroko Historical Society",
-        og_description = (
-            "Submit a photograph, contextual note, or other proposed contribution "
-            "for consideration by the Iroko Historical Society."
-        ),
-        og_url     = f"{BASE_URL}/foundation-day/contribute.html",
-    ),
-    # ── contribution receipt ────────────────────────────────────────────────
-    dict(
-        file       = "foundation-day/contribution-received.html",
-        slug       = "og-contribute",
-        label      = "IROKO · VISUAL ETHNOGRAPHY",
-        title      = "Contribution Received",
-        subtitle   = "Thank you for sharing material with the Iroko Historical Society.",
-        og_title   = "Contribution Received — Iroko Historical Society",
-        og_description = (
-            "Thank you for submitting a proposed contribution to the Iroko Historical Society."
-        ),
-        og_url     = f"{BASE_URL}/foundation-day/contribution-received.html",
-    ),
     # ── find your tree (community observance, shareable on its own) ──────────
     dict(
         file       = "foundation-day/find-your-tree.html",
@@ -679,11 +652,11 @@ PAGES = [
         photo_url  = "https://m.psecn.photoshelter.com/img-get/I0000BOUspDyBJo4/s/1200/I0000BOUspDyBJo4.jpg",
         label      = "IROKO · FOUNDATION DAY",
         title      = "Find Your Tree",
-        subtitle   = "A community observance for July 14 — find a tree of significance, stand with it, and offer your attention.",
-        og_title   = "Find Your Tree — Iroko Historical Society",
+        subtitle   = "A community observance for July 14 - find a sacred tree, stand with it, leave something behind.",
+        og_title   = "Find Your Tree - Iroko Historical Society",
         og_description = (
-            "On July 14, wherever you are, make a small pilgrimage: find a tree that "
-            "holds significance in your landscape, stand with it, and offer your attention."
+            "On July 14, wherever you are, make a small pilgrimage: find a sacred tree "
+            "in your landscape, stand with it, and leave something behind."
         ),
         og_url     = f"{BASE_URL}/foundation-day/find-your-tree.html",
     ),
