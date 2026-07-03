@@ -303,12 +303,11 @@ def make_og_image(page: dict) -> Image.Image:
     sub_y = title_bottom + 20
     draw_wrapped(draw, page["subtitle"], f_sub, text_x, sub_y, max_w, COL_SUB, 1.45)
 
-    # Domain (centered at bottom)
+    # Domain (left-aligned with the label, title, and subtitle)
     f_domain  = get_font("sourcesans", SZ_DOMAIN)
     domain    = "irokosociety.org"
-    dw        = _text_w(draw, domain, f_domain)
     dh        = _text_h(draw, domain, f_domain)
-    draw.text(((W - dw) // 2, H - 42 - dh), domain, font=f_domain, fill=COL_DOMAIN)
+    draw.text((text_x, H - 42 - dh), domain, font=f_domain, fill=COL_DOMAIN)
 
     return img
 
