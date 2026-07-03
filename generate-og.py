@@ -622,13 +622,27 @@ PAGES = [
         slug       = "og-foundation-day-2026",
         label      = "IROKO · FOUNDATION DAY",
         title      = "Foundation Day 2026",
-        subtitle   = "The second annual Foundation Day of the Iroko Historical Society.",
-        og_title   = "Foundation Day 2026 — Iroko Historical Society",
+        subtitle   = "State of the Society — closing Year Two, opening Year Three.",
+        og_title   = "Foundation Day 2026 — State of the Society — Iroko Historical Society",
         og_description = (
-            "The second annual Foundation Day of the Iroko Historical Society — "
-            "a milestone in the ongoing work of Afro-Atlantic archival preservation."
+            "The permanent record closing Year Two and opening Year Three of the "
+            "Iroko Historical Society, including the founder's State of the Society address."
         ),
         og_url     = f"{BASE_URL}/foundation-day/2026.html",
+    ),
+    # ── foundation day 2027 (planned) ─────────────────────────────────────────
+    dict(
+        file       = "foundation-day/2027.html",
+        slug       = "og-foundation-day-2027",
+        label      = "IROKO · FOUNDATION DAY",
+        title      = "Foundation Day 2027",
+        subtitle   = "Planned — the public convening deferred from Year Two.",
+        og_title   = "Foundation Day 2027 — Planned — Iroko Historical Society",
+        og_description = (
+            "Foundation Day 2027 is planned but not yet detailed. See the State of the "
+            "Society, 2026 address for the reasoning behind the deferral."
+        ),
+        og_url     = f"{BASE_URL}/foundation-day/2027.html",
     ),
     # ── commentaries ──────────────────────────────────────────────────────────
     dict(
