@@ -28,3 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Share the State of the Society address (used on foundation-day pages)
+function shareAddress() {
+  var url = window.location.href.split('#')[0] + '#state-of-the-society';
+  if (navigator.share) {
+    navigator.share({ title: document.title, url: url }).catch(() => {});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => {
+      window.alert('Link copied to clipboard.');
+    });
+  } else {
+    window.prompt('Copy this link:', url);
+  }
+}

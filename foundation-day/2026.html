@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Foundation Day 2026 — The second annual observance of the Iroko Historical Society. July 14 private observance. Year Two institutional milestones.">
-  <title>Foundation Day 2026 — Iroko Historical Society</title>
+  <meta name="description" content="Foundation Day 2026 — State of the Society. The close of Year Two and the opening of Year Three for the Iroko Historical Society. July 14 private observance.">
+  <title>Foundation Day 2026 — State of the Society — Iroko Historical Society</title>
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="Iroko Historical Society">
-  <meta property="og:title"       content="Foundation Day 2026 — Iroko Historical Society">
-  <meta property="og:description" content="The second annual Foundation Day of the Iroko Historical Society — a milestone in the ongoing work of Afro-Atlantic archival preservation.">
+  <meta property="og:title"       content="Foundation Day 2026 — State of the Society — Iroko Historical Society">
+  <meta property="og:description" content="The permanent record closing Year Two and opening Year Three of the Iroko Historical Society, including the founder's State of the Society address.">
   <meta property="og:url"         content="https://irokosociety.org/foundation-day/2026.html">
   <meta property="og:image"       content="https://irokosociety.org/assets/og-foundation-day-2026.png">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type"   content="image/png">
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Foundation Day 2026 — Iroko Historical Society">
-  <meta name="twitter:description" content="The second annual Foundation Day of the Iroko Historical Society — a milestone in the ongoing work of Afro-Atlantic archival preservation.">
+  <meta name="twitter:title"       content="Foundation Day 2026 — State of the Society — Iroko Historical Society">
+  <meta name="twitter:description" content="The permanent record closing Year Two and opening Year Three of the Iroko Historical Society, including the founder's State of the Society address.">
   <meta name="twitter:image"       content="https://irokosociety.org/assets/og-foundation-day-2026.png">  <link rel="stylesheet" href="../style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/IHS-Logo.svg">
   <style>
@@ -101,6 +101,8 @@
     .archive-entry:last-child{border-bottom:none}
     .archive-year-row{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.2rem}
     .archive-year{font-family:var(--font-display);font-size:1.75rem;color:var(--green-deep);font-weight:700;line-height:1}
+    a.archive-year{text-decoration:none;transition:color .15s}
+    a.archive-year:hover{color:var(--green-mid)}
     .archive-current-badge{font-family:var(--font-sans);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--cream);background:var(--green-deep);padding:.15em .55em}
     .archive-theme{font-family:var(--font-serif);font-style:italic;font-size:.95rem;color:var(--text-main);margin-bottom:.5rem}
     .archive-meta{font-family:var(--font-sans);font-size:.75rem;color:var(--text-muted);line-height:1.7}
@@ -109,6 +111,21 @@
     .archive-link:hover{color:var(--green-deep)}
     .archive-placeholder{font-family:var(--font-sans);font-style:italic;font-size:.8rem;color:var(--text-muted);border:1px dashed var(--cream-dark);padding:.6rem .85rem;margin-top:.5rem;line-height:1.6}
 
+    /* ── Address paper + share (ported from 2025.html) ── */
+    .address-paper-wrap{margin:1.5rem 0 2.5rem}
+    .address-placeholder{background:var(--cream-light);border:1px dashed var(--cream-dark);border-left:4px solid var(--green-border);padding:2rem;margin:1.5rem 0 2.5rem}
+    .address-placeholder .ap-label{font-family:var(--font-sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.75rem}
+    .address-placeholder p{font-family:var(--font-sans);font-size:.88rem;color:var(--text-muted);line-height:1.75;margin:0;font-style:italic}
+    .address-share{text-align:right;margin-bottom:.5rem}
+    .address-share button{background:none;border:1px solid var(--green-border);padding:.35rem .85rem;cursor:pointer;font-size:.78rem;font-family:var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--green-deep);border-radius:2px;transition:background .2s,color .2s}
+    .address-share button:hover{background:var(--green-deep);color:var(--cream);border-color:var(--green-deep)}
+    .address-full{padding:2rem 2.25rem;background-color:#ffffff;border:1px solid #ddd;box-shadow:0 4px 16px rgba(0,0,0,.07);line-height:1.6}
+    .address-full h2{font-family:var(--font-display);font-size:1.2rem;color:var(--green-deep);margin-bottom:.35rem}
+    .address-full h2::after{content:'';display:block;width:32px;height:2px;background:var(--green-light);margin-top:.4rem;margin-bottom:1rem}
+    .address-date{font-style:italic;font-family:var(--font-sans);font-size:.85rem;color:var(--text-muted);margin-bottom:1.5rem}
+    .address-full p{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:1rem}
+    .address-full p:last-child{margin-bottom:0}
+    .address-signature{margin-top:2rem;font-family:var(--font-sans);font-size:.9rem;color:var(--text-main)}
 
     /* ── Gallery buttons ── */
     .gallery-links{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.25rem 0 2rem}
@@ -205,15 +222,15 @@
 
 <section class="fd-hero">
   <div class="fd-hero-inner">
-    <p class="fd-eyebrow">Annual Observance &nbsp;&middot;&nbsp; Year Two</p>
+    <p class="fd-eyebrow">Annual Observance &nbsp;&middot;&nbsp; Closing Year Two, Opening Year Three</p>
     <h1>Foundation Day</h1>
     <p class="fd-hero-year">July 14, 2026</p>
     <div class="fd-hero-rule"></div>
     <p class="lead">
       The second annual observance of the Iroko Historical Society's founding date.
-      July 14 is observed privately. Year Two marks the Society's passage from founding
-      to institutional build: the Framework deposited, the governed collections platform
-      launched, and the research program in active development.
+      July 14 is observed privately, and this page stands as the permanent record:
+      the close of Year Two (July 14, 2025 &ndash; July 13, 2026) and the opening of
+      Year Three. The founder's State of the Society address follows below.
     </p>
   </div>
 </section>
@@ -234,8 +251,120 @@
 
     <div class="offering-note" style="margin-bottom:2rem;">
       <p>
-        The mini-conference and panel discussion originally planned for July 2026 have been postponed to 2027. This year, the Society is directing its efforts toward the <em>American Archivist</em> submission, the ASA New Orleans presentation, and related scholarly work. Foundation Day 2026 will be observed as the Society’s second anniversary: a record of what was built, rather than a public event.
+        The mini-conference and panel discussion originally planned for July 2026 have been postponed to 2027. The reasoning is addressed directly in the State of the Society address below.
       </p>
+    </div>
+
+    <p class="block-label" style="margin-top:2rem;">State of the Society</p>
+
+    <div class="address-paper-wrap" id="state-of-the-society">
+      <div class="address-placeholder">
+        <p class="ap-label">Annual Address &mdash; Year Two</p>
+        <p>Year Two moved the Society from declared intention to working infrastructure: Per Medjat launched, the Iroko Framework deposited under a persistent DOI, and the founder's research program advancing on schedule. The full address follows.</p>
+      </div>
+      <div class="address-share">
+        <button onclick="shareAddress()" aria-label="Share this address">Share Address</button>
+      </div>
+      <div class="address-full">
+      <h2>State of the Society</h2>
+      <p class="address-date">July 14, 2026</p>
+
+      <p><strong>Iroko Historical Society</strong><br>
+      Foundation Day Address<br>
+      State of the Society</p>
+
+      <p>Year One asked what the Society intended to become. Year Two asked whether that intention could be built, tested, and made to hold weight under actual use. This address is the record of that test.</p>
+
+      <p>Year Two moved the Society from declared intention toward working infrastructure. Per Medjat, the Society&rsquo;s governed collections interface, launched this year at medjat.irokosociety.org. It holds two components under a single access architecture. The Medjat Library, a public research catalog, grew from a small pilot into a collection of more than six hundred cataloged records, spanning theses, journal articles, books, and book chapters on Afro-Atlantic sacred knowledge systems. The Medjat Archives holds unpublished and field-collected material under the same six-tier system, calibrated so that a single record can be public at one property and restricted to initiated practitioners at another. The Ew&eacute; Sacred Plant Database launched as a fifty-record technical pilot. Its purpose was not to publish a finished research resource but to prove that the Framework&rsquo;s field-level access control and the public interface actually worked, using structured test material drawn from Pierre Fatumbi Verger&rsquo;s fieldwork. A fuller corpus of more than seven hundred fifty records, built on operational data, remains in development. The Iroko Framework, the vocabulary that governs description and access across all of this, is deposited under a persistent Zenodo DOI (<a href="https://doi.org/10.5281/zenodo.19157679" target="_blank">10.5281/zenodo.19157679</a>) at version 1.3.0, with sixteen modules complete: one foundation module, five governance modules, and ten tradition-specific domain modules, alongside a supplementary alignment reference for interoperability with existing metadata standards. A further version, reflecting a year of continued development, is being prepared for deposit before Year Two closes.</p>
+
+      <p>None of this was built by hand alone. Five internal tools carried the year&rsquo;s work. Medjat Acquire searches external catalogs and imports records with acquisition provenance attached. Medjat Steward proposes description and access tags for human review rather than applying them automatically, and quarantines rather than deletes when a record&rsquo;s status is uncertain. Medjat Enrich backfills authority records, abstracts, and bibliographic detail onto holdings already in the catalog. A featured-work rotation keeps the public catalog&rsquo;s front page current. And the Iroko Framework Manager is the tool that took the vocabulary from two documented modules to sixteen. These tools are not incidental to the mission; they are the mechanism by which the Society&rsquo;s stated commitments to stewardship become structural rather than aspirational.</p>
+
+      <p>That mechanism matters because the Society does not treat digitization as disclosure. A catalog can grow by hundreds of records in a year without any of what those records govern becoming public by default. The Medjat Library&rsquo;s growth this year was overwhelmingly at the public tier, as published scholarship should be; the Medjat Archives is not measured the same way, and will not be. The Society recognizes more than one form of authority over knowledge. Institutional description is not the same thing as community consent, and a record&rsquo;s presence in a catalog is not evidence that everything about it may be known. Community-held and restricted material is not monetized, and it is not made public simply because the technical infrastructure to do so now exists. Where tagging and enrichment have not yet reached a record, that is not neglect. It is the ordinary pace of a review process that requires a person, not a script, to make the call. This pace is not a limitation the Society works against. It is a standard the Society has set for itself: growth measured against what can be governed responsibly, not against what infrastructure alone would allow. A tool capable of ingesting a thousand records in a week is not a reason to release a thousand records in a week.</p>
+
+      <p>The founder&rsquo;s own research continued this year, and it is worth naming precisely what belongs to whom. &ldquo;Havana to the Sabine,&rdquo; the founder&rsquo;s study of documentary practice in the post-1808 Gulf slave trade, was submitted to <em>The American Archivist</em> (vol. 90.1) for peer review in June, and was named the University of Alabama Outstanding Student Paper for 2026. &ldquo;Sealed from the Inside,&rdquo; a study of archival latency in Abaku&aacute;, Bizango, and &Ograve;r&ograve;, was accepted for presentation at the African Studies Association&rsquo;s 69th Annual Meeting in New Orleans this December. Both inform the Society&rsquo;s emerging technical and ethical approach to archival governance. Neither is an institutional accomplishment of the Society itself, and that distinction is one the Society insists on rather than blurs. Infrastructure is what the Society builds. Scholarship is what informs how it builds.</p>
+
+      <p>The mini-conference and panel discussion originally planned for this July have been postponed to 2027. This was sequencing, not retreat. Year Two&rsquo;s effort went toward the work described above and toward the scholarly record it produced; convening a public gathering before that foundation was finished would have asked the Society to perform a completion it had not yet earned. Foundation Day 2026 is observed as it was always meant to be: privately, and as a record rather than an event.</p>
+
+      <p>Year Three, running from July 14, 2026, to July 13, 2027, will consolidate what Year Two built rather than expand in every direction at once. Priorities include a public convening in 2027, continued growth of Per Medjat and its underlying catalog, clearer contribution and access-request workflows, further development of the visual ethnography archive, and governance documentation commensurate with an institution now old enough to need it. None of this is promised on a timeline that depends on funding or approval not yet secured. It is intention, stated as plainly as Year Two&rsquo;s intentions were stated a year ago.</p>
+
+      <p>The Society will grow only at the pace required to preserve trust, community authority, and scholarly integrity. That is not a limit on ambition. It is the ambition.</p>
+
+      <p class="address-signature">
+        D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &Ocirc;&agrave;.<br>
+        Founder and Steward<br>
+        Iroko Historical Society
+      </p>
+    </div>
+    </div><!-- end address-paper-wrap -->
+
+    <p class="block-label" style="margin-top:2rem;">Year Two &mdash; Institutional Milestones</p>
+
+    <h2>What the Society Built</h2>
+
+    <p>Year Two marks the transition from founding to infrastructure. The Society moved
+    from established intention to deployed systems: a governed collections platform, a
+    published and deposited vocabulary, and a live searchable archive.</p>
+
+    <div class="pilgrimage-block" style="margin-top:1.5rem;">
+      <p class="pilgrim-eyebrow">Institutional Developments</p>
+      <h2>IHS Infrastructure</h2>
+      <ul>
+        <li><strong>Per Medjat launched</strong> &mdash; the Society's governed collections interface at
+          <a href="https://medjat.irokosociety.org" class="ext">medjat.irokosociety.org</a>.
+          Houses both the Medjat Library and Medjat Archives under the six-tier Iroko Framework
+          access system.</li>
+        <li><strong>Iroko Framework deposited to Zenodo</strong> &mdash; vocabulary formally registered
+          with a persistent DOI, currently at version 1.3.0. A further version, reflecting a year
+          of continued module development, is being prepared for deposit before Year Two closes.
+          DOI (Vocabulary): <a href="https://doi.org/10.5281/zenodo.19157679" target="_blank">10.5281/zenodo.19157679</a>
+          &middot; DOI (White Paper): <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank">10.5281/zenodo.18826673</a></li>
+        <li><strong>Ew&eacute; Sacred Plant Database &mdash; technical pilot</strong> &mdash; fifty records of
+          structured test material at <a href="https://medjat.irokosociety.org/ewe/" class="ext">medjat.irokosociety.org/ewe/</a>,
+          built to prove the Iroko Framework's field-level access control and public interface,
+          not yet an operational research resource. A full corpus of 750+ records, built on
+          operational data, is in development.</li>
+        <li><strong>Medjat Library active</strong> &mdash; a public research catalog of more than
+          600 cataloged records at <a href="https://medjat.irokosociety.org/library/" class="ext">medjat.irokosociety.org/library/</a>,
+          covering Afro-Atlantic sacred knowledge systems.</li>
+      </ul>
+    </div>
+
+    <div class="pilgrimage-block" style="margin-top:1.5rem;">
+      <p class="pilgrim-eyebrow">Founder&rsquo;s Contributions to the IHS Research Program</p>
+      <h2>Scholarly &amp; Professional Developments</h2>
+      <ul>
+        <li><strong>&ldquo;Havana to the Sabine&rdquo;</strong> &mdash; submitted to
+          <em>The American Archivist</em> (vol. 90.1) for peer review, June 2026. Phase Three of
+          the Trafficking in Slave Paper research program. Named the <em>University of Alabama
+          Outstanding Student Paper, 2026</em>.</li>
+        <li><strong>&ldquo;Sealed from the Inside&rdquo;</strong> &mdash; accepted for presentation,
+          African Studies Association 69th Annual Meeting, New Orleans, December 2026.</li>
+        <li><strong>Verger Ew&eacute; Dataset</strong> (LS563 Linked Data, University of Alabama) &mdash;
+          1,195 RDF triples across 13 accepted records from the Tulane Herbarium, integrating
+          Darwin Core with the Iroko Framework iroko-ewe module.</li>
+        <li><strong>Entre el esp&iacute;ritu y la custodia</strong> &mdash; invited presentation,
+          IV International Meeting on the Preservation of Documentary Heritage,
+          Biblioteca Nacional de Cuba Jos&eacute; Mart&iacute;, Havana, September 2025.</li>
+        <li><strong>Dr. E. J. Josey and Effie Lee Morris Scholarship</strong> (BCALA), 2025&ndash;2026.</li>
+        <li>MLIS candidate, Data Science &amp; Analytics concentration, University of Alabama.
+          Funded via the IHS research program.</li>
+      </ul>
+    </div>
+
+    <p class="block-label" style="margin-top:2rem;">Year Three &mdash; July 14, 2026 &ndash; July 13, 2027</p>
+
+    <div class="pilgrimage-block" style="margin-top:1.5rem;">
+      <p class="pilgrim-eyebrow">Looking Ahead &mdash; Consolidation, Not Expansion</p>
+      <h2>Year Three Priorities</h2>
+      <ul>
+        <li>A public convening in 2027 &mdash; see <a href="2027.html">Foundation Day 2027 (planned)</a></li>
+        <li>Continued growth of Per Medjat and its underlying catalog</li>
+        <li>Clearer contribution and access-request workflows</li>
+        <li>Further development of the Visual Ethnography archive</li>
+        <li>Governance documentation commensurate with an institution now old enough to need it</li>
+      </ul>
+      <p>None of this is promised on a timeline that depends on funding or approval not yet
+      secured, per the address above.</p>
     </div>
 
     <!-- Pilgrimage invitation -->
@@ -266,55 +395,6 @@
         If you photograph your tree, consider sharing it with the IHS Visual Ethnography archive.
         Contact the Society to submit.
       </p>
-    </div>
-
-    <p class="block-label">Year Two &mdash; Institutional Milestones</p>
-
-    <h2>What the Society Built</h2>
-
-    <p>Year Two marks the transition from founding to infrastructure. The Society moved
-    from established intention to deployed systems: a governed collections platform, a
-    published and deposited vocabulary, and a live searchable archive.</p>
-
-    <div class="pilgrimage-block" style="margin-top:1.5rem;">
-      <p class="pilgrim-eyebrow">Institutional Developments</p>
-      <h2>IHS Infrastructure</h2>
-      <ul>
-        <li><strong>Per Medjat launched</strong> &mdash; the Society's governed collections interface at
-          <a href="https://medjat.irokosociety.org" class="ext">medjat.irokosociety.org</a>.
-          Houses both the Medjat Library and Medjat Archives under the six-tier Iroko Framework
-          access system.</li>
-        <li><strong>Iroko Framework deposited to Zenodo</strong> &mdash; vocabulary formally registered
-          with a persistent DOI.
-          DOI (Vocabulary): <a href="https://doi.org/10.5281/zenodo.19157679" target="_blank">10.5281/zenodo.19157679</a>
-          &middot; DOI (White Paper): <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank">10.5281/zenodo.18826673</a></li>
-        <li><strong>Ewé Sacred Plant Database pilot live</strong> &mdash; 50 structured ethnobotanical records
-          at <a href="https://medjat.irokosociety.org/ewe/" class="ext">medjat.irokosociety.org/ewe/</a>,
-          integrating Iroko Framework governance with Darwin Core and SKOS vocabularies.</li>
-        <li><strong>Medjat Library active</strong> &mdash; Zotero-powered research catalog (69+ items)
-          at <a href="https://medjat.irokosociety.org/library/" class="ext">medjat.irokosociety.org/library/</a>,
-          covering Afro-Atlantic sacred knowledge systems.</li>
-      </ul>
-    </div>
-
-    <div class="pilgrimage-block" style="margin-top:1.5rem;">
-      <p class="pilgrim-eyebrow">Founder&rsquo;s Contributions to the IHS Research Program</p>
-      <h2>Scholarly &amp; Professional Developments</h2>
-      <ul>
-        <li><strong>Verger Ewé Dataset</strong> (LS563 Linked Data, University of Alabama) &mdash;
-          1,195 RDF triples across 13 accepted records from the Tulane Herbarium, integrating
-          Darwin Core with the Iroko Framework iroko-ewe module. Named the
-          <em>University of Alabama Outstanding Student Paper, 2026</em>.</li>
-        <li><strong>&ldquo;Havana to the Sabine&rdquo;</strong> &mdash; article in active revision for
-          <em>The American Archivist</em> (vol. 90.1). Phase Three of the Trafficking in
-          Slave Paper research program.</li>
-        <li><strong>Entre el esp&iacute;ritu y la custodia</strong> &mdash; invited presentation,
-          IV International Meeting on the Preservation of Documentary Heritage,
-          Biblioteca Nacional de Cuba Jos&eacute; Mart&iacute;, Havana, September 2025.</li>
-        <li><strong>Dr. E. J. Josey and Effie Lee Morris Scholarship</strong> (BCALA), 2025&ndash;2026.</li>
-        <li>MLIS candidate, Data Science &amp; Analytics concentration, University of Alabama.
-          Funded via the IHS research program.</li>
-      </ul>
     </div>
 
     <p class="block-label">Community Photography &mdash; 2026</p>
@@ -349,7 +429,7 @@
 
     <div class="archive-entry">
       <div class="archive-year-row">
-        <span class="archive-year">2025</span>
+        <a class="archive-year" href="2025.html">2025</a>
       </div>
       <p class="archive-theme">Year One &mdash; Founding</p>
       <p class="archive-meta">
@@ -358,8 +438,24 @@
         Framework white paper published
       </p>
       <div class="archive-links">
-        <a class="archive-link" href="https://irokosociety.photoshelter.com/gallery/G0000emYJ_7Ralo8" target="_blank">&rarr; 2025 Community Gallery ↗</a>
+        <a class="archive-link" href="2025.html">&rarr; Foundation Day 2025</a>
         <a class="archive-link" href="2025.html#state-of-the-society">&rarr; State of the Society, 2025</a>
+        <a class="archive-link" href="https://irokosociety.photoshelter.com/gallery/G0000emYJ_7Ralo8" target="_blank">&rarr; 2025 Community Gallery ↗</a>
+      </div>
+    </div>
+
+    <div class="archive-entry">
+      <div class="archive-year-row">
+        <a class="archive-year" href="2027.html">2027</a>
+        <span class="archive-current-badge" style="background:var(--text-muted);">Planned</span>
+      </div>
+      <p class="archive-theme">Year Three &mdash; Looking Ahead</p>
+      <p class="archive-meta">
+        Public convening, planned<br>
+        Mini-conference and panel, deferred from 2026
+      </p>
+      <div class="archive-links">
+        <a class="archive-link" href="2027.html">&rarr; Foundation Day 2027 (planned)</a>
       </div>
     </div>
 
