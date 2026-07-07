@@ -670,21 +670,21 @@ PAGES = [
         ),
         og_url     = f"{BASE_URL}/foundation-day/contribution-received.html",
     ),
-    # ── find your tree (community observance, shareable on its own) ──────────
+    # ── share your tree (community observance, shareable on its own) ─────────
     dict(
-        file       = "foundation-day/find-your-tree.html",
-        slug       = "og-find-your-tree",
+        file       = "foundation-day/share-your-tree.html",
+        slug       = "og-share-your-tree",
         layout     = "photo",
         photo_url  = "https://m.psecn.photoshelter.com/img-get/I0000BOUspDyBJo4/s/1200/I0000BOUspDyBJo4.jpg",
         label      = "IROKO · FOUNDATION DAY",
-        title      = "Find Your Tree",
-        subtitle   = "A community observance for July 14 — find a tree of significance, stand with it, and offer your attention.",
-        og_title   = "Find Your Tree — Iroko Historical Society",
+        title      = "Share Your Tree",
+        subtitle   = "A community observance for July 14 — find a tree of significance, stand with it, and share what you witnessed.",
+        og_title   = "Share Your Tree — Iroko Historical Society",
         og_description = (
             "On July 14, wherever you are, make a small pilgrimage: find a tree that "
-            "holds significance in your landscape, stand with it, and offer your attention."
+            "holds significance in your landscape, stand with it, and share your photograph or note."
         ),
-        og_url     = f"{BASE_URL}/foundation-day/find-your-tree.html",
+        og_url     = f"{BASE_URL}/foundation-day/share-your-tree.html",
     ),
     # ── commentaries ──────────────────────────────────────────────────────────
     dict(

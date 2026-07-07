@@ -9,7 +9,7 @@ Reviewer: Claude, Cowork session, working from the live repo clones (`IHS-Websit
 
 ## 1. Current Page Architecture
 
-`foundation-day/2026.html` currently contains, in order: top bar, primary nav (identical structure across all inner pages, dropdown-based), hero (`fd-hero`, eyebrow "Annual Observance · Year Two"), observance block (date-pair, private-observance note, mini-conference deferral note), "Find Your Tree" pilgrimage block, "What the Society Built" lead paragraph, "IHS Infrastructure" bulleted block, "Founder's Contributions to the IHS Research Program" bulleted block, community photography call, sidebar archive (2026 current entry, 2025 entry with links), footer.
+`foundation-day/2026.html` currently contains, in order: top bar, primary nav (identical structure across all inner pages, dropdown-based), hero (`fd-hero`, eyebrow "Annual Observance · Year Two"), observance block (date-pair, private-observance note, mini-conference deferral note), "Share Your Tree" pilgrimage block, "What the Society Built" lead paragraph, "IHS Infrastructure" bulleted block, "Founder's Contributions to the IHS Research Program" bulleted block, community photography call, sidebar archive (2026 current entry, 2025 entry with links), footer.
 
 There is no existing "State of the Society" address block on this page. The only page with the address pattern built out is `foundation-day/2025.html`.
 
