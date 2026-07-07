@@ -318,6 +318,7 @@ def make_og_image(page: dict) -> Image.Image:
 OG_BLOCK = """\
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="Iroko Historical Society">
+{og_locale_lines}\
   <meta property="og:title"       content="{og_title}">
   <meta property="og:description" content="{og_description}">
   <meta property="og:url"         content="{og_url}">
@@ -335,11 +336,18 @@ def inject_og_tags(html_path: Path, page: dict, png_filename: str) -> None:
     src = html_path.read_text(encoding="utf-8")
 
     og_image = f"{BASE_URL}/assets/{png_filename}"
+    og_locale_lines = ""
+    if page.get("og_locale"):
+        og_locale_lines += f'  <meta property="og:locale"      content="{page["og_locale"]}">\n'
+    for locale in page.get("og_locale_alternates", []):
+        og_locale_lines += f'  <meta property="og:locale:alternate" content="{locale}">\n'
+
     block    = OG_BLOCK.format(
         og_title       = page["og_title"],
         og_description = page["og_description"],
         og_url         = page["og_url"],
         og_image       = og_image,
+        og_locale_lines = og_locale_lines,
     )
 
     # Remove any pre-existing og: / twitter: meta tags
@@ -654,11 +662,67 @@ PAGES = [
         title      = "Share Your Tree",
         subtitle   = "A community observance for July 14 - find a sacred tree, stand with it, and share what you witnessed.",
         og_title   = "Share Your Tree - Iroko Historical Society",
+        og_locale  = "en_US",
+        og_locale_alternates = ["es_ES", "pt_BR", "ht_HT"],
         og_description = (
             "On July 14, wherever you are, make a small pilgrimage: find a sacred tree "
             "in your landscape, stand with it, and share your photograph or note."
         ),
         og_url     = f"{BASE_URL}/foundation-day/share-your-tree.html",
+    ),
+    dict(
+        file       = "foundation-day/share-your-tree-es.html",
+        slug       = "og-share-your-tree-es",
+        layout     = "photo",
+        photo_url  = "https://m.psecn.photoshelter.com/img-get/I0000BOUspDyBJo4/s/1200/I0000BOUspDyBJo4.jpg",
+        label      = "IROKO · DÍA DE FUNDACIÓN",
+        title      = "Comparte tu árbol",
+        subtitle   = "Una observancia comunitaria para el 14 de julio: encuentra un árbol de significado, acompáñalo y comparte lo que presenciaste.",
+        og_title   = "Comparte tu árbol - Iroko Historical Society",
+        og_locale  = "es_ES",
+        og_locale_alternates = ["en_US", "pt_BR", "ht_HT"],
+        og_description = (
+            "El 14 de julio, dondequiera que estés, haz una pequeña peregrinación: "
+            "encuentra un árbol que tenga significado en tu paisaje, quédate con él "
+            "y comparte tu fotografía o nota."
+        ),
+        og_url     = f"{BASE_URL}/foundation-day/share-your-tree-es.html",
+    ),
+    dict(
+        file       = "foundation-day/share-your-tree-pt.html",
+        slug       = "og-share-your-tree-pt",
+        layout     = "photo",
+        photo_url  = "https://m.psecn.photoshelter.com/img-get/I0000BOUspDyBJo4/s/1200/I0000BOUspDyBJo4.jpg",
+        label      = "IROKO · DIA DA FUNDAÇÃO",
+        title      = "Compartilhe sua árvore",
+        subtitle   = "Uma observância comunitária para 14 de julho: encontre uma árvore de significado, permaneça com ela e compartilhe o que testemunhou.",
+        og_title   = "Compartilhe sua árvore - Iroko Historical Society",
+        og_locale  = "pt_BR",
+        og_locale_alternates = ["en_US", "es_ES", "ht_HT"],
+        og_description = (
+            "No dia 14 de julho, onde quer que você esteja, faça uma pequena peregrinação: "
+            "encontre uma árvore que tenha significado em sua paisagem, permaneça com ela "
+            "e compartilhe sua fotografia ou nota."
+        ),
+        og_url     = f"{BASE_URL}/foundation-day/share-your-tree-pt.html",
+    ),
+    dict(
+        file       = "foundation-day/share-your-tree-ht.html",
+        slug       = "og-share-your-tree-ht",
+        layout     = "photo",
+        photo_url  = "https://m.psecn.photoshelter.com/img-get/I0000BOUspDyBJo4/s/1200/I0000BOUspDyBJo4.jpg",
+        label      = "IROKO · JOU FONDASYON",
+        title      = "Pataje Pyebwa Ou",
+        subtitle   = "Yon obsèvans kominotè pou 14 jiyè: chèche yon pyebwa ki gen siyifikasyon, kanpe bò kote li, epi pataje sa ou temwen.",
+        og_title   = "Pataje Pyebwa Ou - Iroko Historical Society",
+        og_locale  = "ht_HT",
+        og_locale_alternates = ["en_US", "es_ES", "pt_BR"],
+        og_description = (
+            "14 jiyè, kèlkeswa kote ou ye, fè yon ti pelerinaj: chèche yon pyebwa "
+            "ki gen siyifikasyon nan peyizaj ou, kanpe bò kote li, epi pataje foto "
+            "oswa nòt ou."
+        ),
+        og_url     = f"{BASE_URL}/foundation-day/share-your-tree-ht.html",
     ),
     # ── commentaries ──────────────────────────────────────────────────────────
     dict(
