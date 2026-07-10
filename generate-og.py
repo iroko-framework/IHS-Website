@@ -697,6 +697,21 @@ PAGES = [
         og_url     = f"{BASE_URL}/foundation-day/share-your-tree.html",
     ),
     dict(
+        file       = "foundation-day/community-gallery-2025.html",
+        slug       = "og-community-gallery-2025",
+        layout     = "photo",
+        photo_url  = "https://m.psecn.photoshelter.com/img-get/I0000BOUspDyBJo4/s/1200/I0000BOUspDyBJo4.jpg",
+        label      = "IROKO · FOUNDATION DAY",
+        title      = "Community Gallery",
+        subtitle   = "Foundation Day 2025 community submissions in the IHS PhotoShelter gallery.",
+        og_title   = "Foundation Day 2025 Community Gallery — Iroko Historical Society",
+        og_description = (
+            "Open the IHS PhotoShelter gallery for Foundation Day 2025 "
+            "community-submitted photographs and sacred-tree images."
+        ),
+        og_url     = f"{BASE_URL}/foundation-day/community-gallery-2025.html",
+    ),
+    dict(
         file       = "foundation-day/share-your-tree-es.html",
         slug       = "og-share-your-tree-es",
         layout     = "photo",
