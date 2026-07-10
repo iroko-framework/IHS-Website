@@ -60,7 +60,7 @@
     .gallery-card a img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--cream-dark);display:block;transition:opacity .2s}
     .gallery-card a:hover img{opacity:.85}
     .gallery-btn{font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.5rem .75rem;border:2px solid var(--green-deep);color:var(--green-deep);text-decoration:none;border-radius:2px;transition:background .2s,color .2s;display:block;text-align:center}
-    .gallery-btn:hover{background:var(--green-deep);color:var(--cream)}
+    .gallery-btn:hover,.gallery-btn:focus-visible{background:var(--green-deep);color:var(--cream) !important}
     @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:480px){.gallery-grid{grid-template-columns:1fr}}
     .search-row{display:flex;gap:.5rem;flex-wrap:wrap}
@@ -165,7 +165,10 @@
     </form>
   </div>
 
-  <p class="section-lead" style="margin-top:2.5rem;">Browse by Selected Gallery</p>
+  <p class="section-lead" style="margin-top:2.5rem;">Browse External Archival Galleries</p>
+  <p style="font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-muted); max-width: 760px; line-height: 1.75; margin-bottom: 1.5rem;">
+    These external archival galleries open view-only PhotoShelter pages for research and cultural documentation. They are not checkout or payment flows.
+  </p>
   <div class="gallery-grid">
 
     <div class="gallery-card">
@@ -180,13 +183,6 @@
         <img src="https://m.psecn.photoshelter.com/img-get2/I0000WbQgArWbt.s/fit=600x450/fill=/g=G0000d7RDGj.F8rU/I0000WbQgArWbt.s.jpg" alt="African Drums in Cuba" loading="lazy">
       </a>
       <a href="https://irokosociety.photoshelter.com/gallery/G0000d7RDGj.F8rU" target="_blank" rel="noopener" class="gallery-btn">African Drums in Cuba ↗</a>
-    </div>
-
-    <div class="gallery-card">
-      <a href="https://irokosociety.photoshelter.com/gallery/G0000QFiiQzYg_tQ" target="_blank" rel="noopener">
-        <img src="https://m.psecn.photoshelter.com/img-get2/I0000.NFL5m2Wl1U/fit=600x450/fill=/g=G0000QFiiQzYg_tQ/I0000.NFL5m2Wl1U.jpg" alt="Voodoo in New Orleans, deuxième partie" loading="lazy">
-      </a>
-      <a href="https://irokosociety.photoshelter.com/gallery/G0000QFiiQzYg_tQ" target="_blank" rel="noopener" class="gallery-btn">Voodoo II ↗</a>
     </div>
 
     <div class="gallery-card">
@@ -208,6 +204,13 @@
         <img src="https://m.psecn.photoshelter.com/img-get2/I0000_GlfWugMHzM/fit=600x450/fill=/g=G0000.4_pkmB5cac/I0000_GlfWugMHzM.jpg" alt="Voodoo in New Orleans" loading="lazy">
       </a>
       <a href="https://irokosociety.photoshelter.com/gallery/G0000.4_pkmB5cac" target="_blank" rel="noopener" class="gallery-btn">Voodoo in New Orleans ↗</a>
+    </div>
+
+    <div class="gallery-card">
+      <a href="https://irokosociety.photoshelter.com/gallery/G0000QFiiQzYg_tQ" target="_blank" rel="noopener">
+        <img src="https://m.psecn.photoshelter.com/img-get2/I0000.NFL5m2Wl1U/fit=600x450/fill=/g=G0000QFiiQzYg_tQ/I0000.NFL5m2Wl1U.jpg" alt="Voodoo in New Orleans II" loading="lazy">
+      </a>
+      <a href="https://irokosociety.photoshelter.com/gallery/G0000QFiiQzYg_tQ" target="_blank" rel="noopener" class="gallery-btn">Voodoo in New Orleans II ↗</a>
     </div>
 
     <div class="gallery-card">
@@ -242,7 +245,7 @@
     <div>
       <h4>Iroko Historical Society</h4>
       <p>A postcustodial cultural heritage complex comprising a digital archive, research library, and living museum focused on Afro-Atlantic sacred knowledge systems.</p>
-      <p style="margin-top:.75rem">New Orleans &middot; Miami &middot; Havana &middot; Est. 2024</p>
+      <p style="margin-top:.75rem">New Orleans-founded &middot; Afro-Atlantic archives and research &middot; Est. 2024</p>
     </div>
     <div>
       <h4>Navigate</h4>

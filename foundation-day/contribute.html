@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Submit a photograph, contextual note, or other proposed contribution to the Iroko Historical Society Visual Ethnography Archive.">
-  <title>Submit a Contribution — Iroko Historical Society</title>
+  <meta name="description" content="Submit a photograph, contextual note, or other proposed archival material to the Iroko Historical Society Visual Ethnography Archive.">
+  <title>Submit Archival Material — Iroko Historical Society</title>
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="Iroko Historical Society">
-  <meta property="og:title"       content="Submit a Contribution — Iroko Historical Society">
-  <meta property="og:description" content="Submit a photograph, contextual note, or other proposed contribution for consideration by the Iroko Historical Society.">
+  <meta property="og:title"       content="Submit Archival Material — Iroko Historical Society">
+  <meta property="og:description" content="Submit a photograph, contextual note, or other proposed archival material for consideration by the Iroko Historical Society.">
   <meta property="og:url"         content="https://irokosociety.org/foundation-day/contribute.html">
   <meta property="og:image"       content="https://irokosociety.org/assets/og-contribute.png">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type"   content="image/png">
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Submit a Contribution — Iroko Historical Society">
-  <meta name="twitter:description" content="Submit a photograph, contextual note, or other proposed contribution for consideration by the Iroko Historical Society.">
+  <meta name="twitter:title"       content="Submit Archival Material — Iroko Historical Society">
+  <meta name="twitter:description" content="Submit a photograph, contextual note, or other proposed archival material for consideration by the Iroko Historical Society.">
   <meta name="twitter:image"       content="https://irokosociety.org/assets/og-contribute.png">  <link rel="stylesheet" href="../style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/IHS-Logo.svg">
   <style>
@@ -48,7 +48,7 @@
 
     .form-note{background:var(--cream-light);border:1px solid var(--cream-dark);border-left:4px solid var(--green-deep);padding:1.35rem 1.5rem;margin:0 0 2rem}
     .form-note p{font-size:.9rem;line-height:1.75;margin:0}
-    .contribution-form{background:var(--white);border:1px solid var(--cream-dark);padding:2rem 2.25rem;box-shadow:0 4px 16px rgba(0,0,0,.04)}
+    .submission-form{background:var(--white);border:1px solid var(--cream-dark);padding:2rem 2.25rem;box-shadow:0 4px 16px rgba(0,0,0,.04)}
     .form-section{border:0;margin:0 0 2rem;padding:0}
     .form-section:last-of-type{margin-bottom:1.25rem}
     .form-section legend{font-family:var(--font-display);font-size:1.15rem;color:var(--green-deep);margin-bottom:1rem;padding:0}
@@ -92,7 +92,7 @@
       .nav-dropdown:hover .dropdown-menu{display:none}
       .nav-dropdown.open .dropdown-menu{display:block}
       .field-grid{grid-template-columns:1fr}
-      .contribution-form{padding:1.5rem 1.25rem}
+      .submission-form{padding:1.5rem 1.25rem}
     }
   </style>
   <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA">
@@ -157,11 +157,11 @@
 
 <section class="fd-hero">
   <div class="fd-hero-inner">
-    <p class="fd-eyebrow">Visual Ethnography &nbsp;&middot;&nbsp; Community Contributions</p>
-    <h1>Submit a Contribution</h1>
+    <p class="fd-eyebrow">Visual Ethnography &nbsp;&middot;&nbsp; Archival Material</p>
+    <h1>Submit Archival Material</h1>
     <div class="fd-hero-rule"></div>
     <p class="lead">
-      Share a photograph, series, contextual note, or other proposed contribution for consideration
+      Share a photograph, series, contextual note, or other proposed archival material for consideration
       by the Iroko Historical Society.
     </p>
   </div>
@@ -182,12 +182,12 @@
       </p>
     </div>
 
-    <form id="contribution-form" class="contribution-form" action="https://formsubmit.co/info@irokosociety.org" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-      <input type="hidden" name="_subject" value="IHS Visual Ethnography Contribution">
+    <form id="submission-form" class="submission-form" action="https://formsubmit.co/info@irokosociety.org" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+      <input type="hidden" name="_subject" value="IHS Visual Ethnography Material Submission">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://irokosociety.org/foundation-day/contribution-received.html">
       <input type="hidden" name="_url" value="https://irokosociety.org/foundation-day/contribute.html">
-      <input type="hidden" name="_autoresponse" value="Thank you for sending a contribution to the Iroko Historical Society. Your submission has been received for consideration. Submission does not guarantee accession, cataloging, public display, publication, response, or future use. Please retain your original files and any permission information.">
+      <input type="hidden" name="_autoresponse" value="Thank you for sending archival material to the Iroko Historical Society. Your submission has been received for consideration. Submission does not guarantee accession, cataloging, public display, publication, response, or future use. Please retain your original files and any permission information.">
       <div class="hp" aria-hidden="true">
         <label for="website">Website</label>
         <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off">
@@ -220,16 +220,16 @@
       </fieldset>
 
       <fieldset class="form-section">
-        <legend>Your Contribution</legend>
+        <legend>Your Submission</legend>
         <div class="field">
-          <label for="contribution-type">What are you submitting? <span class="required" aria-hidden="true">*</span></label>
-          <select id="contribution-type" name="contribution_type" required>
+          <label for="submission-type">What are you submitting? <span class="required" aria-hidden="true">*</span></label>
+          <select id="submission-type" name="submission_type" required>
             <option value="" selected disabled>Select one</option>
             <option>Photograph</option>
             <option>Photograph series</option>
             <option>Contextual note or description</option>
             <option>Metadata correction or identification</option>
-            <option>Other proposed contribution</option>
+            <option>Other proposed archival material</option>
           </select>
         </div>
         <div class="field">
@@ -288,7 +288,7 @@
       </fieldset>
 
       <div class="submit-row">
-        <button class="submit-btn" type="submit">Send Contribution</button>
+        <button class="submit-btn" type="submit">Send Material</button>
       </div>
     </form>
   </main>
@@ -320,7 +320,7 @@
 })();
 
 (function(){
-  var form = document.getElementById('contribution-form');
+  var form = document.getElementById('submission-form');
   var fileInputs = Array.prototype.slice.call(document.querySelectorAll('input[type="file"]'));
   var summary = document.getElementById('file-summary');
   var maxBytes = 10 * 1024 * 1024;
