@@ -714,8 +714,8 @@ PAGES = [
     dict(
         file       = "foundation-day/community-gallery-2026.html",
         slug       = "og-community-gallery-2026",
-        layout     = "photo",
-        photo_url  = "https://m.psecn.photoshelter.com/img-get/I0000BOUspDyBJo4/s/1200/I0000BOUspDyBJo4.jpg",
+        layout     = "photo", 
+        photo_url  = "https://m.psecn.photoshelter.com/direct-link/l/0/mswBpobsB70/uTAui7uxLuxFuituxruRui7uxuTUuim/IHS---Private-Observations---2026.jpeg",
         label      = "IROKO · FOUNDATION DAY",
         title      = "Gallery of 2026 Submissions",
         subtitle   = "Foundation Day 2026 community submissions in the IHS PhotoShelter gallery.",
