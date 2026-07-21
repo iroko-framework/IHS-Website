@@ -94,6 +94,12 @@
     .abstract-toggle{font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid var(--cream-dark);color:var(--text-muted);padding:.3rem .8rem;cursor:pointer;border-radius:2px;transition:background .15s,color .15s}
     .abstract-toggle:hover,.abstract-toggle.open{background:var(--green-deep);color:var(--cream);border-color:var(--green-deep)}
     .abstract-body{display:none;margin-top:1rem;padding:1rem 1.25rem;background:var(--cream-light);border-left:3px solid var(--green-border)}
+    /* ── Press coverage ── */
+    .entry-press{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:.75rem 0 0}
+    .entry-press-label{font-family:var(--font-sans);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+    .press-link{display:inline-flex;align-items:center;gap:.3em;font-family:var(--font-sans);font-size:.72rem;letter-spacing:.02em;padding:.32em .75em;background:var(--cream-light);border:1px solid var(--cream-dark);color:var(--green-mid);border-radius:999px;text-decoration:none;transition:background .15s,color .15s,border-color .15s}
+    .press-link::after{content:'↗';font-size:.85em;opacity:.6}
+    .press-link:hover{background:var(--green-mid);color:var(--cream);border-color:var(--green-mid)}
     .abstract-body.open{display:block}
     .abstract-body p{font-family:var(--font-sans);font-size:.88rem;color:var(--text-muted);line-height:1.85;margin-bottom:.75rem}
     .abstract-body p:last-child{margin-bottom:0}
@@ -700,6 +706,12 @@
         desaf&iacute;o directo a instituciones mayores para que reconsideren las
         din&aacute;micas de poder en torno a custodia, acceso y clasificaci&oacute;n.</p>
       </div>
+      <div class="entry-press">
+        <span class="entry-press-label">Press</span>
+        <a class="press-link" href="https://www.radiosiboney.icrt.cu/es-noticia/cuba-comienza-encuentro-de-preservacion-del-patrimonio-documental/" target="_blank" rel="noopener">Radio Siboney (ICRT)</a>
+        <a class="press-link" href="https://www.radioprogreso.icrt.cu/la-habana-acoge-el-iv-encuentro-internacional-preservacion-del-patrimonio-documental-experiencias-y-desafios-post-y-fotos/" target="_blank" rel="noopener">Radio Progreso (ICRT)</a>
+        <a class="press-link" href="https://rciudadhabanaoficial.blogspot.com/2025/09/inicia-en-la-habana-el-iv-encuentro.html" target="_blank" rel="noopener">Radio Ciudad Habana</a>
+      </div>
     </div>
 
     <div class="entry">
@@ -716,6 +728,10 @@
       <button class="abstract-toggle" aria-expanded="false">Abstract</button>
       <div class="abstract-body">
         <p><em>Explores sacred archives as tools of resistance and spiritual activism. Drawing from a private Afro-Cuban library, the presentation highlights how ancestral knowledge challenges colonial memory and sustains cultural survival.</em></p>
+      </div>
+            <div class="entry-press">
+        <span class="entry-press-label">Press</span>
+        <a class="press-link" href="https://haitiantimes.com/event/kosanba-2025-a/" target="_blank" rel="noopener">Haitian Times</a>
       </div>
     </div>
 
