@@ -97,9 +97,12 @@
     /* ── Press coverage ── */
     .entry-press{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:.75rem 0 0}
     .entry-press-label{font-family:var(--font-sans);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
-    .press-link{display:inline-flex;align-items:center;gap:.3em;font-family:var(--font-sans);font-size:.72rem;letter-spacing:.02em;padding:.32em .75em;background:var(--cream-light);border:1px solid var(--cream-dark);color:var(--green-mid);border-radius:999px;text-decoration:none;transition:background .15s,color .15s,border-color .15s}
-    .press-link::after{content:'↗';font-size:.85em;opacity:.6}
-    .press-link:hover{background:var(--green-mid);color:var(--cream);border-color:var(--green-mid)}
+    .press-link{display:inline-flex;align-items:center;gap:.3em;font-family:var(--font-sans);font-size:.72rem;font-weight:600;letter-spacing:.02em;padding:.32em .75em;background:var(--cream-light);border:1px solid var(--cream-dark);border-radius:999px;text-decoration:none;transition:background .15s,border-color .15s}
+    .press-link-label{color:var(--green-mid);transition:color .15s}
+    .press-link::after{content:'↗';font-size:.85em;opacity:.6;color:var(--green-mid);transition:color .15s,opacity .15s}
+    .press-link:hover{background:var(--green-mid);border-color:var(--green-mid)}
+    .press-link:hover .press-link-label{color:#FFFFFF}
+    .press-link:hover::after{color:#FFFFFF;opacity:.9}
     .abstract-body.open{display:block}
     .abstract-body p{font-family:var(--font-sans);font-size:.88rem;color:var(--text-muted);line-height:1.85;margin-bottom:.75rem}
     .abstract-body p:last-child{margin-bottom:0}
@@ -708,9 +711,9 @@
       </div>
       <div class="entry-press">
         <span class="entry-press-label">Press</span>
-        <a class="press-link" href="https://www.radiosiboney.icrt.cu/es-noticia/cuba-comienza-encuentro-de-preservacion-del-patrimonio-documental/" target="_blank" rel="noopener">Radio Siboney (ICRT)</a>
-        <a class="press-link" href="https://www.radioprogreso.icrt.cu/la-habana-acoge-el-iv-encuentro-internacional-preservacion-del-patrimonio-documental-experiencias-y-desafios-post-y-fotos/" target="_blank" rel="noopener">Radio Progreso (ICRT)</a>
-        <a class="press-link" href="https://rciudadhabanaoficial.blogspot.com/2025/09/inicia-en-la-habana-el-iv-encuentro.html" target="_blank" rel="noopener">Radio Ciudad Habana</a>
+        <a class="press-link" href="https://www.radiosiboney.icrt.cu/es-noticia/cuba-comienza-encuentro-de-preservacion-del-patrimonio-documental/" target="_blank" rel="noopener"><span class="press-link-label">Radio Siboney (ICRT)</span></a>
+        <a class="press-link" href="https://www.radioprogreso.icrt.cu/la-habana-acoge-el-iv-encuentro-internacional-preservacion-del-patrimonio-documental-experiencias-y-desafios-post-y-fotos/" target="_blank" rel="noopener"><span class="press-link-label">Radio Progreso (ICRT)</span></a>
+        <a class="press-link" href="https://rciudadhabanaoficial.blogspot.com/2025/09/inicia-en-la-habana-el-iv-encuentro.html" target="_blank" rel="noopener"><span class="press-link-label">Radio Ciudad Habana</span></a>
       </div>
     </div>
 
@@ -731,7 +734,7 @@
       </div>
             <div class="entry-press">
         <span class="entry-press-label">Press</span>
-        <a class="press-link" href="https://haitiantimes.com/event/kosanba-2025-a/" target="_blank" rel="noopener">Haitian Times</a>
+        <a class="press-link" href="https://haitiantimes.com/event/kosanba-2025-a/" target="_blank" rel="noopener"><span class="press-link-label">Haitian Times</span></a>
       </div>
     </div>
 
