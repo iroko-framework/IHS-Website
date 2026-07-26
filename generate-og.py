@@ -4,7 +4,7 @@ generate-og.py — IHS Open Graph Image Generator
 ================================================
 Run from the IHS-Website directory:
 
-    pip install Pillow requests
+    pip install Pillow
     python generate-og.py
 
 What it does:
@@ -13,6 +13,8 @@ What it does:
   3. Injects/updates og: and twitter: meta tags in each HTML file
 
 Run with --force to regenerate PNGs that already exist.
+Run with --only archive/records/<slug>.html to refresh one page.
+Archive share wrappers are discovered from archive/records/*.html.
 """
 
 import io
@@ -20,6 +22,8 @@ import os
 import re
 import sys
 import textwrap
+from html.parser import HTMLParser
+from urllib.request import Request, urlopen
 from pathlib import Path
 from typing import Optional
 
@@ -27,11 +31,7 @@ from typing import Optional
 try:
     from PIL import Image, ImageDraw, ImageFont
 except ImportError:
-    sys.exit("Missing Pillow. Run: pip install Pillow requests")
-try:
-    import requests
-except ImportError:
-    sys.exit("Missing requests. Run: pip install Pillow requests")
+    sys.exit("Missing Pillow. Run: pip install Pillow")
 
 # ── paths ─────────────────────────────────────────────────────────────────────
 BASE   = Path(__file__).parent.resolve()
@@ -43,6 +43,38 @@ BASE_URL  = "https://irokosociety.org"
 LOGO_PATH = ASSETS / "IHS-Logo.jpg"
 
 FORCE = "--force" in sys.argv
+
+
+def _cli_values(flag):
+    values = []
+    args = sys.argv[1:]
+    i = 0
+    while i < len(args):
+        arg = args[i]
+        if arg == flag:
+            if i + 1 >= len(args):
+                sys.exit(f"Missing value for {flag}")
+            values.append(args[i + 1])
+            i += 2
+            continue
+        if arg.startswith(f"{flag}="):
+            values.append(arg.split("=", 1)[1])
+        i += 1
+    return values
+
+
+def _normalize_ref(value):
+    value = str(value).strip().replace("\\", "/")
+    if value.startswith("./"):
+        value = value[2:]
+    if value.startswith("assets/") and value.endswith(".png"):
+        value = value[len("assets/"):-4]
+    elif value.endswith(".png"):
+        value = value[:-4]
+    return value
+
+
+ONLY_TARGETS = {_normalize_ref(value) for value in _cli_values("--only")}
 
 # ── colors ────────────────────────────────────────────────────────────────────
 GREEN      = (30,  74,  39)
@@ -94,6 +126,13 @@ _FONT_SPECS = {
 _font_cache: dict = {}
 
 
+def fetch_bytes(url: str, headers: Optional[dict] = None, timeout: int = 30) -> bytes:
+    """Fetch URL bytes using the standard library."""
+    request = Request(url, headers=headers or {"User-Agent": "Mozilla/5.0"})
+    with urlopen(request, timeout=timeout) as response:
+        return response.read()
+
+
 def _download_font(key: str) -> Optional[Path]:
     dest = FONTS / f"{key}.ttf"
     if dest.exists():
@@ -106,17 +145,15 @@ def _download_font(key: str) -> Optional[Path]:
     )
     # Request with an old User-Agent so Google returns TTF (not WOFF2)
     headers = {"User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"}
-    print(f"  Downloading font: {family} {weight}{'i' if ital=='1' else ''} …")
+    print(f"  Downloading font: {family} {weight}{'i' if ital=='1' else ''} ...")
     try:
-        css = requests.get(css_url, headers=headers, timeout=15).text
+        css = fetch_bytes(css_url, headers=headers, timeout=15).decode("utf-8", errors="replace")
         urls = re.findall(r"url\(([^)]+\.ttf)\)", css)
         if not urls:
             print(f"  WARNING: no TTF URL found for {family}. Skipping.")
             return None
-        r = requests.get(urls[0], headers=headers, timeout=30)
-        r.raise_for_status()
-        dest.write_bytes(r.content)
-        print(f"  Saved → fonts/{key}.ttf")
+        dest.write_bytes(fetch_bytes(urls[0], headers=headers, timeout=30))
+        print(f"  Saved -> fonts/{key}.ttf")
         return dest
     except Exception as e:
         print(f"  WARNING: could not download {family}: {e}")
@@ -246,10 +283,8 @@ def render_photo_panel(img: Image.Image, photo_url: str,
     left side of the source); positive y moves it down (reveals more of the
     top). Use negative values to go the other way.
     """
-    print(f"    Downloading photo …")
-    r = requests.get(photo_url, timeout=30)
-    r.raise_for_status()
-    photo = Image.open(io.BytesIO(r.content)).convert("RGB")
+    print("    Downloading photo ...")
+    photo = Image.open(io.BytesIO(fetch_bytes(photo_url, timeout=30))).convert("RGB")
 
     # Fill-crop to PHOTO_W × PHOTO_H
     ph_ratio    = photo.width / photo.height
@@ -271,6 +306,23 @@ def render_photo_panel(img: Image.Image, photo_url: str,
     return TEXT_X_PHOTO
 
 
+def render_contained_photo_panel(img: Image.Image, photo_url: str) -> int:
+    """Fit the entire photo inside the left panel without cropping."""
+    draw = ImageDraw.Draw(img)
+    draw.rectangle(
+        [PHOTO_X, PHOTO_Y, PHOTO_X + PHOTO_W, PHOTO_Y + PHOTO_H],
+        fill=CREAM_BOX,
+    )
+
+    print("    Downloading photo ...")
+    photo = Image.open(io.BytesIO(fetch_bytes(photo_url, timeout=30))).convert("RGB")
+    photo.thumbnail((PHOTO_W - 28, PHOTO_H - 28), Image.LANCZOS)
+    paste_x = PHOTO_X + (PHOTO_W - photo.width) // 2
+    paste_y = PHOTO_Y + (PHOTO_H - photo.height) // 2
+    img.paste(photo, (paste_x, paste_y))
+    return TEXT_X_PHOTO
+
+
 # ── main image builder ─────────────────────────────────────────────────────────
 
 def make_og_image(page: dict) -> Image.Image:
@@ -284,6 +336,8 @@ def make_og_image(page: dict) -> Image.Image:
             offset_x=page.get("photo_offset_x", 0),
             offset_y=page.get("photo_offset_y", 0),
         )
+    elif page.get("layout") == "photo_contain":
+        text_x = render_contained_photo_panel(img, page["photo_url"])
     else:
         text_x = render_logo_panel(img)
 
@@ -328,7 +382,8 @@ OG_BLOCK = """\
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="{og_title}">
   <meta name="twitter:description" content="{og_description}">
-  <meta name="twitter:image"       content="{og_image}">"""
+  <meta name="twitter:image"       content="{og_image}">
+"""
 
 
 def inject_og_tags(html_path: Path, page: dict, png_filename: str) -> None:
@@ -382,6 +437,21 @@ def inject_og_tags(html_path: Path, page: dict, png_filename: str) -> None:
             count=1,
             flags=re.IGNORECASE,
         )
+
+    new_src = re.sub(
+        r"(<meta[^>]+>)\s+(<title\b)",
+        r"\1\n  \2",
+        new_src,
+        flags=re.IGNORECASE,
+    )
+    new_src = re.sub(
+        r"(<link[^>]+>)\s+(<link\b)",
+        r"\1\n  \2",
+        new_src,
+        flags=re.IGNORECASE,
+    )
+    new_src = new_src.replace(">  <title", ">\n  <title")
+    new_src = new_src.replace(">  <link", ">\n  <link")
 
     html_path.write_text(new_src, encoding="utf-8")
 
@@ -893,6 +963,172 @@ PAGES = [
 ]
 
 
+def _class_has(value, class_name):
+    return class_name in str(value or "").split()
+
+
+def _clean_html_text(value):
+    return re.sub(r"\s+", " ", str(value or "")).strip()
+
+
+def _strip_site_suffix(value):
+    return re.sub(
+        r"\s+(?:-|—)\s+Iroko Historical Society\s*$",
+        "",
+        _clean_html_text(value),
+        flags=re.IGNORECASE,
+    )
+
+
+def _absolute_archive_image_url(value, html_path):
+    value = str(value or "").strip()
+    if not value:
+        return ""
+    if re.match(r"https?://", value, flags=re.IGNORECASE):
+        return value
+    if value.startswith("//"):
+        return "https:" + value
+    if value.startswith("/"):
+        return BASE_URL + value
+    return (html_path.parent / value).resolve().as_uri()
+
+
+class ArchiveRecordParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.meta = {}
+        self.canonical = ""
+        self.image_url = ""
+        self.buffers = {
+            "page_title": [],
+            "record_title": [],
+            "subtitle": [],
+        }
+        self._capture_key = ""
+        self._capture_tag = ""
+
+    def _start_capture(self, key, tag):
+        self._capture_key = key
+        self._capture_tag = tag
+        self.buffers[key] = []
+
+    def handle_starttag(self, tag, attrs):
+        tag = tag.lower()
+        attr = {str(key).lower(): value or "" for key, value in attrs}
+
+        if tag == "meta":
+            key = attr.get("property") or attr.get("name")
+            content = attr.get("content", "")
+            if key and content:
+                self.meta[key.lower()] = content
+        elif tag == "link" and "canonical" in str(attr.get("rel", "")).lower().split():
+            self.canonical = attr.get("href", "")
+        elif tag == "img" and _class_has(attr.get("class"), "archive-record-image"):
+            self.image_url = self.image_url or attr.get("src", "")
+
+        if tag == "title":
+            self._start_capture("page_title", tag)
+        elif tag == "h1" and attr.get("id") == "record-title":
+            self._start_capture("record_title", tag)
+        elif tag == "p" and _class_has(attr.get("class"), "archive-record-dek"):
+            self._start_capture("subtitle", tag)
+
+    def handle_data(self, data):
+        if self._capture_key:
+            self.buffers[self._capture_key].append(data)
+
+    def handle_endtag(self, tag):
+        if self._capture_tag and tag.lower() == self._capture_tag:
+            self._capture_key = ""
+            self._capture_tag = ""
+
+    def text(self, key):
+        return _clean_html_text(" ".join(self.buffers.get(key, [])))
+
+
+def archive_share_page_from_html(html_path):
+    parser = ArchiveRecordParser()
+    try:
+        parser.feed(html_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        print(f"  WARNING: could not parse {html_path.relative_to(BASE)}: {exc}")
+        return None
+
+    file = html_path.relative_to(BASE).as_posix()
+    title = (
+        parser.text("record_title")
+        or _strip_site_suffix(parser.meta.get("og:title", ""))
+        or _strip_site_suffix(parser.text("page_title"))
+    )
+    subtitle = (
+        parser.text("subtitle")
+        or _clean_html_text(parser.meta.get("description", ""))
+        or _clean_html_text(parser.meta.get("og:description", ""))
+    )
+    photo_url = _absolute_archive_image_url(parser.image_url, html_path)
+
+    if not title or not photo_url:
+        return None
+
+    return dict(
+        file=file,
+        slug=f"og/archive/{html_path.stem}",
+        layout="photo_contain",
+        photo_url=photo_url,
+        label="IROKO - ARCHIVAL RECORD",
+        title=title,
+        subtitle=subtitle,
+        og_title=f"{title} - Iroko Historical Society",
+        og_description=subtitle,
+        og_url=parser.canonical or f"{BASE_URL}/{file}",
+    )
+
+
+def discover_archive_share_pages():
+    """Discover share-wrapper OG entries from archive/records/*.html."""
+    records_dir = BASE / "archive" / "records"
+    if not records_dir.exists():
+        return []
+
+    pages = []
+    for html_path in sorted(records_dir.glob("*.html")):
+        page = archive_share_page_from_html(html_path)
+        if page:
+            pages.append(page)
+    return pages
+
+
+def page_entries():
+    """Return built-in pages plus dynamic archive-share pages.
+
+    Dynamic share records replace built-in entries with the same file or slug so
+    older hard-coded archive records can still be refreshed from the HTML page.
+    """
+    pages = list(PAGES)
+    for dynamic_page in discover_archive_share_pages():
+        dynamic_file = dynamic_page.get("file")
+        dynamic_slug = dynamic_page.get("slug")
+        for index, existing_page in enumerate(pages):
+            if existing_page.get("file") == dynamic_file or existing_page.get("slug") == dynamic_slug:
+                pages[index] = dynamic_page
+                break
+        else:
+            pages.append(dynamic_page)
+    return pages
+
+
+def selected_page(page):
+    if not ONLY_TARGETS:
+        return True
+    refs = {
+        _normalize_ref(page.get("file", "")),
+        _normalize_ref(page.get("slug", "")),
+        _normalize_ref(f"{page.get('slug', '')}.png"),
+        _normalize_ref(f"assets/{page.get('slug', '')}.png"),
+    }
+    return bool(refs & ONLY_TARGETS)
+
+
 # ── runner ─────────────────────────────────────────────────────────────────────
 
 def main():
@@ -900,7 +1136,7 @@ def main():
     print("=" * 50)
 
     # Pre-download all fonts
-    print("\nChecking fonts …")
+    print("\nChecking fonts ...")
     for key in _FONT_SPECS:
         _download_font(key)
 
@@ -911,7 +1147,12 @@ def main():
 
     seen_slugs = set()
 
-    for page in PAGES:
+    processed = 0
+
+    for page in page_entries():
+        if not selected_page(page):
+            continue
+        processed += 1
         html_path = BASE / page["file"]
         if not html_path.exists():
             print(f"\n  SKIP (file not found): {page['file']}")
@@ -919,6 +1160,7 @@ def main():
 
         png_filename = f"{page['slug']}.png"
         png_path     = ASSETS / png_filename
+        png_path.parent.mkdir(parents=True, exist_ok=True)
         is_skip      = page.get("skip", False)
 
         print(f"\n[{page['file']}]")
@@ -933,10 +1175,10 @@ def main():
         else:
             if page["slug"] not in seen_slugs:
                 try:
-                    print(f"  Generating {png_filename} …")
+                    print(f"  Generating {png_filename} ...")
                     img = make_og_image(page)
                     img.save(str(png_path), "PNG", optimize=True)
-                    print(f"  Saved → assets/{png_filename}")
+                    print(f"  Saved -> assets/{png_filename}")
                     generated.append(png_filename)
                 except Exception as e:
                     print(f"  ERROR: {e}")
@@ -957,6 +1199,8 @@ def main():
 
     # Summary
     print("\n" + "=" * 50)
+    if ONLY_TARGETS and processed == 0:
+        print("WARNING: no pages matched --only target(s): " + ", ".join(sorted(ONLY_TARGETS)))
     print(f"Generated {len(generated)} PNG(s)")
     print(f"Updated   {len(updated)} HTML file(s)")
     if errors:
