@@ -18,6 +18,7 @@ Archive share wrappers are discovered from archive/records/*.html.
 """
 
 import io
+import html
 import os
 import re
 import sys
@@ -379,28 +380,36 @@ OG_BLOCK = """\
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type"   content="image/png">
+  <meta property="og:image:alt"    content="{image_alt}">
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="{og_title}">
   <meta name="twitter:description" content="{og_description}">
   <meta name="twitter:image"       content="{og_image}">
+  <meta name="twitter:image:alt"   content="{image_alt}">
 """
+
+
+def html_attr(value) -> str:
+    return html.escape(str(value or ""), quote=True)
 
 
 def inject_og_tags(html_path: Path, page: dict, png_filename: str) -> None:
     src = html_path.read_text(encoding="utf-8")
 
     og_image = f"{BASE_URL}/assets/{png_filename}"
+    image_alt = page.get("image_alt") or f"{page['title']} - Iroko Historical Society social preview"
     og_locale_lines = ""
     if page.get("og_locale"):
-        og_locale_lines += f'  <meta property="og:locale"      content="{page["og_locale"]}">\n'
+        og_locale_lines += f'  <meta property="og:locale"      content="{html_attr(page["og_locale"])}">\n'
     for locale in page.get("og_locale_alternates", []):
-        og_locale_lines += f'  <meta property="og:locale:alternate" content="{locale}">\n'
+        og_locale_lines += f'  <meta property="og:locale:alternate" content="{html_attr(locale)}">\n'
 
     block    = OG_BLOCK.format(
-        og_title       = page["og_title"],
-        og_description = page["og_description"],
-        og_url         = page["og_url"],
-        og_image       = og_image,
+        og_title       = html_attr(page["og_title"]),
+        og_description = html_attr(page["og_description"]),
+        og_url         = html_attr(page["og_url"]),
+        og_image       = html_attr(og_image),
+        image_alt      = html_attr(image_alt),
         og_locale_lines = og_locale_lines,
     )
 
@@ -421,6 +430,34 @@ def inject_og_tags(html_path: Path, page: dict, png_filename: str) -> None:
     )
 
     # Insert after </title> or after <meta charset…>
+    html_title = page.get("html_title")
+    if html_title and re.search(r"<title>.*?</title>", cleaned, re.IGNORECASE | re.DOTALL):
+        cleaned = re.sub(
+            r"<title>.*?</title>",
+            f"<title>{html.escape(str(html_title))}</title>",
+            cleaned,
+            count=1,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+
+    meta_description = page.get("meta_description", page["og_description"])
+    if re.search(r'<meta\s+name="description"[^>]*>', cleaned, re.IGNORECASE):
+        cleaned = re.sub(
+            r'<meta\s+name="description"[^>]*>',
+            f'<meta name="description" content="{html_attr(meta_description)}">',
+            cleaned,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+    else:
+        cleaned = re.sub(
+            r"(<meta[^>]+viewport[^>]*>)",
+            r'\1' + f'\n  <meta name="description" content="{html_attr(meta_description)}">',
+            cleaned,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+
     if re.search(r"</title>", cleaned, re.IGNORECASE):
         new_src = re.sub(
             r"(</title>)",
@@ -1078,6 +1115,9 @@ def archive_share_page_from_html(html_path):
         label="IROKO - ARCHIVAL RECORD",
         title=title,
         subtitle=subtitle,
+        html_title=f"{title} | Iroko Historical Society",
+        meta_description=subtitle,
+        image_alt=f"Archival photograph titled {title}.",
         og_title=f"{title} - Iroko Historical Society",
         og_description=subtitle,
         og_url=parser.canonical or f"{BASE_URL}/{file}",
