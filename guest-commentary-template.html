@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A practitioner-archivist on the difference between proximity and accountability, and the communities who understood it long before scholars did. By D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &#7884;&#768;.">  <title>The Scholar Is Not the Custodian &mdash; Iroko Historical Society</title>
+  <!-- TEMPLATE: replace description, title, OG tags, and og:url for each new commentary. -->
+  <meta name="description" content="Template for a signed guest commentary published in the Iroko Commentaries series of the Iroko Historical Society.">
+  <title>Guest Commentary Template &mdash; Iroko Historical Society</title>
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="Iroko Historical Society">
-  <meta property="og:title"       content="The Scholar Is Not the Custodian — Iroko Commentary">
-  <meta property="og:description" content="On scholarly access, initiatory obligation, and sealed archives. An Iroko Commentary by Délé Fágbèmí Ọ̀.">
-  <meta property="og:url"         content="https://irokosociety.org/the-scholar-is-not-the-custodian.html">
-  <meta property="og:image"       content="https://irokosociety.org/assets/og-scholar-custodian.png">
+  <meta property="og:title"       content="Guest Commentary — Iroko Commentaries">
+  <meta property="og:description" content="A signed essay by an invited contributor, selected and edited for publication by the Iroko Historical Society.">
+  <meta property="og:url"         content="https://irokosociety.org/guest-commentary-template.html">
+  <meta property="og:image"       content="https://irokosociety.org/assets/og-guest-commentary.png">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type"   content="image/png">
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="The Scholar Is Not the Custodian — Iroko Commentary">
-  <meta name="twitter:description" content="On scholarly access, initiatory obligation, and sealed archives. An Iroko Commentary by Délé Fágbèmí Ọ̀.">
-  <meta name="twitter:image"       content="https://irokosociety.org/assets/og-scholar-custodian.png">  <link rel="stylesheet" href="style.css">
+  <meta name="twitter:title"       content="Guest Commentary — Iroko Commentaries">
+  <meta name="twitter:description" content="A signed essay by an invited contributor, selected and edited for publication by the Iroko Historical Society.">
+  <meta name="twitter:image"       content="https://irokosociety.org/assets/og-guest-commentary.png">  <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="assets/IHS-Logo.svg">
   <style>
     .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
@@ -38,16 +40,17 @@
     .section-lead{font-family:var(--font-sans);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
     .return-link{display:inline-block;font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-mid);text-decoration:none;margin-bottom:1.5rem}
     .return-link:hover{color:var(--green-deep)}
-    .essay-kicker{font-family:var(--font-sans);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-light);margin-bottom:.7rem}
+    .essay-kicker{font-family:var(--font-sans);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-light);margin-bottom:.7rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
     .essay-subtitle{font-family:var(--font-serif);font-size:clamp(1.08rem,2.2vw,1.35rem);font-style:italic;line-height:1.55;color:var(--text-main);max-width:760px;margin-bottom:1rem}
     .essay-meta,.essay-author{font-family:var(--font-sans);font-size:.82rem;color:var(--text-muted);line-height:1.6}
     .essay-meta{letter-spacing:.06em;text-transform:uppercase;margin-bottom:.25rem}
     .essay-author{margin-bottom:1.35rem}
     .essay-deck{font-family:var(--font-sans);font-size:1rem;color:var(--text-muted);line-height:1.85;max-width:760px;margin:1.5rem 0 0;padding-top:1.25rem;border-top:1px solid var(--cream-dark)}
     .essay-body{max-width:720px;margin:3rem auto 0}
-    .medium-panel{background:var(--white);border:1px solid var(--cream-dark);border-top:4px solid var(--green-deep);border-radius:2px;padding:2rem}
-    .medium-panel p{font-family:var(--font-serif);font-size:1.05rem;color:var(--text-main);line-height:1.75;margin:0 0 1.25rem}
-    .medium-panel p:last-child{margin:0}
+    .essay-body p{font-family:var(--font-serif);font-size:1.05rem;color:var(--text-main);line-height:1.8;margin:0 0 1.35rem}
+    .essay-body h2{font-family:var(--font-display);font-size:1.2rem;color:var(--green-deep);margin:2.5rem 0 .8rem}
+    .essay-body blockquote{border-left:4px solid var(--green-deep);background:var(--cream-light);margin:2rem 0;padding:1.25rem 1.75rem;font-family:var(--font-serif);font-style:italic;font-size:1.05rem;color:var(--text-main)}
+    .essay-body blockquote p{margin:0;font-size:inherit}
     a.ext::after{content:' \2197';font-size:.75em;opacity:.6}
     @media(max-width:768px){
       .nav-toggle{display:block}
@@ -58,7 +61,6 @@
       .nav-dropdown:hover .dropdown-menu{display:none}
       .nav-dropdown.open .dropdown-menu{display:block}
       .page-content{padding:2.5rem 1.25rem 4rem}
-      .medium-panel{padding:1.5rem}
     }
   </style>
   <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
@@ -125,63 +127,104 @@
 
   <article>
     <header>
-      <p class="essay-kicker" style="display:flex;align-items:center;gap:.7rem;flex-wrap:wrap">Iroko &middot; Commentary
-        <span class="classification-badge is-ihs">IHS Commentary</span>
+      <!-- TEMPLATE: classification is either "Guest Commentary" or "IHS Commentary". -->
+      <p class="essay-kicker">
+        Iroko &middot; Commentary
+        <span class="classification-badge">Guest Commentary</span>
       </p>
-      <h1 class="essay-title">The Scholar Is Not the Custodian</h1>
-      <div class="essay-subtitle">On the difference between proximity and accountability</div>
-      <div class="essay-meta">Iroko Commentary &middot; Archives &amp; Stewardship &middot; May 2026</div>
-      <div class="essay-author">By D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &#7884;&#768;.</div>
-      <p class="essay-deck">A practitioner-archivist on scholarly access, initiatory obligation, and why communities sealed their archives long before archival theory had a word for what they were doing. The archive remembers who came in. It does not record what came due on the way out.</p>
+      <h1 class="essay-title">Beneath the Archive Tree</h1>
+      <div class="essay-subtitle">On memory, custody, and the obligations that arise when living knowledge enters a permanent record</div>
+      <div class="essay-meta">Guest Commentary &middot; Archives &amp; Stewardship &middot; July 2026</div>
+      <div class="essay-author">By Amara N. Okafor</div>
+      <p class="essay-deck">A sample deck. Two or three sentences that state what the essay argues and what the reader will carry out of it. This paragraph is what appears on the commentaries landing page and in link previews, so it should be written last and written carefully.</p>
     </header>
+
+    <!-- ════════ EDITIONS BLOCK ════════ -->
+    <section class="editions-box" aria-labelledby="editions-heading">
+      <h2 id="editions-heading">Language and editions</h2>
+      <dl class="edition-grid">
+        <div class="edition-row">
+          <dt>Original language</dt>
+          <dd>English</dd>
+        </div>
+        <div class="edition-row">
+          <dt>Authoritative edition</dt>
+          <dd>English original</dd>
+        </div>
+        <div class="edition-row">
+          <dt>Reviewed translations</dt>
+          <dd>None published</dd>
+        </div>
+        <div class="edition-row">
+          <dt>Author review</dt>
+          <dd>Text approved by the author</dd>
+        </div>
+      </dl>
+
+      <div class="translate-aid">
+        <a class="translate-link" id="translate-link"
+           href="https://translate.google.com/?op=websites&amp;sl=auto&amp;u=https%3A%2F%2Firokosociety.org%2Fguest-commentary-template.html"
+           target="_blank" rel="noopener nofollow">Read with an automatic translation</a>
+        <p>This opens a third-party translation service in a new tab. It is a reading aid, not an edition of this work. Machine translation regularly fails on ritual vocabulary, lineage terms, praise names, titles of office, and culturally specific expressions, and it does not know when a word is being used in a restricted sense. The original-language text above remains the only authoritative version.</p>
+      </div>
+    </section>
 
     <div class="essay-body">
 
-      <p>I hold initiatory titles in several Afro-Atlantic sacred traditions. I hold a JD, an MBA, and a graduate degree in history. I am completing a master's in library and information science. These credentials do not agree with each other about what I am permitted to disclose, to whom, and on what terms. The legal degree says: follow the law, respect confidentiality, consider harm. The scholarly training says: publish, document, describe. The initiatory obligation says: some things are not yours to name, regardless of your credentials.</p>
+      <!-- ════════ ESSAY BODY BEGINS. Replace everything between here and the
+           closing marker with the author-approved text. Keep paragraphs in
+           <p>, section breaks in <h2>, and pull quotes in <blockquote>. ════════ -->
 
-      <p>Most scholars working with sacred and marginalized communities have never been forced to hold all three of those positions simultaneously. They have proximity without the obligation that should accompany it. That asymmetry is the problem I keep returning to.</p>
+      <p>The first thing an archive does is accept. Before it describes, arranges, or provides access, it agrees to hold. That agreement is usually recorded as a transfer of custody, which makes it sound like a matter of shelving. It is not. What passes across the accession table is rarely just paper.</p>
 
-      <hr style="border:none;border-top:1px solid var(--cream-dark);margin:2.5rem 0">
+      <p>When a family brings in a photograph of a ceremony, they are not depositing an image. They are depositing a relationship, and they are trusting that the institution understands the difference between preserving an object and preserving the conditions under which the object can still be understood. Those are separate obligations, and only one of them is covered by a deed of gift.</p>
 
-      <p>Wade Davis is the most cited cautionary case. His 1985 book on Haitian Vodou and the alleged zombie phenomenon named practitioners, named substances, named societies, and provided enough structural information to become a tool of sensationalism and misrepresentation that Haitian religious communities are still managing four decades later. The harm was not malicious in any simple sense. Davis was working within the conventions of popular science writing as he understood them. He had the access, and he used it. The communities he documented had no mechanism to review, contest, or restrict what he published before it landed.</p>
+      <blockquote>
+        <p>The archive does not merely receive memory. It accepts an obligation to preserve the conditions under which memory may still be understood.</p>
+      </blockquote>
 
-      <p>That is one version of the problem: the scholar who doesn't understand what access costs the people who granted it.</p>
+      <h2>The record and the living voice</h2>
 
-      <p>A recent news story reminded me that there is a second version. A prominent conservative policy architect holds a master's thesis on West African family structures among enslaved people in Virginia and a doctoral dissertation on the cultural construction of Louisiana's slave community in the early nineteenth century. His academic credentials were earned through sustained scholarly engagement with the history and culture of the communities his current institutional work targets. He is not a naive popularizer who stumbled into harm. He is a trained historian who studied the people his political project works against.</p>
+      <p>Oral testimony enters the record already transformed. Someone chose to speak, chose what to say, and chose what to hold back. A transcript flattens all three decisions into a single artifact that appears complete. The apparent completeness is the danger. A researcher fifty years from now will read the transcript and see a full account, not a negotiated one.<a href="#note-1" class="note-ref" id="ref-1">1</a></p>
 
-      <p>What interests me, as an archivist and as a practitioner, is the structural fact: scholarly access to a community's history does not generate an obligation to that community. Academic credentials confer no custodial responsibility. The archive opens to researchers. It has no mechanism for asking what they plan to do next.</p>
+      <p>This is not an argument against transcription. It is an argument for description that records the negotiation alongside the result: who was present, what was agreed, what was withheld and on whose instruction, and whether the speaker was told the recording would be public.</p>
 
-      <hr style="border:none;border-top:1px solid var(--cream-dark);margin:2.5rem 0">
+      <h2>Translation without displacement</h2>
 
-      <p>The communities I work with in my scholarly and spiritual practice have understood this for a long time. Some of the most sophisticated archival traditions I have encountered in the African and Afro-Atlantic world are not in libraries. They are in societies that restrict access by grade, protect knowledge by oath, and maintain records through initiatory transmission rather than institutional deposit. These are not failures of preservation. They are governance decisions made by communities who have accurate assessments of what external legibility costs them.</p>
+      <p>The same problem returns in translation. A term rendered into English acquires English assumptions, and the reader inherits them without being told. Where a word carries ritual weight, retaining the original and explaining it preserves more than an approximate equivalent ever will, even when the explanation is longer and less elegant.</p>
 
-      <p>Archival theory has a term for the absence these sealed archives produce: archival silence. But silence implies something is missing. In many of these cases, nothing is missing. The knowledge circulates inside the institution. The archive exists; it is simply not available to the scholar who arrives with institutional credentials and expects transparency as a professional courtesy.</p>
+      <p>An archive that translates everything into the language of its funders has not widened access. It has narrowed the record and called the result clarity.</p>
 
-      <p>Existing vocabulary stops there. But the condition is more specific than silence allows. A record or practice exists and is not activated as evidence because the conditions for its external legibility have not obtained, and may never be permitted to obtain. It is not silence. It is a decision, applied by the community to its own archive, on its own timeline, for reasons the community alone gets to evaluate.</p>
+      <h2>A contribution to the record</h2>
 
-      <p>The communities that have practiced this for generations were not being paranoid. They were being precise about risk.</p>
+      <p>None of this requires an institution to refuse material. It requires an institution to be honest in its description about what it holds, what it was told, and what it does not know. That honesty costs nothing at the point of accession and is nearly impossible to reconstruct later.</p>
 
-      <hr style="border:none;border-top:1px solid var(--cream-dark);margin:2.5rem 0">
+      <p>The tree in the courtyard outlives the people who gathered under it. That is the whole reason it was planted there. But a tree is not a record of what was said beneath it, and no archive should mistake the one for the other.</p>
 
-      <p>Different intentions. The same architecture.</p>
-
-      <p>Scholarly access preceded any reckoning with obligation. In both cases, the communities documented had no meaningful input into how that documentation would be used. In both, the harm flowed from the distance between proximity and accountability.</p>
-
-      <p>I write this as someone who holds initiatory titles that come with specific obligations about what I can name, what I can describe, and what I am required to protect, regardless of whether publication would advance my career.</p>
-
-      <p>That obligation is not unusual. It is, in fact, the baseline ethical condition that every scholar working with sacred and marginalized communities should be required to reckon with before the first interview, the first archival visit, the first field note. The question is not only what the archive contains. It is what you owe the living people whose history you have been permitted to enter.</p>
-
-      <p>The archive remembers who came in. The communities whose records fill those archives are watching what they owed on the way out.</p>
-
-      <p style="font-family:var(--font-sans);font-size:.78rem;color:var(--text-muted);margin-top:2.5rem;font-style:italic">Originally published on <a href="https://medium.com/@dele.fagbemi.o/the-scholar-is-not-the-custodian-161e3b551595" class="ext" target="_blank" rel="noopener">Medium</a>, May 2026.</p>
+      <!-- ════════ ESSAY BODY ENDS ════════ -->
 
     </div>
   </article>
 
+  <!-- ════════ NOTES ════════ -->
+  <section class="essay-notes" aria-labelledby="notes-heading">
+    <h2 id="notes-heading">Notes</h2>
+    <ol>
+      <li id="note-1">Sample note. Replace with the source in Chicago 17th edition full note form, or another citation style agreed with the editors. <a href="#ref-1" class="note-ref">&#8617;</a></li>
+    </ol>
+  </section>
+
+  <!-- ════════ AUTHOR ════════ -->
+  <section class="author-note" aria-labelledby="author-heading">
+    <h2 id="author-heading">About the author</h2>
+    <p>Amara N. Okafor is a sample author used to demonstrate this template. Replace this paragraph with an author-approved biography of roughly sixty to ninety words identifying the writer's relevant research, practice, community relationship, initiatory standing, or other basis of knowledge.</p>
+    <p>Where the subject calls for it, the biography should say plainly from which lineage, community, region, or body of evidence the author writes.</p>
+  </section>
+
   <!-- ════════ SUGGESTED CITATION ════════ -->
   <section class="suggested-citation" aria-labelledby="citation-heading">
     <h2 id="citation-heading">Suggested citation</h2>
-    <p>F&aacute;gb&egrave;m&iacute; &#7884;&#768;., D&eacute;l&eacute;. &ldquo;The Scholar Is Not the Custodian: On the Difference between Proximity and Accountability.&rdquo; <em>Iroko Commentaries</em>. Iroko Historical Society, 2026. https://irokosociety.org/the-scholar-is-not-the-custodian.html.</p>
+    <p>Okafor, Amara N. &ldquo;Beneath the Archive Tree: On Memory, Custody, and the Obligations That Arise When Living Knowledge Enters a Permanent Record.&rdquo; <em>Iroko Commentaries</em>. Iroko Historical Society, 2026. https://irokosociety.org/guest-commentary-template.html.</p>
   </section>
 
   <!-- ════════ PUBLICATION RECORD ════════ -->
@@ -194,11 +237,11 @@
       </div>
       <div>
         <dt>Classification</dt>
-        <dd>IHS Commentary</dd>
+        <dd>Guest Commentary</dd>
       </div>
       <div>
         <dt>Published</dt>
-        <dd>May 2026</dd>
+        <dd>July 2026</dd>
       </div>
       <div>
         <dt>Original language</dt>
@@ -206,23 +249,26 @@
       </div>
       <div>
         <dt>Rights</dt>
-        <dd>&copy; 2026 Iroko Historical Society</dd>
+        <dd>&copy; 2026 Amara N. Okafor. Published by permission.</dd>
       </div>
       <div>
         <dt>Archival edition</dt>
         <dd>Not deposited</dd>
       </div>
-      <div>
-        <dt>First publication</dt>
-        <dd><a href="https://medium.com/@dele.fagbemi.o/the-scholar-is-not-the-custodian-161e3b551595" class="ext" target="_blank" rel="noopener">Medium</a>, May 2026</dd>
-      </div>
     </dl>
+    <!-- TEMPLATE: uncomment when an archival edition with a DOI exists.
+    <p style="font-family:var(--font-sans);font-size:.82rem;color:var(--text-muted);line-height:1.7;margin:0">
+      An archival edition of this commentary is deposited at
+      <a href="https://doi.org/PLACEHOLDER" class="ext" target="_blank" rel="noopener">https://doi.org/PLACEHOLDER</a>,
+      with the author named as creator and the Iroko Historical Society as publisher.
+    </p>
+    -->
   </section>
 
   <!-- ════════ EDITORIAL NOTICE ════════ -->
   <aside class="editorial-notice" aria-labelledby="notice-heading">
     <h2 id="notice-heading">Editorial notice</h2>
-    <p>This is a signed commentary by an IHS author. Personal authorship remains distinct from official institutional statement, and publication does not signify that the Society endorses every interpretation or conclusion expressed here. Editorial policy for the series appears in the <a href="contributor-guidelines.html">contributor guidelines</a>.</p>
+    <p>The views expressed in this signed commentary are those of the author. Publication indicates that the work was reviewed for relevance, clarity, responsible sourcing, and ethical treatment of sacred and contested material. It does not signify that the Iroko Historical Society endorses every historical interpretation, theological position, lineage claim, or conclusion expressed here. See the <a href="contributor-guidelines.html">contributor guidelines</a>.</p>
   </aside>
 
   <div class="giscus-comments" style="max-width:720px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid var(--cream-dark)">
@@ -257,18 +303,17 @@
     <div>
       <h4>Navigate</h4>
       <a href="about.html">About the Society</a>
-      <a href="collections.html">Our Holdings</a>
+      <a href="collections.html">Collections</a>
       <a href="access-policy.html">Access Policy</a>
       <a href="mission.html">Mission &amp; Stewardship</a>
       <a href="research.html">Research &amp; Scholarship</a>
-      <a href="visual-ethnography.html">Visual Ethnography</a>
       <a href="iroko-commentaries.html">Iroko Commentaries</a>
+      <a href="contribute-commentary.html">Contribute</a>
       <a href="contact.html">Contact</a>
     </div>
     <div>
-      <h4>Per Medjat &amp; Framework</h4>
-      <a href="https://medjat.irokosociety.org/" target="_blank" rel="noopener">Per Medjat &#8599;</a>
-      <a href="https://ontology.irokosociety.org/" target="_blank" rel="noopener">Iroko Framework &#8599;</a>
+      <h4>Framework</h4>
+      <a href="https://ontology.irokosociety.org/" target="_blank" rel="noopener">Ontology &#8599;</a>
       <a href="https://ontology.irokosociety.org/whitepaper" target="_blank" rel="noopener">White Paper &#8599;</a>
       <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank" rel="noopener">Zenodo DOI &#8599;</a>
     </div>
@@ -285,6 +330,17 @@
     el.href='mailto:'+u+'@'+d;
     el.textContent=u+'@'+d;
   });
+})();
+</script>
+<script>
+/* Point the translation aid at the current page. Falls back to the hard-coded
+   href above if scripting is unavailable. No data is sent from this page. */
+(function(){
+  var el = document.getElementById('translate-link');
+  if (el) {
+    el.href = 'https://translate.google.com/?op=websites&sl=auto&u=' +
+              encodeURIComponent(window.location.href.split('#')[0]);
+  }
 })();
 </script>
 <script src="assets/nav.js"></script>

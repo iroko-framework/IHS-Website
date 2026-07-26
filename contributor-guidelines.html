@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Editorial guidelines for Iroko Commentaries: scope, situated authority, language and editions, standards, sacred and contested knowledge, copyright, and the editorial process.">
+  <title>Contributor Guidelines &mdash; Iroko Commentaries &mdash; Iroko Historical Society</title>
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Iroko Historical Society">
+  <meta property="og:title"       content="Contributor Guidelines — Iroko Commentaries">
+  <meta property="og:description" content="Editorial policy for the Iroko Commentaries series: scope, situated authority, language and editions, sacred and contested knowledge, copyright, and the editorial process.">
+  <meta property="og:url"         content="https://irokosociety.org/contributor-guidelines.html">
+  <meta property="og:image"       content="https://irokosociety.org/assets/og-contributor-guidelines.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type"   content="image/png">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Contributor Guidelines — Iroko Commentaries">
+  <meta name="twitter:description" content="Editorial policy for the Iroko Commentaries series: scope, situated authority, language and editions, sacred and contested knowledge, copyright, and the editorial process.">
+  <meta name="twitter:image"       content="https://irokosociety.org/assets/og-contributor-guidelines.png">  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/IHS-Logo.svg">
+  <style>
+    .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
+    nav ul{position:relative}
+    .nav-dropdown{position:relative}
+    .nav-dropdown>a::after{content:' \25BE';font-size:.6rem;opacity:.7}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--green-deep);border:1px solid var(--green-border);border-top:2px solid var(--green-light);min-width:200px;list-style:none;margin:0;padding:.4rem 0;z-index:200;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .nav-dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu li a{display:block;padding:.5rem 1.1rem;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(237,234,208,.7);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s;height:auto;line-height:1.4}
+    .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(255,255,255,.1);color:var(--cream)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem;margin-left:auto}
+    .page-content{max-width:860px;margin:0 auto;padding:3rem 2rem 5rem}
+    .page-content h1{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--green-deep);margin-bottom:1.25rem}
+    .page-content h2{font-family:var(--font-display);font-size:1.25rem;color:var(--green-deep);margin:.4rem 0 .8rem;scroll-margin-top:90px}
+    .page-content h3{font-family:var(--font-sans);font-size:.88rem;font-weight:700;letter-spacing:.04em;color:var(--green-deep);margin:1.5rem 0 .35rem}
+    .page-content p{font-family:var(--font-sans);font-size:.92rem;color:var(--text-muted);line-height:1.85;margin-bottom:1rem;max-width:760px}
+    .page-content ul.policy-list{margin:0 0 1.25rem 1.15rem;max-width:760px}
+    .page-content ul.policy-list li{font-family:var(--font-sans);font-size:.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:.55rem}
+    .page-content hr.section-divider{border:none;border-top:1px solid var(--cream-dark);margin:2.75rem 0}
+    .page-content a{color:var(--green-mid)}
+    .page-content a:hover{color:var(--green-deep)}
+    .section-lead{font-family:var(--font-sans);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.35rem}
+    .return-link{display:inline-block;font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-mid);text-decoration:none;margin-bottom:1.5rem}
+    .return-link:hover{color:var(--green-deep)}
+    .toc{background:var(--white);border:1px solid var(--cream-dark);border-top:4px solid var(--green-deep);border-radius:2px;padding:1.4rem 1.65rem;margin:2rem 0 0}
+    .toc h2{font-family:var(--font-sans);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-deep);margin:0 0 .8rem}
+    .toc ol{margin:0;padding-left:1.3rem;columns:2;column-gap:2rem}
+    .toc li{font-family:var(--font-sans);font-size:.85rem;line-height:1.9;color:var(--text-muted);break-inside:avoid}
+    .toc a{text-decoration:none}
+    .toc a:hover{text-decoration:underline;text-underline-offset:3px}
+    .editions-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.1rem;margin:1.5rem 0}
+    .edition-card{background:var(--white);border:1px solid var(--cream-dark);border-top:4px solid var(--green-deep);border-radius:2px;padding:1.25rem 1.4rem}
+    .edition-card h3{font-family:var(--font-sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);margin:0 0 .25rem}
+    .edition-card .edition-gloss{font-family:var(--font-serif);font-style:italic;font-size:.92rem;color:var(--text-main);margin-bottom:.5rem;display:block}
+    .edition-card p{font-size:.84rem;line-height:1.7;margin:0}
+    .rule-callout{background:var(--cream-light);border-left:4px solid var(--gold);padding:1rem 1.4rem;margin:1.75rem 0;max-width:760px}
+    .rule-callout p{font-family:var(--font-serif);font-style:italic;font-size:1rem;color:var(--text-main);margin:0;line-height:1.7}
+    .refusal-list{list-style:none;padding:0;margin:1.25rem 0;max-width:760px}
+    .refusal-list li{position:relative;padding-left:1.6rem;font-family:var(--font-sans);font-size:.89rem;line-height:1.8;color:var(--text-muted);margin-bottom:.7rem}
+    .refusal-list li::before{content:'\2715';position:absolute;left:0;top:.15rem;font-size:.75rem;color:var(--gold-text);font-weight:700}
+    a.ext::after{content:' \2197';font-size:.75em;opacity:.6}
+    @media(max-width:768px){
+      .nav-toggle{display:block}
+      nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--green-deep);border-top:1px solid var(--green-border);flex-direction:column;padding:.5rem 0;z-index:199}
+      nav ul.open{display:flex}
+      nav ul li a{padding:.65rem 1.5rem;width:100%;display:block}
+      .dropdown-menu{position:static;box-shadow:none;border:none;border-left:3px solid var(--green-light);background:rgba(0,0,0,.15);margin-left:1rem}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
+      .page-content{padding:2.5rem 1.25rem 4rem}
+      .toc ol{columns:1}
+    }
+  </style>
+  <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZP3KZWLS4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SZP3KZWLS4');
+  </script>
+</head>
+<body>
+<div class="top-bar">Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials</div>
+<nav>
+  <a href="index.html" class="brand">
+    <img src="assets/IHS-Logo.jpg" alt="IHS Logo">
+    <span>Iroko Historical Society</span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="about.html">The Society</a>
+      <ul class="dropdown-menu">
+        <li><a href="about.html">Our Vision</a></li>
+        <li><a href="founder.html">The Founder</a></li>
+        <li><a href="our-stance.html">Our Stance</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="collections.html">The Collections</a>
+      <ul class="dropdown-menu">
+        <li><a href="collections.html">Our Holdings</a></li>
+        <li><a href="access-policy.html">Access &amp; Use Policy</a></li>
+        <li><a href="mission.html">Mission &amp; Stewardship</a></li>
+        <li><a href="https://medjat.irokosociety.org/" class="ext">Per Medjat</a></li>
+        <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown-menu">
+        <li><a href="research.html#peer-reviewed">Publications</a></li>
+        <li><a href="research.html#working-papers">Working Papers</a></li>
+        <li><a href="research.html#presentations">Presentations</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="iroko-spirituality.html" class="active">Iroko</a>
+      <ul class="dropdown-menu">
+        <li><a href="iroko-spirituality.html">Iroko Spirituality</a></li>
+        <li><a href="visual-ethnography.html">Visual Ethnography</a></li>
+        <li><a href="iroko-commentaries.html">Commentaries</a></li>
+        <li><a href="contribute-commentary.html" class="active">Contribute</a></li>
+      </ul>
+    </li>
+    <li><a href="foundation-day/2026.html">Foundation Day</a></li>
+  </ul>
+</nav>
+
+<section class="hero" style="padding:4rem 2rem 3rem;">
+  <p class="subtitle">Iroko Commentaries</p>
+  <h1>Contributor Guidelines</h1>
+</section>
+
+<div class="page-content">
+  <a href="contribute-commentary.html" class="return-link">Back to the invitation</a>
+
+  <p class="section-lead">Editorial Policy</p>
+  <p>
+    These guidelines govern <em>Iroko Commentaries</em>, the signed essay series of the Iroko Historical Society. They apply to commissioned and proposed work alike, and to essays by IHS authors as well as guest contributors. A shorter account of the series and how to propose to it appears on the <a href="contribute-commentary.html">invitation page</a>.
+  </p>
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ol>
+      <li><a href="#scope">Scope of a commentary</a></li>
+      <li><a href="#authority">Situated authority</a></li>
+      <li><a href="#language">Language and editions</a></li>
+      <li><a href="#classification">One series, two classifications</a></li>
+      <li><a href="#standards">Editorial standards</a></li>
+      <li><a href="#sacred-knowledge">Sacred and contested knowledge</a></li>
+      <li><a href="#copyright">Copyright and preservation</a></li>
+      <li><a href="#process">Editorial process</a></li>
+      <li><a href="#proposing">Proposing a commentary</a></li>
+    </ol>
+  </nav>
+
+  <hr class="section-divider">
+
+  <!-- ═══ 1 ═══ -->
+  <p class="section-lead">01</p>
+  <h2 id="scope">Scope of a commentary</h2>
+  <p>
+    An Iroko Commentary is a signed, edited essay that interprets, questions, documents, or reflects upon the histories, religions, cultures, archives, and living communities within the scope of the Society. A commentary may be scholarly, historical, personal, critical, archival, artistic, or practitioner-based. It may advance an argument, preserve a perspective, examine an artifact, reconsider an inherited interpretation, or place lived religious knowledge into conversation with the historical record.
+  </p>
+  <p>
+    Commentaries do not require the formal structure of a peer-reviewed journal article. They should demonstrate intellectual seriousness, responsible representation, and a clear basis of knowledge. A signed commentary represents the considered perspective of its author. It is not automatically an institutional statement, a final authority, or a declaration of universally accepted doctrine.
+  </p>
+
+  <hr class="section-divider">
+
+  <!-- ═══ 2 ═══ -->
+  <p class="section-lead">02</p>
+  <h2 id="authority">Situated authority</h2>
+  <p>
+    IHS welcomes writers whose work can deepen the historical and living record: initiated practitioners and lineage authorities; scholars and scholar-practitioners; archivists, librarians, and public historians; community historians and oral-history practitioners; artists, musicians, and cultural workers; elders and tradition bearers; independent researchers; and writers whose knowledge developed outside formal academic institutions.
+  </p>
+  <p>
+    Initiatory standing may be essential to certain subjects. No credential, office, degree, or title grants universal authority over every lineage, community, or tradition. Contributors should identify the basis and the limits of their perspective, whether that basis is archival research, ethnographic fieldwork, oral testimony, lineage teaching, personal experience, artistic practice, legal analysis, historical study, or another clearly described foundation.
+  </p>
+
+  <hr class="section-divider">
+
+  <!-- ═══ 3 ═══ -->
+  <p class="section-lead">03</p>
+  <h2 id="language">Language and editions</h2>
+  <p>
+    Contributors should write in the language in which they can express their knowledge, memory, experience, and argument most accurately. English is not the default language of authority, and fluency in English is not a condition of publication. A commentary may be published in Spanish, French, Haitian Creole, Portuguese, Yoruba, English, or another language appropriate to the author and the work.
+  </p>
+
+  <div class="editions-compare">
+    <div class="edition-card">
+      <h3>Authoritative edition</h3>
+      <span class="edition-gloss">The original-language text</span>
+      <p>The version written or expressly approved by the author. It is the version of record and the version that should be cited.</p>
+    </div>
+    <div class="edition-card">
+      <h3>Reviewed translation</h3>
+      <span class="edition-gloss">A published language edition</span>
+      <p>A translation reviewed by the author, a human translator, or the editors, issued as a stable additional edition with its own page.</p>
+    </div>
+    <div class="edition-card">
+      <h3>Automatic reading aid</h3>
+      <span class="edition-gloss">Not an edition</span>
+      <p>A third-party machine translation a reader may request. IHS does not publish, host, or vouch for these renderings.</p>
+    </div>
+  </div>
+
+  <p>
+    Every commentary page states which language is original, which versions have been reviewed, and whether an automatic reading aid is offered. Automatic translations widen access and regularly fail on ritual vocabulary, lineage terms, praise names, titles of office, and culturally specific expressions. They do not replace the original text.
+  </p>
+  <p>
+    Where a word, title, prayer, office, lineage term, ritual concept, or culturally specific expression cannot be translated adequately, the original term should be retained and explained rather than flattened into an inaccurate equivalent.
+  </p>
+
+  <div class="rule-callout">
+    <p>A reviewed translation is an edition. An automatic translation is a reading aid.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ═══ 4 ═══ -->
+  <p class="section-lead">04</p>
+  <h2 id="classification">One series, two classifications</h2>
+  <p>
+    IHS-authored and guest commentaries appear within one publication series. Guest writers are not placed in a secondary or peripheral category. Their work forms part of the same intellectual conversation while remaining clearly attributed.
+  </p>
+  <div class="editions-compare">
+    <div class="edition-card">
+      <h3><span class="classification-badge is-ihs">IHS Commentary</span></h3>
+      <span class="edition-gloss">Work by an IHS author</span>
+      <p>A signed essay by an officer, curator, researcher, or contributor writing within the IHS project. Personal authorship remains distinct from an official institutional statement.</p>
+    </div>
+    <div class="edition-card">
+      <h3><span class="classification-badge">Guest Commentary</span></h3>
+      <span class="edition-gloss">Work by an invited contributor</span>
+      <p>A signed essay by an outside author selected and edited for publication by IHS. The author retains ownership of the argument and does not speak on behalf of the Society.</p>
+    </div>
+  </div>
+  <p>
+    Publication signifies that a work has been reviewed for relevance, clarity, ethical treatment, responsible sourcing, and consistency with the editorial purpose of the series. Publication does not mean that IHS endorses every historical interpretation, theological position, political conclusion, lineage claim, translation choice, or opinion expressed by the author. IHS may publish differing or competing interpretations when doing so contributes to a fuller and more responsible record.
+  </p>
+
+  <hr class="section-divider">
+
+  <!-- ═══ 5 ═══ -->
+  <p class="section-lead">05</p>
+  <h2 id="standards">Editorial standards</h2>
+  <p>A strong commentary does more than express a general opinion. It offers readers a perspective worth preserving.</p>
+
+  <h3>A clear contribution</h3>
+  <p>The essay should present a discernible question, argument, interpretation, recollection, intervention, or documentary contribution.</p>
+
+  <h3>Situated authority</h3>
+  <p>Authors should explain, directly or through the substance of the essay, how they know what they know. Claims should be situated within an identifiable period, region, community, lineage, archive, body of evidence, or field of experience.</p>
+
+  <h3>Responsible evidence</h3>
+  <p>Historical and factual claims should be supported where support is appropriate. Citations may follow Chicago 17th edition full note form or a clear editorial format agreed with IHS.</p>
+
+  <h3>Respect without avoidance</h3>
+  <p>Commentaries may be critical, revisionist, or controversial. Respectful treatment does not require false consensus, avoidance of disagreement, or the suppression of difficult questions.</p>
+
+  <h3>Authorial voice</h3>
+  <p>IHS values writing with a recognizable human voice. Contributors need not imitate academic prose or write in English, but the work should be deliberate, intelligible, and suited to permanent publication.</p>
+
+  <h3>Translation transparency</h3>
+  <p>Every translated version should identify whether it was produced automatically, reviewed by the author, edited by a human translator, or independently translated.</p>
+
+  <hr class="section-divider">
+
+  <!-- ═══ 6 ═══ -->
+  <p class="section-lead">06</p>
+  <h2 id="sacred-knowledge">Sacred and contested knowledge</h2>
+  <p>
+    Knowledge carries obligations. Contributors must exercise particular care when discussing sacred, restricted, private, initiatory, or community-controlled knowledge.
+  </p>
+  <p>IHS will not knowingly publish material that:</p>
+  <ul class="refusal-list">
+    <li>reveals restricted ritual information without appropriate authority;</li>
+    <li>reproduces confidential oral histories, correspondence, or private records without authorization;</li>
+    <li>identifies private individuals without permission or a compelling historical justification;</li>
+    <li>exposes vulnerable people, communities, sacred sites, or active practices to foreseeable harm;</li>
+    <li>presents lineage-specific teachings as universally accepted doctrine;</li>
+    <li>makes serious allegations concerning living people without adequate evidence and appropriate editorial review;</li>
+    <li>converts sacred or culturally specific language into a misleading translation for the sake of apparent simplicity.</li>
+  </ul>
+  <p>
+    When traditions or authorities disagree, contributors should identify the community, lineage, historical period, region, or source from which a claim arises. Disagreement should be recorded accurately rather than erased in pursuit of an artificial consensus.
+  </p>
+  <p>
+    IHS reserves the right to decline, revise, delay, restrict, or remove material when publication would violate obligations to individuals, communities, archives, or living traditions.
+  </p>
+
+  <hr class="section-divider">
+
+  <!-- ═══ 7 ═══ -->
+  <p class="section-lead">07</p>
+  <h2 id="copyright">Copyright and preservation</h2>
+  <p>
+    Contributors retain copyright in their original writing. Publication through IHS does not transfer authorship or ownership of the work to the Society.
+  </p>
+  <p>
+    By accepting publication, the author grants the Iroko Historical Society a nonexclusive, continuing license to publish, display, format, preserve, archive, prepare translations for access, and promote the accepted version through IHS websites, repositories, exhibits, newsletters, and related educational channels.
+  </p>
+  <p>
+    A machine-generated translation is treated as a separate reading aid. It is not an authoritative edition unless it is reviewed and expressly approved for publication.
+  </p>
+  <p>
+    Authors may republish their work elsewhere, provided that the original IHS publication is acknowledged and later revisions are clearly identified.
+  </p>
+  <p>
+    IHS will not materially alter an author's argument without consultation. Substantive editorial changes require author approval. Minor corrections involving spelling, citation form, formatting, accessibility, links, and factual metadata may be made editorially.
+  </p>
+
+  <h3>Archival publication</h3>
+  <p>
+    Substantial commentaries may be issued as professionally formatted archival editions and deposited in a trusted scholarly repository. Where appropriate, the work may receive its own persistent identifier or DOI, with the author named as creator and the Iroko Historical Society identified as publisher. The archival record identifies the original language, the authoritative edition, and any stable reviewed translations. Automatic reading aids are not archived.
+  </p>
+
+  <h3>Third-party material</h3>
+  <p>
+    Photographs, artwork, archival documents, recordings, and other third-party materials must be accompanied by appropriate permissions or a documented legal basis for publication.
+  </p>
+
+  <h3>Payment</h3>
+  <p>
+    Unless otherwise agreed in writing, publication is unpaid.
+  </p>
+
+  <hr class="section-divider">
+
+  <!-- ═══ 8 ═══ -->
+  <p class="section-lead">08</p>
+  <h2 id="process">Editorial process</h2>
+  <ol class="process-steps">
+    <li>
+      <strong>Initial conversation</strong>
+      <span>A contributor is invited to write, or submits a brief proposal for editorial consideration.</span>
+    </li>
+    <li>
+      <strong>Language and scope</strong>
+      <span>The author identifies the language in which they prefer to write, the proposed subject, and the basis of their knowledge.</span>
+    </li>
+    <li>
+      <strong>Editorial fit</strong>
+      <span>IHS considers whether the proposed work serves the historical, cultural, scholarly, or community purpose of the series.</span>
+    </li>
+    <li>
+      <strong>Draft review</strong>
+      <span>The editors review the manuscript for structure, clarity, evidence, ethical concerns, and the treatment of sacred or contested material.</span>
+    </li>
+    <li>
+      <strong>Author revision</strong>
+      <span>The author reviews requested changes and retains control over the substance of the argument.</span>
+    </li>
+    <li>
+      <strong>Edition planning</strong>
+      <span>IHS and the author identify the authoritative edition, any reviewed translation, and whether an automatic reading aid is offered on the page.</span>
+    </li>
+    <li>
+      <strong>Final approval</strong>
+      <span>The author approves the final original-language text, biographical information, and publication metadata.</span>
+    </li>
+    <li>
+      <strong>Web and archival publication</strong>
+      <span>The commentary is published on the IHS website and, where appropriate, prepared as a stable, citable archival edition.</span>
+    </li>
+  </ol>
+
+  <hr class="section-divider">
+
+  <!-- ═══ 9 ═══ -->
+  <p class="section-lead">09</p>
+  <h2 id="proposing">Proposing a commentary</h2>
+  <p>
+    A proposal does not need to be a completed manuscript, and IHS does not accept unsolicited completed manuscripts. A useful proposal briefly identifies the proposed subject or working title; the central question, argument, story, or contribution; the author's relationship to the subject; the principal sources or basis of knowledge; the language in which the author prefers to write; whether the author can review a translated edition; any sacred, private, legal, linguistic, or ethical considerations that may affect publication; and whether the work has appeared elsewhere.
+  </p>
+  <p>
+    Please do not send restricted ritual material, confidential records, or unpublished third-party documents with an initial proposal.
+  </p>
+  <p>
+    Proposals may be written in the contributor's preferred language and are submitted through the <a href="propose-commentary.html">proposal form</a>. IHS reads every proposal and does not guarantee a reply, editorial review, or publication.
+  </p>
+
+  <p style="font-family:var(--font-sans);font-size:.78rem;color:var(--text-muted);font-style:italic;margin-top:2.5rem">
+    These guidelines may be revised. Material changes will not be applied retroactively to work already accepted for publication.
+  </p>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Iroko Historical Society</h4>
+      <p>A postcustodial cultural heritage complex comprising a digital archive, research library, and living museum focused on Afro-Atlantic sacred knowledge systems.</p>
+      <p style="margin-top:.75rem">New Orleans-founded &middot; Afro-Atlantic archives and research &middot; Est. 2024</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <a href="about.html">About the Society</a>
+      <a href="collections.html">Collections</a>
+      <a href="access-policy.html">Access Policy</a>
+      <a href="mission.html">Mission &amp; Stewardship</a>
+      <a href="research.html">Research &amp; Scholarship</a>
+      <a href="iroko-commentaries.html">Iroko Commentaries</a>
+      <a href="contribute-commentary.html">Contribute</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Framework</h4>
+      <a href="https://ontology.irokosociety.org/" target="_blank" rel="noopener">Ontology &#8599;</a>
+      <a href="https://ontology.irokosociety.org/whitepaper" target="_blank" rel="noopener">White Paper &#8599;</a>
+      <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank" rel="noopener">Zenodo DOI &#8599;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024&ndash;2026 Iroko Historical Society &middot; Il&eacute; A&ntilde;&aacute; Olof&iacute;, Inc. All rights reserved.</p>
+    <p>Vocabulary published under CC0 1.0 Universal &middot; <a href="#" class="js-email">[protected]</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var u='senior.curator',d='irokosociety.org';
+  document.querySelectorAll('.js-email').forEach(function(el){
+    el.href='mailto:'+u+'@'+d;
+    el.textContent=u+'@'+d;
+  });
+})();
+</script>
+<script src="assets/nav.js"></script>
+</body>
+</html>

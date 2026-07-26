@@ -504,7 +504,7 @@ PAGES = [
     dict(
         file       = "iroko-commentaries.html",
         slug       = "og-commentaries",
-        label      = "IROKO · COMMENTARY",
+        label      = "IROKO · COMMENTARIES",
         title      = "Iroko Commentaries",
         subtitle   = "Practitioner-scholar essays on sacred knowledge, archival practice, and the intellectual life of the Afro-Atlantic.",
         og_title   = "Iroko Commentaries — Iroko Historical Society",
@@ -513,6 +513,63 @@ PAGES = [
             "on sacred knowledge, archival ethics, and the intellectual life of the Afro-Atlantic world."
         ),
         og_url     = f"{BASE_URL}/iroko-commentaries.html",
+    ),
+    # ── contribute to commentaries ────────────────────────────────────────────
+    dict(
+        file       = "contribute-commentary.html",
+        slug       = "og-contribute-commentary",
+        label      = "IROKO · COMMENTARIES",
+        title      = "Contribute to Iroko Commentaries",
+        subtitle   = "Write from where your knowledge lives.",
+        og_title   = "Contribute to Iroko Commentaries — Iroko Historical Society",
+        og_description = (
+            "A commissioned essay series on Afro-Atlantic sacred practice, archives, "
+            "and cultural stewardship. Scholars, practitioners, archivists, artists, and "
+            "elders may propose a commentary in the language they know best."
+        ),
+        og_url     = f"{BASE_URL}/contribute-commentary.html",
+    ),
+    # ── contributor guidelines ────────────────────────────────────────────────
+    dict(
+        file       = "contributor-guidelines.html",
+        slug       = "og-contributor-guidelines",
+        label      = "IROKO · COMMENTARIES",
+        title      = "Contributor Guidelines",
+        subtitle   = "Standards, restricted knowledge, language and editions, copyright, and process.",
+        og_title   = "Contributor Guidelines — Iroko Commentaries",
+        og_description = (
+            "Editorial policy for the Iroko Commentaries series: scope, situated authority, "
+            "language and editions, sacred and contested knowledge, copyright, and the editorial process."
+        ),
+        og_url     = f"{BASE_URL}/contributor-guidelines.html",
+    ),
+    # ── propose a commentary ──────────────────────────────────────────────────
+    dict(
+        file       = "propose-commentary.html",
+        slug       = "og-contribute-commentary",   # reuse same PNG
+        label      = "IROKO · COMMENTARIES",
+        title      = "Propose a Commentary",
+        subtitle   = "Tell us what you want to write and how you know what you know.",
+        og_title   = "Propose a Commentary — Iroko Historical Society",
+        og_description = (
+            "Send a short proposal to Iroko Commentaries. Proposals may be written "
+            "in your preferred language."
+        ),
+        og_url     = f"{BASE_URL}/propose-commentary.html",
+    ),
+    # ── guest commentary template ─────────────────────────────────────────────
+    dict(
+        file       = "guest-commentary-template.html",
+        slug       = "og-guest-commentary",
+        label      = "IROKO · COMMENTARIES",
+        title      = "Guest Commentary",
+        subtitle   = "A signed essay by an invited contributor to the Iroko Historical Society.",
+        og_title   = "Guest Commentary — Iroko Commentaries",
+        og_description = (
+            "A signed essay by an invited contributor, selected and edited for publication "
+            "by the Iroko Historical Society."
+        ),
+        og_url     = f"{BASE_URL}/guest-commentary-template.html",
     ),
     # ── iroko spirituality ────────────────────────────────────────────────────
     dict(
@@ -784,7 +841,7 @@ PAGES = [
     dict(
         file       = "wont-they-do-it.html",
         slug       = "og-wont-they-do-it",
-        label      = "IROKO · COMMENTARY",
+        label      = "IROKO · COMMENTARIES",
         title      = "Won't They Do It",
         subtitle   = "Righteousness, Debt, and the Fallacy of Spiritual ROI",
         og_title   = "Won't They Do It — Iroko Commentary",
@@ -797,7 +854,7 @@ PAGES = [
     dict(
         file       = "the-bones-fall-prophecy-or-verdict.html",
         slug       = "og-bones-fall",
-        label      = "IROKO · COMMENTARY",
+        label      = "IROKO · COMMENTARIES",
         title      = "The Bones Fall",
         subtitle   = "Prophecy or Verdict? On Divinatory Inflation and the Ethics of Sacred Speech",
         og_title   = "The Bones Fall: Prophecy or Verdict? — Iroko Commentary",
@@ -810,7 +867,7 @@ PAGES = [
     dict(
         file       = "bread-before-the-end.html",
         slug       = "og-bread-before-end",
-        label      = "IROKO · COMMENTARY",
+        label      = "IROKO · COMMENTARIES",
         title      = "Bread Before the End",
         subtitle   = "Havana and the Memory of Constantinople",
         og_title   = "Bread Before the End: Havana and the Memory of Constantinople — Iroko Commentary",
@@ -823,7 +880,7 @@ PAGES = [
     dict(
         file       = "the-scholar-is-not-the-custodian.html",
         slug       = "og-scholar-custodian",
-        label      = "IROKO · COMMENTARY",
+        label      = "IROKO · COMMENTARIES",
         title      = "The Scholar Is Not the Custodian",
         subtitle   = "On scholarly access, initiatory obligation, and sealed archives",
         og_title   = "The Scholar Is Not the Custodian — Iroko Commentary",

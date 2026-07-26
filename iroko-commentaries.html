@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Iroko Commentaries gathers practitioner-scholar essays and reflections from the Living Museum and Iroko wing of the Iroko Historical Society.">
+  <meta name="description" content="Iroko Commentaries gathers practitioner-scholar essays and reflections from the Research Library and Iroko wing of the Iroko Historical Society.">
   <title>Iroko Commentaries &mdash; Iroko Historical Society</title>
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="Iroko Historical Society">
@@ -43,6 +43,7 @@
     .commentary-meta{display:flex;flex-wrap:wrap;gap:.5rem .75rem;align-items:center;margin-bottom:.75rem}
     .commentary-tag,.commentary-status{font-family:var(--font-sans);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:2px}
     .commentary-tag{color:var(--green-light)}
+    .commentary-tag.commentary-tag--guest{color:var(--gold-text)}
     .commentary-status{background:rgba(30,74,39,.1);color:var(--green-deep);padding:.2em .65em}
     .commentary-card h2{font-size:1.2rem;line-height:1.35;margin:.15rem 0 .35rem}
     .commentary-subtitle{font-family:var(--font-serif);font-size:1.15rem;color:var(--text-main);font-style:italic;line-height:1.5;margin-bottom:.85rem}
@@ -111,7 +112,8 @@
       <ul class="dropdown-menu">
         <li><a href="iroko-spirituality.html">Iroko Spirituality</a></li>
         <li><a href="visual-ethnography.html">Visual Ethnography</a></li>
-        <li><a href="iroko-commentaries.html" class="active">Commentary</a></li>
+        <li><a href="iroko-commentaries.html" class="active">Commentaries</a></li>
+        <li><a href="contribute-commentary.html">Contribute</a></li>
       </ul>
     </li>
     <li><a href="foundation-day/2026.html">Foundation Day</a></li>
@@ -119,7 +121,7 @@
 </nav>
 
 <section class="hero" style="padding:4rem 2rem 3rem;">
-  <p class="subtitle">Iroko &middot; Living Museum</p>
+  <p class="subtitle">Iroko &middot; Research Library</p>
   <h1>Iroko Commentaries</h1>
 </section>
 
@@ -131,7 +133,10 @@
 
   <hr class="section-divider">
 
-  <p class="section-lead">Essays</p>
+  <p class="section-lead">IHS Commentaries</p>
+  <p style="max-width:760px;font-size:.88rem;margin-bottom:0;">
+    Signed essays by officers, curators, and researchers writing within the IHS project. Personal authorship remains distinct from official institutional statement.
+  </p>
   <div class="commentary-grid">
 
     <article class="commentary-card">
@@ -179,6 +184,27 @@
     </article>
 
   </div>
+
+  <hr class="section-divider">
+
+  <p class="section-lead">Guest Commentaries</p>
+  <p style="max-width:760px;font-size:.88rem;">
+    Signed essays by invited contributors, selected and edited for publication by IHS. Guest work forms part of the same intellectual conversation and remains the property and responsibility of its author.
+  </p>
+
+  <div class="commentary-grid">
+    <article class="commentary-card" style="border-top-color:var(--gold);">
+      <div class="commentary-meta">
+        <span class="commentary-tag commentary-tag--guest">The Series</span>
+        <span class="commentary-status">Open for proposals</span>
+      </div>
+      <h2>Write for Iroko Commentaries</h2>
+      <div class="commentary-subtitle">Scholars, practitioners, archivists, artists, and elders</div>
+      <p>The first guest commentaries are in preparation. <em>Iroko Commentaries</em> is a commissioned series, and writers whose work falls within its scope are welcome to send a proposal at any time, in the language they know best.</p>
+      <a href="contribute-commentary.html" class="btn btn-outline">Contribute</a>
+    </article>
+  </div>
+
 </div>
 
 <footer>
@@ -200,9 +226,9 @@
     </div>
     <div>
       <h4>Framework</h4>
-      <a href="https://ontology.irokosociety.org/" target="_blank">Ontology &#8599;</a>
-      <a href="https://ontology.irokosociety.org/whitepaper" target="_blank">White Paper &#8599;</a>
-      <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank">Zenodo DOI &#8599;</a>
+      <a href="https://ontology.irokosociety.org/" target="_blank" rel="noopener">Ontology &#8599;</a>
+      <a href="https://ontology.irokosociety.org/whitepaper" target="_blank" rel="noopener">White Paper &#8599;</a>
+      <a href="https://doi.org/10.5281/zenodo.18826673" target="_blank" rel="noopener">Zenodo DOI &#8599;</a>
     </div>
   </div>
   <div class="footer-bottom">

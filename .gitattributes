@@ -1,0 +1,49 @@
+# ── Line endings ──────────────────────────────────────────────────────────────
+# Normalize everything git detects as text to LF in the repository.
+# Working copies on Windows still check out however core.autocrlf is set;
+# this only stops CRLF churn from showing up as whole-file diffs.
+* text=auto eol=lf
+
+# Explicit text types
+*.html   text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+*.py     text eol=lf
+*.json   text eol=lf
+*.md     text eol=lf
+*.svg    text eol=lf
+*.txt    text eol=lf
+*.xml    text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
+*.csv    text eol=lf
+*.ttl    text eol=lf
+CNAME    text eol=lf
+
+# ── Binary ────────────────────────────────────────────────────────────────────
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.webp   binary
+*.ico    binary
+*.pdf    binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.otf    binary
+*.eot    binary
+*.zip    binary
+*.gz     binary
+*.tar.gz binary
+*.mp4    binary
+*.mp3    binary
+
+# ── Diff hints ────────────────────────────────────────────────────────────────
+*.html   diff=html
+*.py     diff=python
+*.css    diff=css
+
+# ── Excluded from GitHub language stats and release archives ──────────────────
+docs/**       linguist-documentation
+assets/*.png  linguist-generated
