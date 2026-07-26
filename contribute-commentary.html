@@ -39,7 +39,7 @@
     .section-lead{font-family:var(--font-sans);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
     .return-link{display:inline-block;font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-mid);text-decoration:none;margin-bottom:1.5rem}
     .return-link:hover{color:var(--green-deep)}
-    .who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;margin-top:1.5rem}
+    .who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:1.5rem;align-items:stretch}
     .who-card{background:var(--white);border:1px solid var(--cream-dark);border-top:4px solid var(--green-deep);border-radius:2px;padding:1.3rem 1.45rem}
     .who-card h3{font-family:var(--font-sans);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);margin-bottom:.45rem}
     .who-card p{font-size:.85rem;line-height:1.7;margin:0}
@@ -66,6 +66,9 @@
       .nav-dropdown.open .dropdown-menu{display:block}
       .page-content{padding:2.5rem 1.25rem 4rem}
       .cta-block{padding:1.75rem 1.25rem}
+    }
+    @media(max-width:560px){
+      .who-grid{grid-template-columns:1fr}
     }
   </style>
   <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
