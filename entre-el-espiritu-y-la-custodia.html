@@ -36,8 +36,18 @@
     /* page-content for newer inner pages */
     .page-content{max-width:860px;margin:0 auto;padding:3rem 2rem 4rem}
     .page-content h1{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--green-deep);margin-bottom:1.25rem}
-    /* publication subtitle, sits under the h1. Adjust font-size here. */
-    .page-subtitle{font-family:var(--font-sans);font-size:clamp(1.1rem,2vw,1.35rem);font-weight:400;color:var(--green-mid);line-height:1.5;margin:-.6rem 0 1.9rem}
+    /* Publication subtitle, sits under the h1.
+       TOGGLE: change the class in the markup, no CSS editing needed.
+         class="page-subtitle"      1.35rem
+         class="page-subtitle lg"   1.6rem
+         class="page-subtitle xl"   1.9rem
+       Or set --subtitle-size below to any value you like.
+       The .page-content prefix is required: it outranks .page-content p,
+       which sets font-size .92rem and will otherwise win. */
+    .page-content .page-subtitle{--subtitle-size:1.35rem;font-family:var(--font-sans);font-size:var(--subtitle-size);font-weight:600;color:var(--green-mid);line-height:1.5;margin:-.6rem 0 1.9rem}
+    .page-content .page-subtitle.lg{--subtitle-size:1.6rem}
+    .page-content .page-subtitle.xl{--subtitle-size:1.9rem;line-height:1.4}
+    @media(max-width:600px){.page-content .page-subtitle{font-size:calc(var(--subtitle-size) * .82)}}
     .page-content h2{font-family:var(--font-display);font-size:1.25rem;color:var(--green-deep);margin:2rem 0 .6rem}
     .page-content h3{font-family:var(--font-sans);font-size:1rem;font-weight:600;color:var(--green-mid);margin:1.5rem 0 .4rem}
     .page-content p{font-family:var(--font-sans);font-size:.92rem;color:var(--text-muted);line-height:1.85;margin-bottom:1rem}
