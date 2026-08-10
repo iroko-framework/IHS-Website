@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-make-og-entre-el-espiritu.py
+make-og-entre-espiritu-y-custodia.py
 
-Builds assets/og-entre-el-espiritu.png, the Open Graph card for
-entre-el-espiritu-y-la-custodia.html.
+Builds assets/og-entre-espiritu-y-custodia.png, the Open Graph card for
+entre-espiritu-y-custodia.html.
 
 Layout: the IV Encuentro invitation centered in the upper area, scaled down,
 with the IHS identification block beneath it. Palette matches generate-og.py.
 
 Run from the repo root:
-    python scripts/make-og-entre-el-espiritu.py
+    python scripts/make-og-entre-espiritu-y-custodia.py
 """
 
 from pathlib import Path
@@ -113,7 +113,7 @@ def main():
     draw_centered(draw, y, "IROKO HISTORICAL SOCIETY   ·   IROKOSOCIETY.ORG",
                   f_mark, COL_MARK, tracking=2.4)
 
-    out = ASSETS / "og-entre-el-espiritu.png"
+    out = ASSETS / "og-entre-espiritu-y-custodia.png"
     img.save(out, "PNG", optimize=True)
     print("wrote", out, img.size)
 
