@@ -104,7 +104,7 @@ def main():
     f_mark = font("sans_semibold", 15)
 
     y = fy + target_h + 24
-    draw_centered(draw, y, "Entre el Espíritu y la Custodia", f_title, COL_TITLE)
+    draw_centered(draw, y, "Entre Espíritu y Custodia", f_title, COL_TITLE)
     y += 46
     draw_centered(draw, y,
                   "Biblioteca Nacional de Cuba José Martí  ·  Ediciones Bachiller  ·  2026",
