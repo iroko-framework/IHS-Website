@@ -90,6 +90,7 @@ COL_LABEL  = _blend(CREAM, 0.60)
 COL_TITLE  = CREAM
 COL_SUB    = _blend(CREAM, 0.75)
 COL_DOMAIN = _blend(CREAM, 0.40)
+ARCHIVE_BLUE = (26, 52, 104)
 
 # ── layout constants ──────────────────────────────────────────────────────────
 W, H = 1200, 630
@@ -116,6 +117,7 @@ SZ_LABEL  = 18
 SZ_TITLE  = 62
 SZ_SUB    = 26
 SZ_DOMAIN = 16
+SZ_SERIES = 16
 
 # ── font management ───────────────────────────────────────────────────────────
 _FONT_SPECS = {
@@ -356,7 +358,31 @@ def make_og_image(page: dict) -> Image.Image:
     # Subtitle
     f_sub = get_font("garamond_ital", SZ_SUB)
     sub_y = title_bottom + 20
-    draw_wrapped(draw, page["subtitle"], f_sub, text_x, sub_y, max_w, COL_SUB, 1.45)
+    sub_bottom = draw_wrapped(draw, page["subtitle"], f_sub, text_x, sub_y, max_w, COL_SUB, 1.45)
+
+    # Optional series marker below the subtitle.
+    if page.get("series"):
+        f_series = get_font("sourcesans", SZ_SERIES)
+        series_text = page["series"]
+        pad_x, pad_y = 16, 10
+        series_w = _text_w(draw, series_text, f_series)
+        series_h = _text_h(draw, series_text, f_series)
+        series_y = sub_bottom + 14
+        draw.rectangle(
+            [
+                text_x,
+                series_y,
+                text_x + series_w + (pad_x * 2),
+                series_y + series_h + (pad_y * 2),
+            ],
+            fill=ARCHIVE_BLUE,
+        )
+        draw.text(
+            (text_x + pad_x, series_y + pad_y),
+            series_text,
+            font=f_series,
+            fill=COL_TITLE,
+        )
 
     # Domain (left-aligned with the label, title, and subtitle)
     f_domain  = get_font("sourcesans", SZ_DOMAIN)
@@ -945,6 +971,20 @@ PAGES = [
         og_url     = f"{BASE_URL}/foundation-day/share-your-tree-ht.html",
     ),
     # ── commentaries ──────────────────────────────────────────────────────────
+    dict(
+        file       = "before-the-boxes-disappear.html",
+        slug       = "og-before-boxes",
+        label      = "IROKO · COMMENTARIES",
+        title      = "Before the Boxes Disappear",
+        subtitle   = "How Ordinary Decisions Unmake a Community Archive",
+        series     = "THE IROKO ARCHIVIST SERIES",
+        og_title   = "Before the Boxes Disappear · Iroko Commentary",
+        og_description = (
+            "How ordinary decisions unmake a community archive. "
+            "Essay 1 of the Iroko Archivist Series, by Délé Fágbèmí Ọ̀."
+        ),
+        og_url     = f"{BASE_URL}/before-the-boxes-disappear.html",
+    ),
     dict(
         file       = "wont-they-do-it.html",
         slug       = "og-wont-they-do-it",
