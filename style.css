@@ -485,6 +485,31 @@ footer a:hover { color: var(--cream); }
   padding: 0 0.1em;
 }
 
+/* ── Further reading ── */
+.essay-further-reading {
+  max-width: 720px;
+  margin: 2.25rem auto 0;
+}
+.essay-further-reading h2 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--green-deep);
+  margin: 0 0 0.9rem;
+}
+.essay-further-reading ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.essay-further-reading li {
+  font-family: var(--font-sans);
+  font-size: 0.82rem; line-height: 1.75;
+  color: var(--text-muted);
+  padding-left: 1.6rem;
+  text-indent: -1.6rem;
+  margin-bottom: 0.7rem;
+}
+
 /* ── Author note ── */
 .author-note {
   max-width: 720px;
