@@ -76,6 +76,9 @@
     .page-content .gallery-cta-btn{flex:0 0 auto;font-family:var(--font-sans);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.75rem 1.6rem;border:2px solid var(--cream);color:var(--cream);text-decoration:none;border-radius:2px;transition:background .2s,color .2s;white-space:nowrap}
     .page-content .gallery-cta-btn:hover,.page-content .gallery-cta-btn:focus-visible{background:var(--cream);color:var(--green-deep)}
     @media(max-width:560px){.gallery-cta{flex-direction:column;align-items:flex-start}.gallery-cta-btn{width:100%;text-align:center}}
+    /* provenance note inside the photo credit bar */
+    .photo-credit-bar .provenance-note{display:block;margin-top:.5rem;font-size:.78rem;line-height:1.7;opacity:.85}
+    .photo-credit-bar .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.95em;white-space:nowrap}
     .search-row{display:flex;gap:.5rem;flex-wrap:wrap}
     .search-row input[type="text"]{flex:1;min-width:200px;font-family:var(--font-sans);font-size:.88rem;color:var(--green-deep);background:var(--cream);border:2px solid var(--green-deep);border-radius:2px;padding:.55rem .9rem;outline:none}
     .search-row input[type="text"]::placeholder{color:var(--text-muted);opacity:.7}
@@ -164,9 +167,14 @@
   <div class="photo-credit-bar" style="font-family:var(--font-sans);font-size:.82rem;color:var(--text-muted);margin:1.25rem 0;padding:.75rem 0;border-top:1px solid var(--cream-dark);border-bottom:1px solid var(--cream-dark);">
     All photographs &copy; D&eacute;l&eacute; F&aacute;gb&egrave;m&iacute; &#7884;&#768;., on loan to Iroko Historical Society.
     Reproduction or use without written authorization is prohibited.
+    <span class="provenance-note">
+      Images bearing the Panama Slim mark, or an <span class="mono">ethnographique.photoshelter.com</span> footer
+      from the photographer&rsquo;s earlier site, are the same body of work under the photographer&rsquo;s own working name.
+      Neither mark indicates a separate rights holder.
+    </span>
   </div>
 
-  <!-- ARCHIVE_SEARCH_START — hidden 2026-09-05.
+  <!-- ARCHIVE_SEARCH_START, hidden 2026-09-05.
        PhotoShelter site search. Left in place, not deleted: it was the only
        control on this page that jumped off-site without the gallery
        interstitial. To restore, delete this comment wrapper.
