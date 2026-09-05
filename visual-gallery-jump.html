@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Open the IHS PhotoShelter gallery for Visual Ethnography.">
+  <title>Visual Ethnography Gallery &mdash; Iroko Historical Society</title>
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Iroko Historical Society">
+  <meta property="og:title"       content="Visual Ethnography Gallery — Iroko Historical Society">
+  <meta property="og:description" content="Open the IHS PhotoShelter gallery for Visual Ethnography.">
+  <meta property="og:url"         content="https://irokosociety.org/visual-gallery-jump.html">
+  <meta property="og:image"       content="https://irokosociety.org/assets/og-ethnography-gallery-jump.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type"   content="image/png">
+  <meta property="og:image:alt"    content="Visual Ethnography Gallery - Iroko Historical Society social preview">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Visual Ethnography Gallery — Iroko Historical Society">
+  <meta name="twitter:description" content="Open the IHS PhotoShelter gallery for Visual Ethnography.">
+  <meta name="twitter:image"       content="https://irokosociety.org/assets/og-ethnography-gallery-jump.png">
+  <meta name="twitter:image:alt"   content="Visual Ethnography Gallery - Iroko Historical Society social preview">
+  <link rel="canonical" href="https://irokosociety.org/visual-gallery-jump.html">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/IHS-Logo.svg">
+  <style>
+    .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
+    nav ul{position:relative}
+    .nav-dropdown{position:relative}
+    .nav-dropdown>a::after{content:' \25BE';font-size:.6rem;opacity:.7}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--green-deep);border:1px solid var(--green-border);border-top:2px solid var(--green-light);min-width:200px;list-style:none;margin:0;padding:.4rem 0;z-index:200;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .nav-dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu li a{display:block;padding:.5rem 1.1rem;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(237,234,208,.7);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s;height:auto;line-height:1.4}
+    .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(255,255,255,.1);color:var(--cream)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem;margin-left:auto}
+    a.ext::after{content:' \2197';font-size:.75em;opacity:.6}
+
+    .redirect-page{min-height:calc(100vh - 64px);display:grid;place-items:center;padding:4rem 2rem;background:linear-gradient(180deg,var(--cream) 0%,var(--cream-light) 100%)}
+    .redirect-message{max-width:620px;text-align:center}
+    .redirect-eyebrow{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1rem}
+    .redirect-message h1{font-family:var(--font-display);font-size:clamp(1.85rem,5vw,2.9rem);font-weight:700;color:var(--green-deep);line-height:1.15;margin:0 0 1rem}
+    .redirect-message p{font-family:var(--font-sans);font-size:.95rem;line-height:1.8;color:var(--text-muted);margin:0 auto 1rem}
+    .countdown{font-family:var(--font-display);font-size:clamp(2.2rem,10vw,4rem);font-weight:700;color:var(--green-deep);line-height:1;margin:1.4rem 0 .45rem}
+    .countdown-label{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}
+    .redirect-open-btn{display:inline-block;margin-top:1.5rem;font-family:var(--font-sans);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.6rem 1.25rem;border:2px solid var(--green-deep);color:var(--green-deep);text-decoration:none;border-radius:2px;transition:background .2s,color .2s}
+    .redirect-open-btn:hover{background:var(--green-deep);color:var(--cream)}
+    .noscript-note{max-width:560px;margin:1.5rem auto 0;font-family:var(--font-sans);font-size:.86rem;line-height:1.7;color:var(--text-muted)}
+    .noscript-note a{color:var(--green-deep)}
+
+    .site-footer{background:var(--green-deep);color:rgba(237,234,208,.7);padding:2rem 1.5rem;border-top:3px solid var(--green-border)}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:center;margin-bottom:1.25rem}
+    .footer-links a{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(237,234,208,.55);text-decoration:none}
+    .footer-links a:hover{color:var(--cream)}
+    .footer-legal{text-align:center;font-family:var(--font-sans);font-size:.72rem;color:rgba(237,234,208,.4);line-height:1.8}
+    .footer-legal a{color:rgba(237,234,208,.5)}
+    .footer-legal a:hover{color:var(--cream)}
+
+    @media(max-width:768px){
+      .nav-toggle{display:block}
+      nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--green-deep);border-top:1px solid var(--green-border);flex-direction:column;padding:.5rem 0;z-index:199}
+      nav ul.open{display:flex}
+      nav ul li a{padding:.65rem 1.5rem;width:100%;display:block}
+      .dropdown-menu{position:static;box-shadow:none;border:none;border-left:3px solid var(--green-light);background:rgba(0,0,0,.15);margin-left:1rem}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
+    }
+  </style>
+  <meta name="google-site-verification" content="semOYyyXCxaqoE-n8S1iUVAGx-oHwlPyGKNok2WGGqA" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZP3KZWLS4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SZP3KZWLS4');
+  </script>
+</head>
+<body>
+  <div class="top-bar">Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials</div>
+
+  <nav>
+    <a href="../index.html" class="brand">
+      <img src="../assets/IHS-Logo.jpg" alt="IHS Logo">
+      <span>Iroko Historical Society</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="../about.html">The Society</a>
+        <ul class="dropdown-menu">
+          <li><a href="../about.html">Our Vision</a></li>
+          <li><a href="../founder.html">The Founder</a></li>
+          <li><a href="../our-stance.html">Our Stance</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="../collections.html">The Collections</a>
+        <ul class="dropdown-menu">
+          <li><a href="../collections.html">Our Holdings</a></li>
+          <li><a href="../access-policy.html">Access &amp; Use Policy</a></li>
+          <li><a href="../mission.html">Mission &amp; Stewardship</a></li>
+          <li><a href="https://medjat.irokosociety.org/" class="ext">Per Medjat</a></li>
+          <li><a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="../research.html">Research</a>
+        <ul class="dropdown-menu">
+          <li><a href="../research.html#peer-reviewed">Publications</a></li>
+          <li><a href="../research.html#working-papers">Working Papers</a></li>
+          <li><a href="../research.html#presentations">Presentations</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="../iroko-spirituality.html">Iroko</a>
+        <ul class="dropdown-menu">
+          <li><a href="../iroko-spirituality.html">Iroko Spirituality</a></li>
+          <li><a href="../visual-ethnography.html">Visual Ethnography</a></li>
+          <li><a href="../iroko-commentaries.html">Commentaries</a></li>
+          <li><a href="../contribute-commentary.html">Contribute</a></li>
+        </ul>
+      </li>
+      <li><a href="2026.html" class="active" aria-current="page">Foundation Day</a></li>
+    </ul>
+  </nav>
+
+  <main class="redirect-page" aria-labelledby="gallery-title">
+    <section class="redirect-message">
+      <p class="redirect-eyebrow">Visual Ethnography Gallery</p>
+      <h1 id="gallery-title">Visual Ethnography Gallery</h1>
+      <p>
+        The IHS PhotoShelter gallery will open in a new tab.
+      </p>
+      <div class="countdown" id="countdown" aria-live="polite">8</div>
+      <div class="countdown-label">seconds</div>
+      <p style="margin-top:1rem;">
+        <a class="redirect-open-btn" id="open-gallery" href="https://irokosociety.photoshelter.com/index" target="_blank" rel="noopener noreferrer">Open the Gallery Now</a>
+      </p>
+      <noscript>
+        <p class="noscript-note">
+          Automatic forwarding requires JavaScript.
+          <a href="https://irokosociety.photoshelter.com/index" target="_blank" rel="noopener noreferrer">Open the gallery</a>.
+        </p>
+      </noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../collections.html">Collections</a>
+      <a href="../access-policy.html">Access Policy</a>
+      <a href="https://ontology.irokosociety.org/" class="ext">Iroko Framework</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="footer-legal">
+      Iroko Historical Society<br>
+      An elaboration of Il&eacute; A&ntilde;a Olof&iacute;, Inc., a registered 501(c)(3)<br>
+      Foundation Day is observed annually on July 14. &nbsp;&middot;&nbsp;
+      <a href="#" class="js-email">[protected]</a>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var u='senior.curator',d='irokosociety.org';
+    document.querySelectorAll('.js-email').forEach(function(el){
+      el.href='mailto:'+u+'@'+d;
+      el.textContent=u+'@'+d;
+    });
+  })();
+  </script>
+  <script>
+  (function(){
+    var galleryUrl = 'https://irokosociety.photoshelter.com/index';
+    var redirectDelaySeconds = 8;
+    var remaining = redirectDelaySeconds;
+    var countdown = document.getElementById('countdown');
+    var countdownLabel = document.querySelector('.countdown-label');
+
+    function renderCountdown(){
+      countdown.textContent = String(Math.max(remaining, 0));
+    }
+
+    renderCountdown();
+    var timer = window.setInterval(function(){
+      remaining -= 1;
+      renderCountdown();
+      if (remaining <= 0) {
+        window.clearInterval(timer);
+        var opened = window.open(galleryUrl, '_blank', 'noopener');
+        if (opened) {
+          countdown.textContent = '✓';
+          countdownLabel.textContent = 'Opened in a new tab';
+        } else {
+          // Pop-up blocked: fall back to the button already on the page.
+          countdown.textContent = '→';
+          countdownLabel.textContent = 'Use the button below';
+        }
+      }
+    }, 1000);
+  })();
+  </script>
+  <script src="../assets/nav.js"></script>
+</body>
+</html>

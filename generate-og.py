@@ -970,6 +970,29 @@ PAGES = [
         ),
         og_url     = f"{BASE_URL}/foundation-day/share-your-tree-ht.html",
     ),
+    dict(
+            file       = "visual-ethnography.html",
+            slug       = "og-ethnography-gallery-jump.png",
+            layout     = "photo",
+            photo_url  = (
+                "https://m.psecn.photoshelter.com/direct-link/l/0/mswBpobsB70/xTCxasxaCxT4xbMxbQxavxb2xaxbFxbpxT/Tata-F---%284-of-43%29.jpg"
+                ),
+
+            # Crop offset — tweak these to reframe the photo:
+            # positive offset_x → shift window right (shows more left edge of photo)
+            # positive offset_y → shift window down  (shows more top of photo)
+            photo_offset_x = 0,
+            photo_offset_y = -50,
+            label      = "IROKO · ETHNOGRAPHY GALLERY",
+            title      = "Visual Ethnography",
+            subtitle   = "Visit the IHS PhotoShelter gallery for Visual Ethnography.",
+            og_title   = "Visual Ethnography Gallery — Iroko Historical Society",
+            og_description = (
+                "Open the IHS PhotoShelter gallery for Visual Ethnography."
+            ),
+            og_url     = f"{BASE_URL}/visual-ethnography.html",
+    ),
+    
     # ── commentaries ──────────────────────────────────────────────────────────
     dict(
         file       = "before-the-boxes-disappear.html",
