@@ -21,7 +21,8 @@
   <meta name="twitter:image:alt"   content="Iroko Historical Society - Iroko Historical Society social preview">
   <meta name="description" content="A postcustodial cultural heritage complex comprising a digital archive, research library, and living museum dedicated to Afro-Atlantic sacred knowledge systems.">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/IHS-Logo.jpg" type="image/jpeg">
+  <link rel="icon" href="assets/ihs-favicon.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="assets/ihs-touch-icon.png">
   <style>
     /* top bar */
     .top-bar{background:var(--green-deep);border-bottom:1px solid var(--green-border);color:rgba(237,234,208,.6);font-family:var(--font-sans);font-size:.7rem;letter-spacing:.1em;text-align:center;padding:.35rem 1rem}
@@ -83,7 +84,7 @@
 <div class="top-bar">Iroko Historical Society &middot; Postcustodial Digital Archives for Afro-Atlantic Cultural Materials</div>
 <nav>
   <a href="index.html" class="brand">
-    <img src="assets/IHS-Logo.jpg" alt="IHS Logo">
+    <img src="assets/ihs-tree.png" alt="">
     <span>Iroko Historical Society</span>
   </a>
   <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
@@ -132,8 +133,32 @@
 <!-- HERO -->
 <section class="hero">
   <img src="assets/IHS-Logo.jpg" alt="Iroko Historical Society" class="logo">
+  <div class="wm-lockup">
+    <img src="assets/ihs-tree.png" alt="" class="wm-tree" width="359" height="351">
+    <h1 class="wordmark">
+      <span class="wm-sr">Iroko Historical Society</span>
+      <span class="wm-names" aria-hidden="true">
+        <!-- Rotation order. Iroko (is-anchor) is listed once; the script brings it back
+             before every group of three names. Keep the last line as the name seen
+             just before the loop returns to the first Iroko. data-trad is the
+             tradition label shown under "Historical Society". -->
+        <span class="wm-n is-anchor" lang="yo" data-trad="Yoruba · Lucumí · Candomblé">Iroko</span>
+        <span class="wm-n" lang="ht" data-trad="Fon · Arará · Haitian Vodou">Loko</span>
+        <span class="wm-n" lang="pt" data-trad="Candomblé">Gameleira</span>
+        <span class="wm-n" data-trad="Palo Monte">Nkunia Nsambi</span>
+        <span class="wm-n" lang="yo" data-trad="Yoruba">Àràbà</span>
+        <span class="wm-n" lang="ht" data-trad="Haitian Vodou">Mapou</span>
+        <span class="wm-n" lang="es" data-trad="Afro-Cuban traditions">La Ceiba</span>
+        <span class="wm-n" lang="yua" data-trad="Maya">Yaxché</span>
+        <span class="wm-n" data-trad="Abakuá">Ukano Bekonsí</span>
+        <span class="wm-n" data-trad="Lucumí">Aragbá</span>
+      </span>
+      <span class="wm-tail" aria-hidden="true">Historical Society</span>
+    </h1>
+    <a class="wm-trad" href="iroko-spirituality.html" aria-label="Iroko across the Atlantic world: the names and their traditions"></a>
+  </div>
+  <button type="button" class="wm-toggle" aria-pressed="false" aria-label="Pause name rotation" hidden></button>
   <p class="subtitle">Est. 2024 · Archives · Research Library · Living Museum</p>
-  <h1>Iroko Historical Society</h1>
   <p class="lead">
     A postcustodial cultural heritage complex built to serve Afro-Atlantic sacred communities as governing authorities over their own knowledge, not as subjects of institutional description.
   </p>
@@ -316,5 +341,6 @@
 })();
 </script>
 <script src="assets/nav.js"></script>
+<script src="assets/wordmark.js"></script>
 </body>
 </html>
