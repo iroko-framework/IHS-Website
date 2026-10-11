@@ -78,16 +78,17 @@
   });
 
   var pos = 0, loops = 0, timer = null, paused = false;
-  function show(k) {
+  // bare: show the name with no tradition label (the resting Iroko carries none)
+  function show(k, bare) {
     names.forEach(function (n, j) { n.classList.toggle('is-on', j === k); });
-    trads.forEach(function (t, j) { t.classList.toggle('is-on', j === k); });
+    trads.forEach(function (t, j) { t.classList.toggle('is-on', !bare && j === k); });
   }
   function setBtn(playing) {
     if (!btn) return;
     btn.setAttribute('aria-pressed', playing ? 'false' : 'true');
     btn.setAttribute('aria-label', playing ? 'Pause name rotation' : 'Play name rotation');
   }
-  function settle() { clearTimeout(timer); timer = null; paused = true; pos = 0; show(anchor); setBtn(false); }
+  function settle() { clearTimeout(timer); timer = null; paused = true; pos = 0; show(anchor, true); setBtn(false); }
   function step() {
     var hold = order[pos] === anchor ? HOLD_ANCHOR : HOLD;
     timer = setTimeout(function () {
@@ -99,7 +100,7 @@
   function play() { paused = false; loops = 0; pos = 0; show(order[0]); setBtn(true); clearTimeout(timer); step(); }
 
   wm.classList.add('is-live');
-  show(anchor);
+  show(anchor, true);
   if (btn) {
     btn.hidden = false;
     btn.addEventListener('click', function () { paused ? play() : settle(); });
